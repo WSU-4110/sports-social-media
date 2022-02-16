@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= (teamName) %></title>
+  </head>
+  <body>
+    <h1>Players on... <%= (teamName) %>  </h1>
+
+
+    <% for(i = 0; i < players.length; i++){%>
+
+    <p><%= (players[i].displayName) %></p>
+
+    <%} %> 
+
+  </body>
+</html>

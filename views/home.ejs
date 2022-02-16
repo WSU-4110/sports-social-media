@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body>
+    <h1>Teams:</h1>
+
+    <!-- Team data is being sent from the server ( index.js ) as an object -->
+
+    <% for(i = 0; i < teams.length; i++){%>
+      <a href=<%= `http://localhost:3000/teams/${teams[i].team.id}` %> ><h3><%= (teams[i].team.displayName) %></h3></a>
+    <p>Team id: <%= (teams[i].team.id) %></p>
+    <%} %>
+
+
+  </body>
+</html>
