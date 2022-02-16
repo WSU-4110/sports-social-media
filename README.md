@@ -29,7 +29,7 @@ If the installation was successful, you should be able to run the following comm
     $ npm --version
     6.1.0
     
-### Running Locally
+## Running Locally
 
 ```sh
 git clone https://github.com/WSU-4110/sports-social-media-profile-locater.git 
