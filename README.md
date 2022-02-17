@@ -37,3 +37,12 @@ cd sports-social-media-profile-locater
 npm install
 node index.js
 ```
+
+### Running Locally
+
+```sh
+git clone https://github.com/WSU-4110/sports-social-media-profile-locater.git 
+cd sports-social-media-profile-locater
+npm install
+node index.js
+```
