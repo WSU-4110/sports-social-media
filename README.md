@@ -38,11 +38,14 @@ npm install
 node index.js
 ```
 
-### Running Locally
+### To view changes without restart of server 
 
 ```sh
-git clone https://github.com/WSU-4110/sports-social-media-profile-locater.git 
-cd sports-social-media-profile-locater
-npm install
+nodemon index.js
+```
+
+Instead of
+
+```sh
 node index.js
 ```
