@@ -1,1 +1,119 @@
-[{"name": "Jaylen Brown", "position": "SG", "jersey": "7", "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3917376.png", "twitter": "https://twitter.com/FCHWPO?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor", "instagram": "https://www.instagram.com/fchwpo/", "facebook": ""}, {"name": "Sam Hauser", "position": "SF", "jersey": "30", "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4065804.png", "twitter": "https://twitter.com/big_smooth10", "instagram": "https://www.instagram.com/sam.hauser_/", "facebook": ""}, {"name": "Al Horford", "position": "C", "jersey": "42", "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3213.png", "twitter": "https://twitter.com/al_horford", "instagram": "https://www.instagram.com/alhorford/", "facebook": "https://www.facebook.com/AlHorford"}, {"name": "Luke Kornet", "position": "F", "jersey": "40", "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3064560.png", "twitter": "https://twitter.com/lukekornet", "instagram": "https://www.instagram.com/luke_.kornet/", "facebook": "https://www.facebook.com/luke.kornet"}, {"name": "Aaron Nesmith", "position": "SF", "jersey": "26", "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4396909.png", "twitter": "https://twitter.com/aaronnesmith24", "instagram": "https://www.instagram.com/aaron_nesmith/", "facebook": ""}, {"name": "Payton Pritchard", "position": "PG", "jersey": "11", "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4066354.png", "twitter": "https://twitter.com/paytonpritch3", "instagram": "https://www.instagram.com/paytonpritch3/", "facebook": ""}, {"name": "Marcus Smart", "position": "PG", "jersey": "36", "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2990992.png", "twitter": "https://twitter.com/smart_ms3", "instagram": "https://www.instagram.com/youngamechanger/", "facebook": ""}, {"name": "Jayson Tatum", "position": "SF", "jersey": "0", "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4065648.png", "twitter": "https://twitter.com/jaytatum0", "instagram": "https://www.instagram.com/jaytatum0", "facebook": "https://www.facebook.com/JayTatum0"}, {"name": "Daniel Theis", "position": "C", "jersey": "27", "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2451037.png", "twitter": "https://twitter.com/dtheis10", "instagram": "https://www.instagram.com/dtheis10/", "facebook": ""}, {"name": "Brodric Thomas", "position": "G", "jersey": "97", "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4407254.png", "twitter": "https://twitter.com/@TheReal__BT3", "instagram": "https://www.instagram.com/best_as_can_bt3/?hl=en", "facebook": ""}, {"name": "Derrick White", "position": "PG", "jersey": "9", "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3078576.png", "twitter": "https://twitter.com/dwhite921", "instagram": "https://www.instagram.com/dwhite921/", "facebook": ""}, {"name": "Grant Williams", "position": "PF", "jersey": "12", "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4066218.png", "twitter": "https://twitter.com/grant2will", "instagram": "https://www.instagram.com/grantwill2/", "facebook": ""}, {"name": "Robert Williams III", "position": "C", "jersey": "44", "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4066211.png", "twitter": "https://twitter.com/rob_williamsiii", "instagram": "https://www.instagram.com/williams.lll/", "facebook": ""}]
+[
+    {
+        "name": "Jaylen Brown",
+        "position": "SG",
+        "jersey": "7",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3917376.png",
+        "twitter": "https://twitter.com/FCHWPO?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "instagram": "https://www.instagram.com/fchwpo/",
+        "facebook": ""
+    },
+    {
+        "name": "Sam Hauser",
+        "position": "SF",
+        "jersey": "30",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4065804.png",
+        "twitter": "https://twitter.com/big_smooth10",
+        "instagram": "https://www.instagram.com/sam.hauser_/",
+        "facebook": ""
+    },
+    {
+        "name": "Al Horford",
+        "position": "C",
+        "jersey": "42",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3213.png",
+        "twitter": "https://twitter.com/al_horford",
+        "instagram": "https://www.instagram.com/alhorford/",
+        "facebook": "https://www.facebook.com/AlHorford"
+    },
+    {
+        "name": "Luke Kornet",
+        "position": "F",
+        "jersey": "40",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3064560.png",
+        "twitter": "https://twitter.com/lukekornet",
+        "instagram": "https://www.instagram.com/luke_.kornet/",
+        "facebook": "https://www.facebook.com/luke.kornet"
+    },
+    {
+        "name": "Aaron Nesmith",
+        "position": "SF",
+        "jersey": "26",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4396909.png",
+        "twitter": "https://twitter.com/aaronnesmith24",
+        "instagram": "https://www.instagram.com/aaron_nesmith/",
+        "facebook": ""
+    },
+    {
+        "name": "Payton Pritchard",
+        "position": "PG",
+        "jersey": "11",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4066354.png",
+        "twitter": "https://twitter.com/paytonpritch3",
+        "instagram": "https://www.instagram.com/paytonpritch3/",
+        "facebook": ""
+    },
+    {
+        "name": "Marcus Smart",
+        "position": "PG",
+        "jersey": "36",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2990992.png",
+        "twitter": "https://twitter.com/smart_ms3",
+        "instagram": "https://www.instagram.com/youngamechanger/",
+        "facebook": ""
+    },
+    {
+        "name": "Jayson Tatum",
+        "position": "SF",
+        "jersey": "0",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4065648.png",
+        "twitter": "https://twitter.com/jaytatum0",
+        "instagram": "https://www.instagram.com/jaytatum0",
+        "facebook": "https://www.facebook.com/JayTatum0"
+    },
+    {
+        "name": "Daniel Theis",
+        "position": "C",
+        "jersey": "27",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2451037.png",
+        "twitter": "https://twitter.com/dtheis10",
+        "instagram": "https://www.instagram.com/dtheis10/",
+        "facebook": ""
+    },
+    {
+        "name": "Brodric Thomas",
+        "position": "G",
+        "jersey": "97",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4407254.png",
+        "twitter": "https://twitter.com/@TheReal__BT3",
+        "instagram": "https://www.instagram.com/best_as_can_bt3/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "Derrick White",
+        "position": "PG",
+        "jersey": "9",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3078576.png",
+        "twitter": "https://twitter.com/dwhite921",
+        "instagram": "https://www.instagram.com/dwhite921/",
+        "facebook": ""
+    },
+    {
+        "name": "Grant Williams",
+        "position": "PF",
+        "jersey": "12",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4066218.png",
+        "twitter": "https://twitter.com/grant2will",
+        "instagram": "https://www.instagram.com/grantwill2/",
+        "facebook": ""
+    },
+    {
+        "name": "Robert Williams III",
+        "position": "C",
+        "jersey": "44",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4066211.png",
+        "twitter": "https://twitter.com/rob_williamsiii",
+        "instagram": "https://www.instagram.com/williams.lll/",
+        "facebook": ""
+    }
+]
