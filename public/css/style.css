@@ -1,0 +1,22 @@
+#logoNBA {
+    max-width:20%;
+    padding-top:1.5em;
+    padding-bottom:1.5em;
+}
+
+.card {
+    width: 25rem;
+    display:inline-block;
+    margin-right:25px;
+}
+
+.mr-3 {
+    width:20%;
+    margin-left:20px;
+}
+
+#teamtext {
+    font-weight:500;
+    padding-left:3em;
+    font-size:18px;
+}

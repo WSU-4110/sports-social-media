@@ -8,31 +8,12 @@ app.listen(PORT);
 
 app.set("view engine", "ejs");
 
+app.use(express.static('public'));  
+
+app.locals.teamData = require("./json_data/teams.json");
 app.get("/", (req, res) => {
-  // "/" directs to views/home.ejs
-  const getAllTeams = async () => {
-    try {
-      return await axios.get(
-        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams"
-      );
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
-  const renderTeamData = async () => {
-    const allTeamData = await getAllTeams();
-
-    if (allTeamData) {
-      //teams = allTeamData.data.sports[0].leagues[0].teams;
-      teams = allTeamData["data"]["sports"][0]["leagues"][0]["teams"];
-
-      //// ^^ These are equivalent ////
-    }
-
-    res.render("home", { teams: teams });
-  };
-  renderTeamData();
+    res.render("home");
 });
 
 app.get("/teams/:teamid", (req, res) => {
