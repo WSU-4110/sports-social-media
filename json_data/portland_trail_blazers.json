@@ -1,0 +1,191 @@
+[
+    {
+        "name": "Eric Bledsoe",
+        "position": "SG",
+        "jersey": "12",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4238.png",
+        "twitter": "https://twitter.com/ebled2",
+        "instagram": "https://www.instagram.com/thebledshow/",
+        "facebook": ""
+    },
+    {
+        "name": "Keljin Blevins",
+        "position": "SF",
+        "jersey": "21",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3152335.png",
+        "twitter": "https://twitter.com/kblevs02",
+        "instagram": "https://www.instagram.com/kelblev_/",
+        "facebook": ""
+    },
+    {
+        "name": "Greg Brown III",
+        "position": "PF",
+        "jersey": "4",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4432161.png",
+        "twitter": "https://twitter.com/gb3elite",
+        "instagram": "https://www.instagram.com/greg.brown03/",
+        "facebook": ""
+    },
+    {
+        "name": "Jarron Cumberland",
+        "position": "SG",
+        "jersey": "34",
+        "headshot": "",
+        "twitter": "https://twitter.com/jarron3434",
+        "instagram": "https://www.instagram.com/p/Bqp7Nc9F1GG/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "CJ Elleby",
+        "position": "SG",
+        "jersey": "16",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4397166.png",
+        "twitter": "https://twitter.com/ellebycj",
+        "instagram": "https://www.instagram.com/cjelleby/",
+        "facebook": ""
+    },
+    {
+        "name": "Josh Hart",
+        "position": "SG",
+        "jersey": "3",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3062679.png",
+        "twitter": "https://twitter.com/joshhart",
+        "instagram": "https://www.instagram.com/jhart/",
+        "facebook": ""
+    },
+    {
+        "name": "Elijah Hughes",
+        "position": "F",
+        "jersey": "33",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4066446.png",
+        "twitter": "https://twitter.com/elijahhughes4_",
+        "instagram": "https://www.instagram.com/_elijahhughes",
+        "facebook": ""
+    },
+    {
+        "name": "Joe Ingles",
+        "position": "SG",
+        "jersey": "2",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2968436.png",
+        "twitter": "https://twitter.com/joeingles7",
+        "instagram": "https://www.instagram.com/joeingles7/",
+        "facebook": ""
+    },
+    {
+        "name": "Keon Johnson",
+        "position": "SG",
+        "jersey": "45",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4432192.png",
+        "twitter": "https://twitter.com/iamkeonjohnson",
+        "instagram": "https://www.instagram.com/keldonjohnson/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "Damian Lillard",
+        "position": "PG",
+        "jersey": "0",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/6606.png",
+        "twitter": "https://twitter.com/Dame_Lillard",
+        "instagram": "https://www.instagram.com/damianlillard",
+        "facebook": "https://www.facebook.com/DamianLillard"
+    },
+    {
+        "name": "Nassir Little",
+        "position": "SF",
+        "jersey": "9",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4395652.png",
+        "twitter": "https://twitter.com/2ez_nassie",
+        "instagram": "https://www.instagram.com/nassir/",
+        "facebook": ""
+    },
+    {
+        "name": "Didi Louzada",
+        "position": "SF",
+        "jersey": "0",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4423885.png",
+        "twitter": "https://twitter.com/didi",
+        "instagram": "https://www.instagram.com/didi/",
+        "facebook": ""
+    },
+    {
+        "name": "Cameron McGriff",
+        "position": "F",
+        "jersey": "8",
+        "headshot": "",
+        "twitter": "https://twitter.com/cameron_mcgriff",
+        "instagram": "https://www.instagram.com/cameron.mcgriff/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "Ben McLemore",
+        "position": "SG",
+        "jersey": "23",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2578213.png",
+        "twitter": "https://twitter.com/benmclemore",
+        "instagram": "https://www.instagram.com/b_mclemore23/",
+        "facebook": ""
+    },
+    {
+        "name": "Jusuf Nurkic",
+        "position": "C",
+        "jersey": "27",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3102530.png",
+        "twitter": "https://twitter.com/bosnianbeast27",
+        "instagram": "https://www.instagram.com/bosnianbeast27/",
+        "facebook": ""
+    },
+    {
+        "name": "Anfernee Simons",
+        "position": "SG",
+        "jersey": "1",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4351851.png",
+        "twitter": "https://twitter.com/anferneesimons",
+        "instagram": "https://www.instagram.com/antsimons/",
+        "facebook": ""
+    },
+    {
+        "name": "Dennis Smith Jr.",
+        "position": "PG",
+        "jersey": "10",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4065697.png",
+        "twitter": "https://twitter.com/dennis1smithjr",
+        "instagram": "https://www.instagram.com/desmith4/",
+        "facebook": ""
+    },
+    {
+        "name": "Trendon Watford",
+        "position": "PF",
+        "jersey": "2",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4431675.png",
+        "twitter": "https://twitter.com/trendonw",
+        "instagram": "https://www.instagram.com/trendonw/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "Brandon Williams",
+        "position": "PG",
+        "jersey": "5",
+        "headshot": "",
+        "twitter": "https://twitter.com/theebwill",
+        "instagram": "https://www.instagram.com/overtimebwill/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "Justise Winslow",
+        "position": "PF",
+        "jersey": "20",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3135047.png",
+        "twitter": "https://twitter.com/iamjustise",
+        "instagram": "https://www.instagram.com/iamjustise/",
+        "facebook": ""
+    },
+    {
+        "name": "Cody Zeller",
+        "position": "C",
+        "jersey": "40",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2579258.png",
+        "twitter": "https://twitter.com/codyzeller",
+        "instagram": "https://www.instagram.com/codyzeller/",
+        "facebook": ""
+    }
+]

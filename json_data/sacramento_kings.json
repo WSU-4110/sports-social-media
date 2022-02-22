@@ -1,0 +1,146 @@
+[
+    {
+        "name": "Harrison Barnes",
+        "position": "SF",
+        "jersey": "40",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/6578.png",
+        "twitter": "https://twitter.com/hbarnes",
+        "instagram": "https://www.instagram.com/hbarnes/",
+        "facebook": "https://www.facebook.com/hbarnes40"
+    },
+    {
+        "name": "Terence Davis",
+        "position": "SG",
+        "jersey": "3",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3919454.png",
+        "twitter": "https://twitter.com/terencedavisjr",
+        "instagram": "https://www.instagram.com/terencedavisjr/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "Donte DiVincenzo",
+        "position": "SG",
+        "jersey": "0",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3934673.png",
+        "twitter": "https://twitter.com/divincenzo",
+        "instagram": "https://www.instagram.com/divincenzo/",
+        "facebook": ""
+    },
+    {
+        "name": "De'Aaron Fox",
+        "position": "PG",
+        "jersey": "5",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4066259.png",
+        "twitter": "https://twitter.com/swipathefox",
+        "instagram": "https://www.instagram.com/swipathefox/",
+        "facebook": ""
+    },
+    {
+        "name": "Maurice Harkless",
+        "position": "SF",
+        "jersey": "8",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/6591.png",
+        "twitter": "https://twitter.com/moe_harkless",
+        "instagram": "https://www.instagram.com/moe_harkless/",
+        "facebook": ""
+    },
+    {
+        "name": "Justin Holiday",
+        "position": "SF",
+        "jersey": "8",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2284101.png",
+        "twitter": "https://twitter.com/justholla7",
+        "instagram": "https://www.instagram.com/justholla7/",
+        "facebook": ""
+    },
+    {
+        "name": "Richaun Holmes",
+        "position": "C",
+        "jersey": "22",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2993370.png",
+        "twitter": "https://twitter.com/rich_holmes22",
+        "instagram": "https://www.instagram.com/rich_holmes22/",
+        "facebook": ""
+    },
+    {
+        "name": "Josh Jackson",
+        "position": "SG",
+        "jersey": "20",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4066297.png",
+        "twitter": "https://twitter.com/j_josh11",
+        "instagram": "https://www.instagram.com/josh_j11/",
+        "facebook": ""
+    },
+    {
+        "name": "Damian Jones",
+        "position": "C",
+        "jersey": "30",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3064559.png",
+        "twitter": "https://twitter.com/dameology",
+        "instagram": "https://www.instagram.com/dameology/",
+        "facebook": ""
+    },
+    {
+        "name": "Jeremy Lamb",
+        "position": "SG",
+        "jersey": "26",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/6603.png",
+        "twitter": "https://twitter.com/jlamb",
+        "instagram": "https://www.instagram.com/jeremylambfanclub/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "Alex Len",
+        "position": "C",
+        "jersey": "25",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2596107.png",
+        "twitter": "https://twitter.com/alexlen",
+        "instagram": "https://www.instagram.com/alexlen_25/",
+        "facebook": ""
+    },
+    {
+        "name": "Trey Lyles",
+        "position": "PF",
+        "jersey": "8",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3136196.png",
+        "twitter": "https://twitter.com/treylyles",
+        "instagram": "https://www.instagram.com/treylyles/",
+        "facebook": ""
+    },
+    {
+        "name": "Chimezie Metu",
+        "position": "PF",
+        "jersey": "7",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3914283.png",
+        "twitter": "https://twitter.com/chimezie_metu",
+        "instagram": "https://www.instagram.com/mezie/",
+        "facebook": ""
+    },
+    {
+        "name": "Davion Mitchell",
+        "position": "PG",
+        "jersey": "15",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4278053.png",
+        "twitter": "https://twitter.com/hoopculture13",
+        "instagram": "https://www.instagram.com/daaay____/",
+        "facebook": ""
+    },
+    {
+        "name": "Neemias Queta",
+        "position": "C",
+        "jersey": "88",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4397424.png",
+        "twitter": "https://twitter.com/nemi1599?lang=en",
+        "instagram": "https://www.instagram.com/neemy88/",
+        "facebook": ""
+    },
+    {
+        "name": "Domantas Sabonis",
+        "position": "PF",
+        "jersey": "11",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3155942.png",
+        "twitter": "https://twitter.com/dsabonis11",
+        "instagram": "https://www.instagram.com/dsabonis11/",
+        "facebook": ""
+    }
+]

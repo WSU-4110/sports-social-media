@@ -1,0 +1,146 @@
+[
+    {
+        "name": "LaMelo Ball",
+        "position": "PG",
+        "jersey": "2",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4432816.png",
+        "twitter": "https://twitter.com/MELOD1P",
+        "instagram": "https://www.instagram.com/melo",
+        "facebook": "https://www.facebook.com/MeloBBB"
+    },
+    {
+        "name": "James Bouknight",
+        "position": "SG",
+        "jersey": "5",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4431712.png",
+        "twitter": "https://twitter.com/jam3s210?lang=en",
+        "instagram": "https://www.instagram.com/james.bouknight/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "Miles Bridges",
+        "position": "SF",
+        "jersey": "0",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4066383.png",
+        "twitter": "https://twitter.com/milesbridges",
+        "instagram": "https://www.instagram.com/milesbridges/",
+        "facebook": ""
+    },
+    {
+        "name": "Montrezl Harrell",
+        "position": "C",
+        "jersey": "6",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2991055.png",
+        "twitter": "https://twitter.com/monstatrezz",
+        "instagram": "https://www.instagram.com/trezz_6/",
+        "facebook": ""
+    },
+    {
+        "name": "Gordon Hayward",
+        "position": "SF",
+        "jersey": "20",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4249.png",
+        "twitter": "https://twitter.com/gordonhayward",
+        "instagram": "https://www.instagram.com/gordonhayward",
+        "facebook": "https://www.facebook.com/gordonhayward"
+    },
+    {
+        "name": "Kai Jones",
+        "position": "PF",
+        "jersey": "23",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4431699.png",
+        "twitter": "https://twitter.com/242_jones",
+        "instagram": "https://www.instagram.com/kaijones242/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "Arnoldas Kulboka",
+        "position": "PF",
+        "jersey": "98",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4230551.png",
+        "twitter": "https://twitter.com/kulboka98",
+        "instagram": "https://www.instagram.com/kulboka8/",
+        "facebook": ""
+    },
+    {
+        "name": "Scottie Lewis",
+        "position": "SG",
+        "jersey": "16",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4432812.png",
+        "twitter": "https://twitter.com/scottie23l",
+        "instagram": "https://www.instagram.com/scottie.23/",
+        "facebook": ""
+    },
+    {
+        "name": "Cody Martin",
+        "position": "SF",
+        "jersey": "11",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3138161.png",
+        "twitter": "https://twitter.com/cody_martin15",
+        "instagram": "https://www.instagram.com/cody_martin15/",
+        "facebook": ""
+    },
+    {
+        "name": "Jalen McDaniels",
+        "position": "PF",
+        "jersey": "6",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4066731.png",
+        "twitter": "https://twitter.com/Ben_Pfeifer_/status/1129965661415804928/video/1",
+        "instagram": "https://www.instagram.com/jalenmcdaniels/",
+        "facebook": ""
+    },
+    {
+        "name": "Kelly Oubre Jr.",
+        "position": "SG",
+        "jersey": "12",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3133603.png",
+        "twitter": "https://twitter.com/KELLYOUBREJR",
+        "instagram": "https://www.instagram.com/kellyoubrejr",
+        "facebook": "https://www.facebook.com/KellyOubreJr"
+    },
+    {
+        "name": "Mason Plumlee",
+        "position": "C",
+        "jersey": "24",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2488653.png",
+        "twitter": "https://twitter.com/masonplumlee",
+        "instagram": "https://www.instagram.com/masonplumlee/",
+        "facebook": ""
+    },
+    {
+        "name": "Nick Richards",
+        "position": "C",
+        "jersey": "14",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4278076.png",
+        "twitter": "https://twitter.com/iamnickrichards",
+        "instagram": "https://www.instagram.com/nickrichards_/",
+        "facebook": ""
+    },
+    {
+        "name": "Terry Rozier",
+        "position": "SG",
+        "jersey": "3",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3074752.png",
+        "twitter": "https://twitter.com/t_rozzay3",
+        "instagram": "https://www.instagram.com/gmbrozier/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "JT Thor",
+        "position": "PF",
+        "jersey": "21",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4702233.png",
+        "twitter": "https://twitter.com/thorrjt?lang=en",
+        "instagram": "https://www.instagram.com/jt.bandz/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "P.J. Washington",
+        "position": "PF",
+        "jersey": "25",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4278078.png",
+        "twitter": "https://twitter.com/pjwashington",
+        "instagram": "https://www.instagram.com/pj_washington/",
+        "facebook": "https://www.facebook.com/pj.washington.50"
+    }
+]

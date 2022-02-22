@@ -1,0 +1,155 @@
+[
+    {
+        "name": "Ryan Arcidiacono",
+        "position": "G",
+        "jersey": "51",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2991047.png",
+        "twitter": "https://twitter.com/ryarch15",
+        "instagram": "https://www.instagram.com/ry_arch15/",
+        "facebook": ""
+    },
+    {
+        "name": "RJ Barrett",
+        "position": "SG",
+        "jersey": "9",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4395625.png",
+        "twitter": "https://twitter.com/RjBarrett6",
+        "instagram": "https://www.instagram.com/rjbarrett/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "Alec Burks",
+        "position": "SG",
+        "jersey": "18",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/6429.png",
+        "twitter": "https://twitter.com/alecburks10",
+        "instagram": "https://www.instagram.com/alecburks13/",
+        "facebook": ""
+    },
+    {
+        "name": "Evan Fournier",
+        "position": "SG",
+        "jersey": "13",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/6588.png",
+        "twitter": "https://twitter.com/EvanFourmizz",
+        "instagram": "https://www.instagram.com/evanfournier10/",
+        "facebook": ""
+    },
+    {
+        "name": "Taj Gibson",
+        "position": "C",
+        "jersey": "67",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3986.png",
+        "twitter": "https://twitter.com/tajgibson?lang=en#:~:text=Taj%20Gibson%20(%40TajGibson)%20%2F%20Twitter",
+        "instagram": "https://www.instagram.com/tajgibson/",
+        "facebook": ""
+    },
+    {
+        "name": "Quentin Grimes",
+        "position": "SG",
+        "jersey": "6",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4397014.png",
+        "twitter": "https://twitter.com/qdotgrimes?lang=en",
+        "instagram": "https://www.instagram.com/qdotgrimes/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "Miles McBride",
+        "position": "PG",
+        "jersey": "2",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4431823.png",
+        "twitter": "https://twitter.com/deucemcb11",
+        "instagram": "https://www.instagram.com/deucemcb11/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "Nerlens Noel",
+        "position": "C",
+        "jersey": "3",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2991280.png",
+        "twitter": "https://twitter.com/nerlensnoel3",
+        "instagram": "https://www.instagram.com/nerlensnoel3/",
+        "facebook": ""
+    },
+    {
+        "name": "Immanuel Quickley",
+        "position": "SG",
+        "jersey": "5",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4395724.png",
+        "twitter": "https://twitter.com/iq_godson",
+        "instagram": "https://www.instagram.com/immanuelquickley__/",
+        "facebook": ""
+    },
+    {
+        "name": "Julius Randle",
+        "position": "PF",
+        "jersey": "30",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3064514.png",
+        "twitter": "https://twitter.com/J30_RANDLE",
+        "instagram": "https://www.instagram.com/juliusrandle30",
+        "facebook": ""
+    },
+    {
+        "name": "Cam Reddish",
+        "position": "SF",
+        "jersey": "21",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4395627.png",
+        "twitter": "https://twitter.com/camreddish",
+        "instagram": "https://www.instagram.com/camreddish/",
+        "facebook": ""
+    },
+    {
+        "name": "Mitchell Robinson",
+        "position": "C",
+        "jersey": "23",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4351852.png",
+        "twitter": "https://twitter.com/23savage____",
+        "instagram": "https://www.instagram.com/mrobinson23_/",
+        "facebook": ""
+    },
+    {
+        "name": "Derrick Rose",
+        "position": "PG",
+        "jersey": "4",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3456.png",
+        "twitter": "https://twitter.com/drose",
+        "instagram": "https://www.instagram.com/drose",
+        "facebook": "https://www.facebook.com/derrickrose"
+    },
+    {
+        "name": "Luka Samanic",
+        "position": "PF",
+        "jersey": "91",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4423309.png",
+        "twitter": "https://twitter.com/samanicluka",
+        "instagram": "https://www.instagram.com/lukasamanic9/",
+        "facebook": ""
+    },
+    {
+        "name": "Jericho Sims",
+        "position": "PF",
+        "jersey": "45",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4277922.png",
+        "twitter": "https://twitter.com/jerichosims?lang=en",
+        "instagram": "https://www.instagram.com/jumpmansims/",
+        "facebook": ""
+    },
+    {
+        "name": "Obi Toppin",
+        "position": "PF",
+        "jersey": "1",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4278355.png",
+        "twitter": "https://twitter.com/obitoppin1",
+        "instagram": "https://www.instagram.com/obitoppin_1/",
+        "facebook": ""
+    },
+    {
+        "name": "Kemba Walker",
+        "position": "PG",
+        "jersey": "8",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/6479.png",
+        "twitter": "https://twitter.com/KembaWalker",
+        "instagram": "https://www.instagram.com/_kw15",
+        "facebook": "https://www.facebook.com/KembaWalker"
+    }
+]
