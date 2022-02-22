@@ -53,10 +53,10 @@ node index.js
 ## Initial Mockups
 
 ### Landing Page
-<img src="https://github.com/WSU-4110/sports-social-media-profile-locater/blob/main/Mockups/MockUI-Home.png?raw=true" width="900" height="500">
+<img src="https://github.com/WSU-4110/sports-social-media-profile-locater/blob/main/Mockups/MockUI-Home.png?raw=true" width="1100" height="500">
 
 ### Team Page
-<img src="https://github.com/WSU-4110/sports-social-media-profile-locater/blob/main/Mockups/MockUI-PlayerCards.png?raw=true" width="900" height="500">
+<img src="https://github.com/WSU-4110/sports-social-media-profile-locater/blob/main/Mockups/MockUI-PlayerCards.png?raw=true" width="1100" height="500">
 
 ### WorkFlow
-<img src="https://github.com/WSU-4110/sports-social-media-profile-locater/blob/main/Mockups/Workflow2.png?raw=true" width="900" height="500">
+<img src="https://github.com/WSU-4110/sports-social-media-profile-locater/blob/main/Mockups/Workflow2.png?raw=true" width="1100" height="500">
