@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <!-- FontAwesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Home</title>
+    <title><%= teamHeader %></title>
   </head>
   <body>
     <!-- Navigation Bar -->
@@ -34,15 +34,24 @@
       </div>
     </nav>
     <!-- NBA LOGO -->
+    <br>
     <div class="text-center">
-      <a href="/"><img src="/images/nba-logo.svg" alt="NBA logo" id="logoNBA" /></a>
+      <h1 class="display-2"><%= teamHeader %></h1> 
     </div>
+    <br>
+
     <!-- PLAYER CARD -->
     <%# EJS CODE %>
     
     <div class="container"><% team.forEach(function(player) { %> 
         <div class="card shadow p-1 mb-4 sm-white rounded" id="playerCard">
-          <img class="card-img-top rounded-circle" id="playerImage" src="<%= player.headshot %>">
+          
+          <% if(player.headshot){ %>    <%# IF TWITTER ACCOUNT EXISTS  %>
+            <img class="card-img-top rounded-circle" id="playerImage" src="<%= player.headshot %>">
+          <% } else{ %>  
+          <img class="card-img-top rounded-circle" id="playerImage" src="https://i.cdn.turner.com/nba/nba/.element/media/2.0/teamsites/celtics/media/generic-player-1040x760.png">
+          <% } %>
+
           <div class="card-body">
             <h5 class="card-title"><%= player.name %> </h5>
             <h6 class="card-text"><%= player.position %> | <%= player.jersey %> </h6>

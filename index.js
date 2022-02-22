@@ -26,5 +26,6 @@ app.get("/", (req, res) => {
 app.get("/teams/:teamName", (req, res) => {
   const { teamName } = req.params;
   let team = require("./json_data/" + teamName + ".json");
-  res.render("teamPage", { team });
+  let teamHeader = (teamName.replace("_", " ")).toUpperCase();
+  res.render("teamPage", { team, teamHeader});
 });

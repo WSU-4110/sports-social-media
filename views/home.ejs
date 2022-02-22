@@ -38,14 +38,17 @@
 	<div class="container">
 	 <!-- TEAM CARD -->
 	<%# EJS CODE %>
-	
+
 	<% teamData.forEach(function(team) { %> 
 		<div class="card shadow p-1 mb-4 sm-white rounded" id="teamCard">
 			<img class="mr-3" src="<%= team.logo %>" alt="Card image cap" />
 			<span id="teamtext"><%= team.team %> </span>
 			<% var teampath= team.team; 
-			teampath=(teampath.replace(" ", "_").toLowerCase()); %> 
-			<a class="stretched-link" href="teams/<%= teampath %>"></a>
+			teampath=teampath.split(" ").join("_");
+			teampath=teampath.toLowerCase();
+			teampath="/teams/"+teampath;
+			%> 
+			<a class="stretched-link" href="<%= teampath %>"></a>
 	  	</div>
 	<% }); %> 
 
