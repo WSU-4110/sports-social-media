@@ -49,3 +49,8 @@ Instead of
 ```sh
 node index.js
 ```
+
+## Initial Mockups
+
+
+![](https://github.com/WSU-4110/sports-social-media-profile-locater/blob/main/Mockups/MockUI-Home.png?raw=true | width=100)
