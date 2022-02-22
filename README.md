@@ -52,4 +52,12 @@ node index.js
 
 ## Initial Mockups
 
+### Landing Page
 ![alt text](https://github.com/WSU-4110/sports-social-media-profile-locater/blob/main/Mockups/MockUI-Home.png?raw=true)
+
+### Team Page
+![alt text](https://github.com/WSU-4110/sports-social-media-profile-locater/blob/main/Mockups/MockUI-PlayerCards.png?raw=true)
+
+
+### WorkFlow
+![alt text](https://github.com/WSU-4110/sports-social-media-profile-locater/blob/main/Mockups/Workflow2.png?raw=true)
