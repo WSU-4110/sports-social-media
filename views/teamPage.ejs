@@ -57,15 +57,15 @@
             <h6 class="card-text"><%= player.position %> | <%= player.jersey %> </h6>
          
             <% if(player.twitter){ %>    <%# IF TWITTER ACCOUNT EXISTS  %>
-              <a href="<%=player.twitter %>"><i class="fa fa-twitter"></i></a>
+              <a href="<%=player.twitter %>" target="_blank"><i class="fa fa-twitter"></i></a>
             <% } %>
 
             <% if(player.instagram){ %> <%# IF INSTAGRAM ACCOUNT EXISTS  %>
-              <a href="<%=player.instagram %>"><i class="fa fa-instagram"></i></a>
+              <a href="<%=player.instagram %>" target="_blank"><i class="fa fa-instagram"></i></a>
             <% } %>
 
             <% if(player.facebook){ %> <%# IF FACEBOOK ACCOUNT EXISTS  %>
-            <a href="<%=player.facebook %>"><i class="fa fa-facebook"></i></a>
+            <a href="<%=player.facebook %>" target="_blank"><i class="fa fa-facebook"></i></a>
             <% } %>
           </div>
         </div>
