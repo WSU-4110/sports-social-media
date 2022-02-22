@@ -1,0 +1,182 @@
+[
+    {
+        "name": "Cole Anthony",
+        "position": "PG",
+        "jersey": "50",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4432809.png",
+        "twitter": "https://twitter.com/the_coleanthony",
+        "instagram": "https://www.instagram.com/the_cole.anthony/",
+        "facebook": ""
+    },
+    {
+        "name": "Mo Bamba",
+        "position": "C",
+        "jersey": "5",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4277919.png",
+        "twitter": "https://twitter.com/therealmobamba",
+        "instagram": "https://www.instagram.com/therealmobamba/",
+        "facebook": "https://www.facebook.com/TheRealMoBamba"
+    },
+    {
+        "name": "Bol Bol",
+        "position": "C",
+        "jersey": "10",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4397102.png",
+        "twitter": "https://twitter.com/BolBol",
+        "instagram": "https://www.instagram.com/bolbol",
+        "facebook": ""
+    },
+    {
+        "name": "Ignas Brazdeikis",
+        "position": "SF",
+        "jersey": "17",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4397205.png",
+        "twitter": "https://twitter.com/_iggy_braz",
+        "instagram": "https://www.instagram.com/_iggy_braz/",
+        "facebook": ""
+    },
+    {
+        "name": "Wendell Carter Jr.",
+        "position": "C",
+        "jersey": "34",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4277847.png",
+        "twitter": "https://twitter.com/wendellcarter34",
+        "instagram": "https://www.instagram.com/wendellcarterjr/",
+        "facebook": ""
+    },
+    {
+        "name": "Tim Frazier",
+        "position": "PG",
+        "jersey": "10",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2488945.png",
+        "twitter": "https://twitter.com/timfraz23",
+        "instagram": "https://www.instagram.com/timfraz23/",
+        "facebook": "https://www.facebook.com/timmyf3"
+    },
+    {
+        "name": "Markelle Fultz",
+        "position": "PG",
+        "jersey": "20",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4066636.png",
+        "twitter": "https://twitter.com/markellef",
+        "instagram": "https://www.instagram.com/markellefultz/",
+        "facebook": "https://www.facebook.com/officialmarkellefultz/"
+    },
+    {
+        "name": "Freddie Gillespie",
+        "position": "SF",
+        "jersey": "44",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4277886.png",
+        "twitter": "https://twitter.com/freddieg_33",
+        "instagram": "https://www.instagram.com/freddieg_33/",
+        "facebook": ""
+    },
+    {
+        "name": "Hassani Gravett",
+        "position": "PG",
+        "jersey": "12",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4066221.png",
+        "twitter": "https://twitter.com/bestthingsince_",
+        "instagram": "https://www.instagram.com/_bestthingsince/",
+        "facebook": ""
+    },
+    {
+        "name": "R.J. Hampton",
+        "position": "PG",
+        "jersey": "13",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4590530.png",
+        "twitter": "https://twitter.com/rjhampton14",
+        "instagram": "https://www.instagram.com/rj14",
+        "facebook": "https://www.facebook.com/rjhampton14"
+    },
+    {
+        "name": "Gary Harris",
+        "position": "SG",
+        "jersey": "14",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2999547.png",
+        "twitter": "https://twitter.com/thats_g_",
+        "instagram": "https://www.instagram.com/thats_g_/",
+        "facebook": ""
+    },
+    {
+        "name": "Jonathan Isaac",
+        "position": "PF",
+        "jersey": "1",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4065654.png",
+        "twitter": "https://twitter.com/jjudahisaac",
+        "instagram": "https://www.instagram.com/jonisaac_01/",
+        "facebook": ""
+    },
+    {
+        "name": "Robin Lopez",
+        "position": "C",
+        "jersey": "33",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3447.png",
+        "twitter": "https://twitter.com/rolopez42",
+        "instagram": "https://www.instagram.com/gustogummi88/",
+        "facebook": ""
+    },
+    {
+        "name": "Mychal Mulder",
+        "position": "G",
+        "jersey": "2",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3936298.png",
+        "twitter": "https://twitter.com/mychalmulder",
+        "instagram": "https://www.instagram.com/p/B9kAQyZJAAC/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "Chuma Okeke",
+        "position": "PF",
+        "jersey": "3",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4278052.png",
+        "twitter": "https://twitter.com/chuma_okeke",
+        "instagram": "https://www.instagram.com/chumaokeke_/",
+        "facebook": ""
+    },
+    {
+        "name": "Terrence Ross",
+        "position": "SG",
+        "jersey": "31",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/6619.png",
+        "twitter": "https://twitter.com/tflight31",
+        "instagram": "https://www.instagram.com/terrence/",
+        "facebook": ""
+    },
+    {
+        "name": "Admiral Schofield",
+        "position": "SF",
+        "jersey": "25",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3918423.png",
+        "twitter": "https://twitter.com/admiralelite15",
+        "instagram": "https://www.instagram.com/uncle_scho/",
+        "facebook": ""
+    },
+    {
+        "name": "Jalen Suggs",
+        "position": "SG",
+        "jersey": "4",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4432165.png",
+        "twitter": "https://twitter.com/jalensuggs?lang=en",
+        "instagram": "https://www.instagram.com/jalensuggs/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "Franz Wagner",
+        "position": "SF",
+        "jersey": "22",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4566434.png",
+        "twitter": "https://twitter.com/franzboogie?lang=en",
+        "instagram": "https://www.instagram.com/franz_weasley/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "Moritz Wagner",
+        "position": "C",
+        "jersey": "21",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3150844.png",
+        "twitter": "https://twitter.com/moritz_weasley",
+        "instagram": "https://www.instagram.com/moritz_weasley/",
+        "facebook": ""
+    }
+]

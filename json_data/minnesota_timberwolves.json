@@ -1,0 +1,146 @@
+[
+    {
+        "name": "Malik Beasley",
+        "position": "SG",
+        "jersey": "5",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3907822.png",
+        "twitter": "https://twitter.com/mbeasy5?lang=en",
+        "instagram": "https://www.instagram.com/mbeasy5/",
+        "facebook": ""
+    },
+    {
+        "name": "Patrick Beverley",
+        "position": "PG",
+        "jersey": "22",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3964.png",
+        "twitter": "https://twitter.com/patbev21",
+        "instagram": "https://www.instagram.com/patbev21/",
+        "facebook": ""
+    },
+    {
+        "name": "Leandro Bolmaro",
+        "position": "SG",
+        "jersey": "9",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4683025.png",
+        "twitter": "https://twitter.com/bolmaroleandro",
+        "instagram": "https://www.instagram.com/leandro_bolmaro/",
+        "facebook": ""
+    },
+    {
+        "name": "Anthony Edwards",
+        "position": "SF",
+        "jersey": "1",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4594268.png",
+        "twitter": "https://twitter.com/theantedwards_",
+        "instagram": "https://www.instagram.com/theanthonyedwards_",
+        "facebook": "https://www.facebook.com/theanthonyedwards"
+    },
+    {
+        "name": "Nathan Knight",
+        "position": "F",
+        "jersey": "13",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4067325.png",
+        "twitter": "https://twitter.com/nateknght",
+        "instagram": "https://www.instagram.com/nateknight/",
+        "facebook": ""
+    },
+    {
+        "name": "Jake Layman",
+        "position": "SF",
+        "jersey": "10",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2982268.png",
+        "twitter": "https://twitter.com/jlayman10",
+        "instagram": "https://www.instagram.com/j_lay_lay/",
+        "facebook": ""
+    },
+    {
+        "name": "Jaden McDaniels",
+        "position": "PF",
+        "jersey": "3",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4431671.png",
+        "twitter": "https://twitter.com/jmcdaniels7?lang=en",
+        "instagram": "https://www.instagram.com/therealjadenmcdaniels/",
+        "facebook": ""
+    },
+    {
+        "name": "Jordan McLaughlin",
+        "position": "PG",
+        "jersey": "6",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3134916.png",
+        "twitter": "https://twitter.com/itsmclaughlin11",
+        "instagram": "https://www.instagram.com/itsmclaughlin11/",
+        "facebook": ""
+    },
+    {
+        "name": "Jaylen Nowell",
+        "position": "SG",
+        "jersey": "4",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4278541.png",
+        "twitter": "https://twitter.com/jaylennowell",
+        "instagram": "https://www.instagram.com/jaylennowell/",
+        "facebook": ""
+    },
+    {
+        "name": "Josh Okogie",
+        "position": "SF",
+        "jersey": "20",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4065663.png",
+        "twitter": "https://twitter.com/callme_nonstop",
+        "instagram": "https://www.instagram.com/callme_nonstop/",
+        "facebook": ""
+    },
+    {
+        "name": "Taurean Prince",
+        "position": "PF",
+        "jersey": "12",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2990962.png",
+        "twitter": "https://twitter.com/taureanprince",
+        "instagram": "https://www.instagram.com/taureanprince/",
+        "facebook": ""
+    },
+    {
+        "name": "Naz Reid",
+        "position": "C",
+        "jersey": "11",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4396971.png",
+        "twitter": "https://twitter.com/NBATV/status/1491257229437063169?ref_src=twsrc%5Etfw",
+        "instagram": "https://www.instagram.com/hollywood.naz/",
+        "facebook": ""
+    },
+    {
+        "name": "D'Angelo Russell",
+        "position": "PG",
+        "jersey": "0",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3136776.png",
+        "twitter": "https://twitter.com/Dloading",
+        "instagram": "https://www.instagram.com/dloading/",
+        "facebook": "https://www.facebook.com/DAngelo-Russell-876189269127408/"
+    },
+    {
+        "name": "Karl-Anthony Towns",
+        "position": "C",
+        "jersey": "32",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3136195.png",
+        "twitter": "https://twitter.com/karltowns",
+        "instagram": "https://www.instagram.com/karltowns/",
+        "facebook": ""
+    },
+    {
+        "name": "Jarred Vanderbilt",
+        "position": "PF",
+        "jersey": "8",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4278077.png",
+        "twitter": "https://twitter.com/jvando",
+        "instagram": "https://www.instagram.com/jvando_/",
+        "facebook": ""
+    },
+    {
+        "name": "McKinley Wright IV",
+        "position": "PG",
+        "jersey": "25",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4278507.png",
+        "twitter": "https://twitter.com/kin_wright25",
+        "instagram": "https://www.instagram.com/showtime_kin25/",
+        "facebook": ""
+    }
+]

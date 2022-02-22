@@ -1,0 +1,155 @@
+[
+    {
+        "name": "Nemanja Bjelica",
+        "position": "PF",
+        "jersey": "8",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4269.png",
+        "twitter": "https://twitter.com/nemanjabjelica",
+        "instagram": "https://www.instagram.com/nemanjabjelica8/",
+        "facebook": ""
+    },
+    {
+        "name": "Chris Chiozza",
+        "position": "G",
+        "jersey": "2",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3137795.png",
+        "twitter": "https://twitter.com/chiozza11",
+        "instagram": "https://www.instagram.com/chiozza11/",
+        "facebook": ""
+    },
+    {
+        "name": "Stephen Curry",
+        "position": "PG",
+        "jersey": "30",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3975.png",
+        "twitter": "https://twitter.com/StephenCurry30",
+        "instagram": "https://www.instagram.com/stephencurry30",
+        "facebook": "https://www.facebook.com/StephenCurryOfficial"
+    },
+    {
+        "name": "Draymond Green",
+        "position": "PF",
+        "jersey": "23",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/6589.png",
+        "twitter": "https://twitter.com/Money23Green",
+        "instagram": "https://www.instagram.com/money23green",
+        "facebook": "https://www.facebook.com/draymondgreen"
+    },
+    {
+        "name": "Andre Iguodala",
+        "position": "F",
+        "jersey": "9",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2386.png",
+        "twitter": "https://twitter.com/andre",
+        "instagram": "https://www.instagram.com/andre",
+        "facebook": "https://www.facebook.com/andre"
+    },
+    {
+        "name": "Jonathan Kuminga",
+        "position": "PF",
+        "jersey": "00",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4433247.png",
+        "twitter": "https://twitter.com/jonathankuming6",
+        "instagram": "https://www.instagram.com/jonathan_kuminga/",
+        "facebook": ""
+    },
+    {
+        "name": "Damion Lee",
+        "position": "SG",
+        "jersey": "1",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2595209.png",
+        "twitter": "https://twitter.com/dami0nlee",
+        "instagram": "https://www.instagram.com/dami0nlee/",
+        "facebook": ""
+    },
+    {
+        "name": "Kevon Looney",
+        "position": "C",
+        "jersey": "5",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3155535.png",
+        "twitter": "https://twitter.com/loon_rebel5",
+        "instagram": "https://www.instagram.com/looney/",
+        "facebook": ""
+    },
+    {
+        "name": "Moses Moody",
+        "position": "SG",
+        "jersey": "4",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4432171.png",
+        "twitter": "https://twitter.com/mosesmoody",
+        "instagram": "https://www.instagram.com/mosesmoody/",
+        "facebook": ""
+    },
+    {
+        "name": "Gary Payton II",
+        "position": "SG",
+        "jersey": "0",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3134903.png",
+        "twitter": "https://twitter.com/Garydwayne",
+        "instagram": "https://www.instagram.com/garydwayne",
+        "facebook": ""
+    },
+    {
+        "name": "Jordan Poole",
+        "position": "SG",
+        "jersey": "3",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4277956.png",
+        "twitter": "https://twitter.com/not_poole",
+        "instagram": "https://www.instagram.com/jordan_poole",
+        "facebook": ""
+    },
+    {
+        "name": "Otto Porter Jr.",
+        "position": "SF",
+        "jersey": "32",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2594922.png",
+        "twitter": "https://twitter.com/ottoporter",
+        "instagram": "https://www.instagram.com/otto_porter_jr_fanpage/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "Klay Thompson",
+        "position": "SG",
+        "jersey": "11",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/6475.png",
+        "twitter": "https://twitter.com/KlayThompson",
+        "instagram": "https://www.instagram.com/klaythompson",
+        "facebook": "https://www.facebook.com/KlayThompson"
+    },
+    {
+        "name": "Juan Toscano-Anderson",
+        "position": "SF",
+        "jersey": "95",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4401416.png",
+        "twitter": "https://twitter.com/juanonjuan10",
+        "instagram": "https://www.instagram.com/juan.toscano_95/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "Quinndary Weatherspoon",
+        "position": "SG",
+        "jersey": "15",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3907358.png",
+        "twitter": "https://twitter.com/IAM_QUINN11",
+        "instagram": "https://www.instagram.com/iamquinn_11/",
+        "facebook": ""
+    },
+    {
+        "name": "Andrew Wiggins",
+        "position": "SF",
+        "jersey": "22",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3059319.png",
+        "twitter": "https://twitter.com/22wiggins",
+        "instagram": "https://www.instagram.com/22wiggins",
+        "facebook": "https://www.facebook.com/officialandrewwiggins"
+    },
+    {
+        "name": "James Wiseman",
+        "position": "C",
+        "jersey": "33",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4432808.png",
+        "twitter": "https://twitter.com/bigticket_jw",
+        "instagram": "https://www.instagram.com/bigticket_j13/?hl=en",
+        "facebook": ""
+    }
+]

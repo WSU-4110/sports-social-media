@@ -1,0 +1,155 @@
+[
+    {
+        "name": "Carmelo Anthony",
+        "position": "PF",
+        "jersey": "7",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/1975.png",
+        "twitter": "https://twitter.com/carmeloanthony",
+        "instagram": "https://www.instagram.com/carmeloanthony",
+        "facebook": "https://www.facebook.com/TeamMe7o"
+    },
+    {
+        "name": "Trevor Ariza",
+        "position": "SF",
+        "jersey": "1",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2426.png",
+        "twitter": "https://twitter.com/trevorariza",
+        "instagram": "https://www.instagram.com/trevrizza1/",
+        "facebook": ""
+    },
+    {
+        "name": "Kent Bazemore",
+        "position": "SF",
+        "jersey": "9",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/6637.png",
+        "twitter": "https://twitter.com/24bazemore",
+        "instagram": "https://www.instagram.com/kennybaze/",
+        "facebook": ""
+    },
+    {
+        "name": "Avery Bradley",
+        "position": "PG",
+        "jersey": "20",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4240.png",
+        "twitter": "https://twitter.com/avery0bradley?lang=en",
+        "instagram": "https://www.instagram.com/averybrad0/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "Anthony Davis",
+        "position": "PF",
+        "jersey": "3",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/6583.png",
+        "twitter": "https://twitter.com/AntDavis23",
+        "instagram": "https://www.instagram.com/antdavis23",
+        "facebook": "https://www.facebook.com/anthonydavis23"
+    },
+    {
+        "name": "Sekou Doumbouya",
+        "position": "SF",
+        "jersey": "45",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4423314.png",
+        "twitter": "https://twitter.com/sekou_doums",
+        "instagram": "https://www.instagram.com/sekou_doumbouya_/",
+        "facebook": ""
+    },
+    {
+        "name": "Wayne Ellington",
+        "position": "SG",
+        "jersey": "2",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3981.png",
+        "twitter": "https://twitter.com/wayneellington",
+        "instagram": "https://www.instagram.com/wayneellington/",
+        "facebook": ""
+    },
+    {
+        "name": "Talen Horton-Tucker",
+        "position": "SG",
+        "jersey": "5",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4396991.png",
+        "twitter": "https://twitter.com/thortontucker",
+        "instagram": "https://www.instagram.com/5talen/",
+        "facebook": ""
+    },
+    {
+        "name": "Dwight Howard",
+        "position": "C",
+        "jersey": "39",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/2384.png",
+        "twitter": "https://twitter.com/DwightHoward",
+        "instagram": "https://www.instagram.com/dwighthoward",
+        "facebook": "https://www.facebook.com/DwightHoward"
+    },
+    {
+        "name": "LeBron James",
+        "position": "SF",
+        "jersey": "6",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/1966.png",
+        "twitter": "https://twitter.com/KingJames?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "instagram": "https://www.instagram.com/kingjames/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "Stanley Johnson",
+        "position": "PF",
+        "jersey": "14",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3134881.png",
+        "twitter": "https://twitter.com/iamsj",
+        "instagram": "https://www.instagram.com/stanimal/",
+        "facebook": ""
+    },
+    {
+        "name": "Mason Jones",
+        "position": "G",
+        "jersey": "40",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4395704.png",
+        "twitter": "https://twitter.com/masonjones2",
+        "instagram": "https://www.instagram.com/_masonjones15/",
+        "facebook": ""
+    },
+    {
+        "name": "DeAndre Jordan",
+        "position": "C",
+        "jersey": "10",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3442.png",
+        "twitter": "https://twitter.com/deandre",
+        "instagram": "https://www.instagram.com/deandre/",
+        "facebook": "https://www.facebook.com/deandrejordan/"
+    },
+    {
+        "name": "Malik Monk",
+        "position": "SG",
+        "jersey": "11",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4066262.png",
+        "twitter": "https://twitter.com/ahmadmonk",
+        "instagram": "https://www.instagram.com/ahmad_monk/",
+        "facebook": ""
+    },
+    {
+        "name": "Kendrick Nunn",
+        "position": "G",
+        "jersey": "12",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3056247.png",
+        "twitter": "https://twitter.com/nunnbetter_",
+        "instagram": "https://www.instagram.com/nunnbetter_/",
+        "facebook": "https://www.facebook.com/kendrick.nunn.16"
+    },
+    {
+        "name": "Austin Reaves",
+        "position": "SG",
+        "jersey": "15",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4066457.png",
+        "twitter": "https://twitter.com/reaves_austin",
+        "instagram": "https://www.instagram.com/austinreaves12/?hl=en",
+        "facebook": ""
+    },
+    {
+        "name": "Russell Westbrook",
+        "position": "PG",
+        "jersey": "0",
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/3468.png",
+        "twitter": "https://twitter.com/russwest44",
+        "instagram": "https://www.instagram.com/russwest44",
+        "facebook": "https://www.facebook.com/russellwestbrook"
+    }
+]

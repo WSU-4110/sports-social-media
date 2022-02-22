@@ -4,10 +4,16 @@
     padding-bottom:1.5em;
 }
 
-.card {
+#teamCard {
     width: 25rem;
     display:inline-block;
     margin-right:25px;
+}
+
+#teamtext {
+    font-weight:500;
+    padding-left:3em;
+    font-size:18px;
 }
 
 .mr-3 {
@@ -15,8 +21,17 @@
     margin-left:20px;
 }
 
-#teamtext {
-    font-weight:500;
-    padding-left:3em;
-    font-size:18px;
+#playerCard {
+    width: 25rem;
+    display:inline-block;
+    margin-right:25px;
+    text-align: center;
+}
+
+#playerImage {
+    width: 15rem;
+}
+
+.fa {
+    font-size: 20px !important;
 }
