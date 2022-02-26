@@ -3,6 +3,7 @@ const express = require("express");
 const axios = require("axios");
 const path = require("path");
 
+
 // Settings
 const app = express();
 PORT = 3000;
@@ -11,8 +12,10 @@ app.listen(PORT);
 //View Engine
 app.set("view engine", "ejs");
 
+
 //Folder Path
 app.use(express.static(__dirname + '/public'));
+
 
 //Local Variable for teams.json file
 app.locals.teamData = require("./json_data/teams.json");
