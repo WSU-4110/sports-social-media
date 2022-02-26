@@ -1,152 +1,182 @@
 [
   {
-    "id": 1,
-    "team": "Atlanta Hawks",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/atl.png"
+      "id": 1,
+      "team": "Atlanta Hawks",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/atl.png",
+      "division": "Southeast Division"
   },
   {
-    "id": 2,
-    "team": "Boston Celtics",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/bos.png"
+      "id": 2,
+      "team": "Boston Celtics",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/bos.png",
+      "division": "Atlantic Division"
   },
   {
-    "id": 17,
-    "team": "Brooklyn Nets",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/bkn.png"
+      "id": 17,
+      "team": "Brooklyn Nets",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/bkn.png",
+      "division": "Atlantic Division"
   },
   {
-    "id": 30,
-    "team": "Charlotte Hornets",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/cha.png"
+      "id": 30,
+      "team": "Charlotte Hornets",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/cha.png",
+      "division": "Southeast Division"
   },
   {
-    "id": 4,
-    "team": "Chicago Bulls",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/chi.png"
+      "id": 4,
+      "team": "Chicago Bulls",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/chi.png",
+      "division": "Central Division"
   },
   {
-    "id": 5,
-    "team": "Cleveland Cavaliers",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/cle.png"
+      "id": 5,
+      "team": "Cleveland Cavaliers",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/cle.png",
+      "division": "Central Division"
   },
   {
-    "id": 6,
-    "team": "Dallas Mavericks",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/dal.png"
+      "id": 6,
+      "team": "Dallas Mavericks",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/dal.png",
+      "division": "Southwest Division"
   },
   {
-    "id": 7,
-    "team": "Denver Nuggets",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/den.png"
+      "id": 7,
+      "team": "Denver Nuggets",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/den.png",
+      "division": "Northwest Division"
   },
   {
-    "id": 8,
-    "team": "Detroit Pistons",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/det.png"
+      "id": 8,
+      "team": "Detroit Pistons",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/det.png",
+      "division": "Central Division"
   },
   {
-    "id": 9,
-    "team": "Golden State Warriors",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png"
+      "id": 9,
+      "team": "Golden State Warriors",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+      "division": "Pacific Division"
   },
   {
-    "id": 10,
-    "team": "Houston Rockets",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/hou.png"
+      "id": 10,
+      "team": "Houston Rockets",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/hou.png",
+      "division": "Southwest Division"
   },
   {
-    "id": 11,
-    "team": "Indiana Pacers",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
+      "id": 11,
+      "team": "Indiana Pacers",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png",
+      "division": "Central Division"
   },
   {
-    "id": 12,
-    "team": "LA Clippers",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/lac.png"
+      "id": 12,
+      "team": "LA Clippers",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/lac.png",
+      "division": "Pacific Division"
   },
   {
-    "id": 13,
-    "team": "Los Angeles Lakers",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png"
+      "id": 13,
+      "team": "Los Angeles Lakers",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+      "division": "Pacific Division"
   },
   {
-    "id": 29,
-    "team": "Memphis Grizzlies",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mem.png"
+      "id": 29,
+      "team": "Memphis Grizzlies",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mem.png",
+      "division": "Southwest Division"
   },
   {
-    "id": 14,
-    "team": "Miami Heat",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mia.png"
+      "id": 14,
+      "team": "Miami Heat",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mia.png",
+      "division": "Southeast Division"
   },
   {
-    "id": 15,
-    "team": "Milwaukee Bucks",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mil.png"
+      "id": 15,
+      "team": "Milwaukee Bucks",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mil.png",
+      "division": "Central Division"
   },
   {
-    "id": 16,
-    "team": "Minnesota Timberwolves",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/min.png"
+      "id": 16,
+      "team": "Minnesota Timberwolves",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/min.png",
+      "division": "Northwest Division"
   },
   {
-    "id": 3,
-    "team": "New Orleans Pelicans",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/no.png"
+      "id": 3,
+      "team": "New Orleans Pelicans",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/no.png",
+      "division": "Southwest Division"
   },
   {
-    "id": 18,
-    "team": "New York Knicks",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ny.png"
+      "id": 18,
+      "team": "New York Knicks",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ny.png",
+      "division": "Atlantic Division"
   },
   {
-    "id": 25,
-    "team": "Oklahoma City Thunder",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/okc.png"
+      "id": 25,
+      "team": "Oklahoma City Thunder",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/okc.png",
+      "division": "Northwest Division"
   },
   {
-    "id": 19,
-    "team": "Orlando Magic",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/orl.png"
+      "id": 19,
+      "team": "Orlando Magic",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/orl.png",
+      "division": "Southeast Division"
   },
   {
-    "id": 20,
-    "team": "Philadelphia 76ers",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/phi.png"
+      "id": 20,
+      "team": "Philadelphia 76ers",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/phi.png",
+      "division": "Atlantic Division"
   },
   {
-    "id": 21,
-    "team": "Phoenix Suns",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/phx.png"
+      "id": 21,
+      "team": "Phoenix Suns",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/phx.png",
+      "division": "Pacific Division"
   },
   {
-    "id": 22,
-    "team": "Portland Trail Blazers",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/por.png"
+      "id": 22,
+      "team": "Portland Trail Blazers",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/por.png",
+      "division": "Northwest Division"
   },
   {
-    "id": 23,
-    "team": "Sacramento Kings",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/sac.png"
+      "id": 23,
+      "team": "Sacramento Kings",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/sac.png",
+      "division": "Pacific Division"
   },
   {
-    "id": 24,
-    "team": "San Antonio Spurs",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/sa.png"
+      "id": 24,
+      "team": "San Antonio Spurs",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/sa.png",
+      "division": "Southwest Division"
   },
   {
-    "id": 28,
-    "team": "Toronto Raptors",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/tor.png"
+      "id": 28,
+      "team": "Toronto Raptors",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/tor.png",
+      "division": "Atlantic Division"
   },
   {
-    "id": 26,
-    "team": "Utah Jazz",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/utah.png"
+      "id": 26,
+      "team": "Utah Jazz",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/utah.png",
+      "division": "Northwest Division"
   },
   {
-    "id": 27,
-    "team": "Washington Wizards",
-    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/wsh.png"
+      "id": 27,
+      "team": "Washington Wizards",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/wsh.png",
+      "division": "Southeast Division"
   }
 ]
