@@ -3,46 +3,11 @@ import re
 import time
 import json
 import os
+from operator import itemgetter
+from modules.constants import google_headers, espn_headers
+from decouple import config
 
-## HEADERS FOR GOOGLE SEARCH REQUESTS ##
-google_headers = {
-    'Host': 'www.google.com',
-    'cache-control': 'max-age=0',
-    'sec-ch-ua': '" Not;A Brand";v="99", "Google Chrome";v="97", "Chromium";v="97"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-full-version': '"97.0.4692.99"',
-    'sec-ch-ua-arch': '"x86"',
-    'sec-ch-ua-platform': '"Windows"',
-    'sec-ch-ua-platform-version': '"10.0.0"',
-    'sec-ch-ua-model': '""',
-    'sec-ch-ua-bitness': '"64"',
-    'upgrade-insecure-requests': '1',
-    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36',
-    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-    'sec-fetch-site': 'same-origin',
-    'sec-fetch-mode': 'navigate',
-    'sec-fetch-user': '?1',
-    'sec-fetch-dest': 'document',
-    'accept-language': 'en,en-CA;q=0.9,en-US;q=0.8,bn;q=0.7',
-}
-
-## HEADERS FOR ESPN API REQUESTS ##
-espn_headers = {
-    'authority': 'site.api.espn.com',
-    'pragma': 'no-cache',
-    'cache-control': 'no-cache',
-    'sec-ch-ua': '" Not;A Brand";v="99", "Google Chrome";v="97", "Chromium";v="97"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-platform': '"Windows"',
-    'upgrade-insecure-requests': '1',
-    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36',
-    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-    'sec-fetch-site': 'cross-site',
-    'sec-fetch-mode': 'navigate',
-    'sec-fetch-user': '?1',
-    'sec-fetch-dest': 'document',
-    'accept-language': 'en,en-CA;q=0.9,en-US;q=0.8,bn;q=0.7',
-}
+FOLDER_PATH=config('FOLDER_PATH')
 
 ## STANDALONE INSTAGRAM SEARCH ##
 def get_instagram(name):
@@ -63,7 +28,7 @@ def get_twitter(name):
     player=name.replace(" ", "+")
     html = requests.get('https://www.google.com/search?q='+ player +'+nba+twitter&hl=en', headers=google_headers)
     response = str(html.text)
-    twitter = re.search('href="https:\/\/twitter.com\/([^"]+)"', response)
+    twitter = re.search(r'href="https:\/\/twitter.com\/([^"]+)"', response)
     if twitter:
         twitter= twitter.group(1)
         twitter="https://twitter.com/"+ twitter
@@ -79,9 +44,9 @@ def get_all_social(name):
     response = str(html.text)
 
     ## REGEX MATCHES FOR SOCIAL MEDIA ##
-    twitter = re.search('<g-link class="fl"><a.*\shref="https:\/\/.*twitter.com\/([^"]+)"', response)
-    instagram = re.search('<g-link class="fl"><a.*\shref="https:\/\/www.instagram.com\/([^"]+)"', response)
-    facebook = re.search('<g-link class="fl"><a.*\shref="https:\/\/www.facebook.com\/([^"]+)"', response)
+    twitter = re.search(r'<g-link class="fl"><a.*\shref="https:\/\/.*twitter.com\/([^"]+)"', response)
+    instagram = re.search(r'<g-link class="fl"><a.*\shref="https:\/\/www.instagram.com\/([^"]+)"', response)
+    facebook = re.search(r'<g-link class="fl"><a.*\shref="https:\/\/www.facebook.com\/([^"]+)"', response)
     
     ## CHECK IF TWITTER MATCH EXISTS  (IF NOT USE TWITTER STANDALONE FUNCTION FOR ONE MORE CHECK) ##
     if twitter:
@@ -116,28 +81,36 @@ def get_teams():
         data = response.json()
         team=data['team']['displayName']
         logo=data['team']['logo']
-        team_data = {"id": i , "team": team, "logo": logo}
+        division=data['team']['standingSummary']
+        division = re.sub(r'(.*in\s)', '', division)
+        team_data = {"id": i , "team": team, "logo": logo, "division": division}
         the_data.append(team_data)
         i+=1
-     
+
+    the_data = sorted(the_data, key=itemgetter('team'))
     the_data=json.dumps(the_data, indent=4)
     save_to_json("teams", the_data)
-    print (the_data)
      
 ## ESPN GET PLAYERS AND GOOGLE SEARCH SOCIAL MEDIA ##
 def get_players():
     the_data = []
     i=1
     ## LOOP THROUGH 30 TEAMS ##
-    while i <= 15: 
+    while i <= 30: 
         response = requests.get('https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/'+ str(i) + '/roster', headers=espn_headers)
         data = response.json()
         team=data['team']['displayName']
+        team_logo=data['team']['logo']
+        team_data = {'team': team, "team_logo": team_logo}
+        the_data.append(team_data)
         print("Getting data for " + team)
         for value in data['athletes']:
             name=value['fullName']
             position=value['position']['abbreviation']
-            jersey=value['jersey']
+            try:
+                jersey=value['jersey']
+            except:
+                jersey=""
             try:
                 headshot=value['headshot']['href']
             except:
@@ -145,7 +118,6 @@ def get_players():
             twitter, instagram, facebook= get_all_social(name)
             player_data = {"name": name , "position": position ,"jersey": jersey, "headshot": headshot, "twitter": twitter, "instagram": instagram, "facebook": facebook}
             the_data.append(player_data)
-            print(player_data)
             time.sleep(5) ## ADD SLEEP TO TIMEOUT GOOGLE SEARCH A LITTLE
         the_data=json.dumps(the_data, indent=4)
         save_to_json(team, the_data)
@@ -158,14 +130,11 @@ def save_to_json(team, data):
     
     ## FILE PATH ##
     filename = team +".json"
-    dirname = os.path.dirname(__file__)
-    path = os.path.join(dirname, 'json_data')
-    fullpath = os.path.join(path, filename)
-    
+    dirname = os.path.dirname(os.path.abspath(__file__))   
+    path = "%s/%s/%s" %(dirname, FOLDER_PATH, filename)
+
     ## SAVE TO FILE ##
-    file = open(fullpath, 'w')
+    file = open(path, 'w')
     file.write(data)
     file.close()
     print("Saved " + filename )
-    
-get_players()
