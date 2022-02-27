@@ -4,24 +4,28 @@
     <div class="text-center">
 		<a href="/"><img src="/images/nba-logo.svg" alt="NBA logo" id="logoNBA" /></a>
     </div>
-	<div class="container">
+
+  <div class="container">
+	  <div class="container-fluid">
+    <div class="row justifiy-content-evenly">
 	 <!-- TEAM CARD -->
 	<%# EJS CODE %>
 
-	<% teamData.forEach(function(team) { %> 
-		<div class="card shadow p-1 mb-4 sm-white rounded" id="teamCard">
-			<img class="mr-3" src="<%= team.logo %>" alt="Card image cap" />
-			<span id="teamtext"><%= team.team %> </span>
-			<% var teampath= team.team; 
-			teampath=teampath.split(" ").join("_");
-			teampath=teampath.toLowerCase();
-			teampath="/teams/"+teampath;
-			%> 
-			<a class="stretched-link" href="<%= teampath %>"></a>
-	  	</div>
-	<% }); %> 
-
+  	<% teamData.forEach(function(team) { %>
+  		<div class="col-lg-3 col-md-3 col-sm-12 card shadow" id="teamCard">
+  			<img class="mr-3" src="<%= team.logo %>" alt="Card image cap" />
+  			<span id="teamtext"><%= team.team %> </span>
+  			<% var teampath= team.team;
+  			teampath=teampath.split(" ").join("_");
+  			teampath=teampath.toLowerCase();
+  			teampath="/teams/"+teampath;
+  			%>
+  			<a class="stretched-link" href="<%= teampath %>"></a>
+  	  	</div>
+  	<% }); %>
 	<%# END EJS CODE %>
 	</div>
-   
+  </div>
+</div>
+
  <%- include("partials/footer.ejs") %>
