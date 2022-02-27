@@ -10,8 +10,8 @@
     <!-- PLAYER CARD -->
     <%# EJS CODE %>
     
-    <div class="container"><% team.forEach(function(player) { %> 
-        <div class="card shadow p-1 mb-4 sm-white rounded" id="playerCard">
+    <div class="container"><% team.slice(1).forEach(function(player) { %> 
+      <div class="card shadow p-1 mb-4 sm-white rounded" id="playerCard">
           
           <% if(player.headshot){ %>    <%# IF TWITTER ACCOUNT EXISTS  %>
             <img class="card-img-top rounded-circle" id="playerImage" src="<%= player.headshot %>">
