@@ -28,7 +28,6 @@ app.get("/", (req, res) => {
 //Team Page
 app.get("/teams/:teamName", (req, res) => {
   const { teamName } = req.params;
-  let teamHeader = teamName.replace("_", " ").toUpperCase();
   let team;
 
   const getTeam = async () => {
@@ -37,7 +36,7 @@ app.get("/teams/:teamName", (req, res) => {
         `https://maqhspyw3j.execute-api.us-east-1.amazonaws.com/dev/${teamName}.json`
       );
       team = response.data;
-      res.render("teamPage", { team, teamHeader });
+      res.render("teamPage", { team });
     } catch (error) {
       console.error(error);
     }
