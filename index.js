@@ -28,7 +28,19 @@ app.get("/", (req, res) => {
 //Team Page
 app.get("/teams/:teamName", (req, res) => {
   const { teamName } = req.params;
-  let team = require("./json_data/" + teamName + ".json");
-  let teamHeader = (teamName.replace("_", " ")).toUpperCase();
-  res.render("teamPage", { team, teamHeader});
+  let team;
+
+  const getTeam = async () => {
+    try {
+      let response = await axios.get(
+        `https://maqhspyw3j.execute-api.us-east-1.amazonaws.com/dev/${teamName}.json`
+      );
+      team = response.data;
+      res.render("teamPage", { team });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  getTeam();
 });
