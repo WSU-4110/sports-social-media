@@ -3,7 +3,6 @@ const express = require("express");
 const axios = require("axios");
 const path = require("path");
 
-
 // Settings
 const app = express();
 PORT = 3000;
@@ -12,17 +11,24 @@ app.listen(PORT);
 //View Engine
 app.set("view engine", "ejs");
 
-
 //Folder Path
-app.use(express.static(__dirname + '/public'));
-
-
-//Local Variable for teams.json file
-app.locals.teamData = require("./json_data/teams.json");
+app.use(express.static(__dirname + "/public"));
 
 //Home Page
 app.get("/", (req, res) => {
-  res.render("home");
+  const getAllTeams = async () => {
+    try {
+      let response = await axios.get(
+        `https://maqhspyw3j.execute-api.us-east-1.amazonaws.com/dev/teams.json`
+      );
+      teamData = response.data;
+      res.render("home", { teamData });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  getAllTeams();
 });
 
 //Team Page
