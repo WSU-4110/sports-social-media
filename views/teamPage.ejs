@@ -3,42 +3,54 @@
     <!-- NBA LOGO -->
     <br>
     <div class="text-center">
-      <h1 class="display-2"><%= team[0].team %></h1> 
+      <h1 class="display-2"><%= team[0].team %></h1>
       <img height="200px" width="200px" src="<%= team[0].teamLogo %>">
     </div>
     <br>
 
-    <!-- PLAYER CARD -->
-    <%# EJS CODE %>
-    
-    <div class="container"><% team.slice(1).forEach(function(player) { %> 
-      <div class="card shadow p-1 mb-4 sm-white rounded" id="playerCard">
-          
-          <% if(player.headshot){ %>    <%# IF TWITTER ACCOUNT EXISTS  %>
+    <div class="container">
+      <div class="container-fluid">
+        <div class="row justify-content-evenly">
+
+          <!-- PLAYER CARD -->
+          <%# EJS CODE %>
+
+          <% team.slice(1).forEach(function(player) { %>
+          <div class="col-lg-3 col-md-3 col-sm-12 card shadow" id="playerCard">
+
+            <% if(player.headshot){ %> <%# IF TWITTER ACCOUNT EXISTS  %>
             <img class="card-img-top rounded-circle" id="playerImage" src="<%= player.headshot %>">
-          <% } else{ %>  
-          <img class="card-img-top rounded-circle" id="playerImage" src="/images/generic-player.png">
-          <% } %>
-
-          <div class="card-body">
-            <h5 class="card-title"><%= player.name %> </h5>
-            <h6 class="card-text"><%= player.position %> | <%= player.jersey %> </h6>
-         
-            <% if(player.twitter){ %>    <%# IF TWITTER ACCOUNT EXISTS  %>
-              <a href="<%=player.twitter %>" target="_blank"><i class="fa fa-twitter"></i></a>
+            <% } else{ %>
+            <img class="card-img-top rounded-circle" id="playerImage" src="/images/generic-player.png">
             <% } %>
 
-            <% if(player.instagram){ %> <%# IF INSTAGRAM ACCOUNT EXISTS  %>
-              <a href="<%=player.instagram %>" target="_blank"><i class="fa fa-instagram"></i></a>
-            <% } %>
+            <div class="card-body">
+              <h5 class="card-title"><%= player.name %> </h5>
+              <h6 class="card-text"><%= player.position %> | <%= player.jersey %> </h6>
 
-            <% if(player.facebook){ %> <%# IF FACEBOOK ACCOUNT EXISTS  %>
-            <a href="<%=player.facebook %>" target="_blank"><i class="fa fa-facebook"></i></a>
-            <% } %>
+              <div class="d-flex justify-content-center icon-bar">
+
+                <% if(player.twitter){ %> <%# IF TWITTER ACCOUNT EXISTS  %>
+                <a class="btn btn-lg btn-social btn-twitter text-decoration-none hvr-grow" href="<%=player.twitter %>" target="_blank"><i class="fa fa-twitter"></i></a>
+                <% } %>
+
+                <% if(player.instagram){ %> <%# IF INSTAGRAM ACCOUNT EXISTS  %>
+                <a class="btn btn-lg btn-social text-decoration-none btn-instagram hvr-grow" href="<%=player.instagram %>" target="_blank"><i class="fa fa-instagram"></i></a>
+                <% } %>
+
+                <% if(player.facebook){ %> <%# IF FACEBOOK ACCOUNT EXISTS  %>
+                <a class="btn btn-lg btn-social btn-facebook text-decoration-none hvr-grow" href="<%=player.facebook %>" target="_blank"><i class="fa fa-facebook"></i></a>
+                <% } %>
+
+              </div>
+
+            </div>
           </div>
-        </div>
-        <% }); %> 
+          <% }); %>
 
-      <%# END EJS CODE %>
+          <%# END EJS CODE %>
+        </div>
+      </div>
     </div>
+
   <%- include("partials/footer.ejs") %>

@@ -25,8 +25,9 @@
 #playerCard {
     width: 25rem;
     display:inline-block;
-    margin-right:25px;
     text-align: center;
+    margin: auto;
+    margin-bottom: 1.5rem;
 }
 
 #playerImage {
@@ -54,3 +55,38 @@
 .hvr-grow:active {
     transform: scale(1.1);
 }
+/* end of grow */
+
+/* Social Media Icon Styling */
+.icon-bar {
+  margin-top: 2em;
+}
+
+.btn-social {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  border-radius: 50%;
+}
+
+.btn-twitter {
+  background: #1DA1F2;
+  color: white !important;
+}
+
+.btn-instagram {
+  /* background: #833AB4; */
+  background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+  color: white !important;
+}
+
+.btn-facebook {
+  background: #1877F2;
+  color: white !important;
+}
+
+.fa-facebook {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+/* end of social media icons styling */
