@@ -63,8 +63,8 @@
 }
 
 .btn-social {
-  margin-left: 1em;
-  margin-right: 1em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
   border-radius: 50%;
 }
 
@@ -74,7 +74,8 @@
 }
 
 .btn-instagram {
-  background: #833AB4;
+  /* background: #833AB4; */
+  background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
   color: white !important;
 }
 
