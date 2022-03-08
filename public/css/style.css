@@ -4,6 +4,15 @@
     padding-bottom:1.5em;
 }
 
+#teamLogo {
+  margin-bottom: 5rem;
+}
+
+.teamPage-container {
+  padding-left: 7em;
+  padding-right: 7em;
+}
+
 #teamCard {
     width: 25rem;
     display:inline-block;
@@ -23,15 +32,69 @@
 }
 
 #playerCard {
-    width: 25rem;
+    width: 20rem;
+    height: 25rem;
     display:inline-block;
     text-align: center;
     margin: auto;
-    margin-bottom: 1.5rem;
+    margin-bottom: 8rem;
+
+    /* test */
+    position: relative;
+
 }
 
+.image-cropper {
+  width: 125px;
+  height: 125px;
+  position: absolute;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: white;
+  top: -15%;
+  Left: 30%;
+}
+
+.image-cropper-subContainer {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  overflow: hidden;
+  /* border-radius: 50%; */
+  background-color: white;
+  Left: 10%;
+  top: 10%;
+}
+
+/* test */
 #playerImage {
-    width: 15rem;
+    width: 8rem;
+    position: relative;
+    Right: 12%;
+    /* position: absolute;
+    top:-25%;
+    left: 15%;
+    border: 3px solid #fff;
+    background: url(../images/white-img.png) */
+}
+
+#playerInfo {
+  margin-top: 5rem;
+}
+
+.card-body h4 {
+  font-size: 1.6rem;
+}
+
+.playerStats {
+  margin-top: 1em;
+}
+
+.card-body h5 {
+}
+
+.card-body h6 {
+  font-size: 0.8em;
 }
 
 .fa {
@@ -59,7 +122,7 @@
 
 /* Social Media Icon Styling */
 .icon-bar {
-  margin-top: 2em;
+  margin-top: 8em;
 }
 
 .btn-social {
