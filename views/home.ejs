@@ -1,5 +1,5 @@
 <%- include("partials/header.ejs") %>
-
+	
     <!-- NBA LOGO -->
     <div class="text-center">
 		<a href="/"><img src="/images/nba-logo.svg" alt="NBA logo" id="logoNBA" /></a>
@@ -12,7 +12,7 @@
 	<%# EJS CODE %>
 
 	<% teamData.forEach(function(team) { %>
-		<div class="col-lg-3 col-md-3 col-sm-12 card shadow hvr-grow " id="teamCard">
+		<div class="col-lg-3 col-md-3 col-sm-12 card shadow hvr-grow" id="teamCard">
 			<img class="mr-3" src="<%= team.logo %>" alt="Card image cap" />
 			<span id="teamtext"><%= team.team %> </span>
 			<% var teampath= team.team;
