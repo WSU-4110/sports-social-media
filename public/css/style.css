@@ -4,12 +4,13 @@
     padding-bottom:1.5em;
 }
 
-#teamCard {
+.teamCard {
     width: 25rem;
     display:inline-block;
     margin: auto;
     margin-bottom: 1.5rem;
 }
+
 
 #teamtext {
     font-weight:500;
@@ -90,3 +91,17 @@
 }
 
 /* end of social media icons styling */
+
+#filterd {
+    display: flex;
+    clear: none;
+    width:15%;
+    padding-left:10px;
+}
+#filterc {
+    float: left;
+    clear: none;
+    padding-left:450px;
+    display:flex;
+    margin:auto;
+}

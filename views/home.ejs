@@ -5,14 +5,37 @@
 		<a href="/"><img src="/images/nba-logo.svg" alt="NBA logo" id="logoNBA" /></a>
     </div>
 
+
   <div class="container">
 	  <div class="container-fluid">
+
+	<div id="filterc">
+	<select class="selectpicker form-control" id="filterC" aria-label="Conference">
+	<option selected disabled>Conference menu</option>
+	<option value="1">Eastern Conference</option>
+	<option value="2">Western Conference</option>
+	</select>
+	</div>
+
+	<div id="filterd">
+	<select class="selectpicker form-control" id="filterD" aria-label="Divisions">
+	<option selected disabled>Divisions</option>
+	<option value="1">Atlantic Division</option>
+	<option value="2">Central Division</option>
+	<option value="3">Southeast Division</option>
+	<option value="4">Northwest Division</option>
+	<option value="5">Pacific Division</option>
+	<option value="6">Southwest Division</option>
+	</select>
+	</div>
+	<hr>
+
     <div class="row justifiy-content-evenly">
 	 <!-- TEAM CARD -->
 	<%# EJS CODE %>
 
 	<% teamData.forEach(function(team) { %>
-		<div class="col-lg-3 col-md-3 col-sm-12 card shadow hvr-grow " id="teamCard">
+		<div class="col-lg-3 col-md-3 col-sm-12 card shadow hvr-grow teamCard teamDiv" data-conference="<%= team.conference %>" data-division="<%= team.division %>">
 			<img class="mr-3" src="<%= team.logo %>" alt="Card image cap" />
 			<span id="teamtext"><%= team.team %> </span>
 			<% var teampath= team.team;
