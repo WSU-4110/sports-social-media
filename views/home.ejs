@@ -1,32 +1,27 @@
 <%- include("partials/header.ejs") %>
-	
-    <!-- NBA LOGO -->
-    <div class="text-center">
-		<a href="/"><img src="/images/nba-logo.svg" alt="NBA logo" id="logoNBA" /></a>
-    </div>
 
-  <div class="container">
-	  <div class="container-fluid">
-    <div class="row justifiy-content-evenly">
-	 <!-- TEAM CARD -->
-	<%# EJS CODE %>
-
-	<% teamData.forEach(function(team) { %>
-		<div class="col-lg-3 col-md-3 col-sm-12 card shadow hvr-grow" id="teamCard">
-			<img class="mr-3" src="<%= team.logo %>" alt="Card image cap" />
-			<span id="teamtext"><%= team.team %> </span>
-			<% var teampath= team.team;
-			teampath=teampath.split(" ").join("_");
-			teampath=teampath.toLowerCase();
-			teampath="/teams/"+teampath;
-			%>
-			<a class="stretched-link" href="<%= teampath %>"></a>
-	  	</div>
-	<% }); %>
-
-	<%# END EJS CODE %>
-	</div>
-  </div>
+<!-- NBA LOGO -->
+<div class="text-center">
+	<a href="/"><img src="/images/nba-logo.svg" alt="NBA logo" id="logoNBA" /></a>
 </div>
 
- <%- include("partials/footer.ejs") %>
+<div class="container">
+	<div class="container-fluid">
+		<div class="row justifiy-content-evenly">
+			<!-- TEAM CARD -->
+			<%# EJS CODE %> <% teamData.forEach(function(team) { %>
+			<div class="col-lg-3 col-md-3 col-sm-12 card shadow hvr-grow" id="teamCard">
+				<img class="mr-3" src="<%= team.logo %>" alt="Card image cap" />
+				<span id="teamtext"><%= team.team %> </span>
+				<% var teampath= team.team;
+				teampath=teampath.split(" ").join("_");
+				teampath=teampath.toLowerCase(); 
+				teampath="/teams/"+teampath; %>
+				<a class="stretched-link" href="<%= teampath %>"></a>
+			</div>
+			<% }); %> <%# END EJS CODE %>
+		</div>
+	</div>
+</div>
+
+<%- include("partials/footer.ejs") %>

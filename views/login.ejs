@@ -1,48 +1,42 @@
 <%- include("partials/header.ejs") %>
 <br />
 <section class="h-100">
-	<div class="container h-100">
-		<div class="row justify-content-sm-center h-100">
-			<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
-				<div class="card shadow-lg">
-					<div class="card-body p-5">
-						<h1 class="fs-4 card-title fw-bold mb-4">Sign In</h1>
-						<form id="login">
-							<div class="mb-3">
-								<label class="mb-2 text-muted" for="email">E-Mail Address</label>
-								<input id="email" type="email" class="form-control" name="email" value="" required />
-								<div class="invalid-feedback">
-									Email is invalid
-								</div>
-							</div>
+    <div class="container h-100">
+        <div class="row justify-content-sm-center h-100">
+            <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+                <div class="card shadow-lg">
+                    <div class="card-body p-5">
+                        <h1 class="fs-4 card-title fw-bold mb-4">Sign In</h1>
+                        <form id="login">
+                            <div class="mb-3">
+                                <label class="mb-2 text-muted" for="email">E-Mail Address</label>
+                                <input id="email" type="email" class="form-control" name="email" value="" required />
+                                <div class="invalid-feedback">Email is invalid</div>
+                            </div>
 
-							<div class="mb-3">
-								<label class="mb-2 text-muted" for="password">Password</label>
-								<input id="password" type="password" class="form-control" name="password" required />
-								<div class="invalid-feedback">
-									Password is required
-								</div>
-							</div>
-							<div class="align-items-center d-flex">
-								<button class="btn btn-primary">
-									Sign In
-                                </button>
-                                <a href="forgot" class="btn btn-warning ms-1">
-									Forogt Password
-								</a>
-							</div>
-						</form>
-					</div>
-					<div class="card-footer py-3 border-0">
-                        <div class="text-center">Don't have an account? <a href="signup" class="text-dark">Sign Up</a></div>
-
-					</div>
-				</div>
-				<br />
-				<br />
-			</div>
-		</div>
-	</div>
+                            <div class="mb-3">
+                                <label class="mb-2 text-muted" for="password">Password</label>
+                                <input id="password" type="password" class="form-control" name="password" required />
+                                <div class="invalid-feedback">Password is required</div>
+                            </div>
+                            <div class="align-items-center d-flex">
+                                <button class="btn btn-primary">Sign In</button>
+                                <a href="forgot" class="btn btn-warning ms-1"> Forogt Password </a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer py-3 border-0">
+                        <div class="text-center">
+                            Don't have an account?
+                            <a href="signup" class="text-dark">Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br />
+            </div>
+        </div>
+    </div>
 </section>
 
 <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
@@ -50,77 +44,73 @@
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
+    const firebaseConfig = {
+        apiKey: 'AIzaSyDhYbSc9y3bw0j7EmLtL2k4huvoK99Uhxs',
+        authDomain: 'sportsocialmediaprofile.firebaseapp.com',
+        databaseURL: 'https://sportsocialmediaprofile-default-rtdb.firebaseio.com',
+        projectId: 'sportsocialmediaprofile',
+        storageBucket: 'sportsocialmediaprofile.appspot.com',
+        messagingSenderId: '701173843774',
+        appId: '1:701173843774:web:41588c9dcc218e8cc6ce6f',
+    };
+    firebase.initializeApp(firebaseConfig);
 
-      const firebaseConfig = {
-        apiKey: "AIzaSyDhYbSc9y3bw0j7EmLtL2k4huvoK99Uhxs",
-        authDomain: "sportsocialmediaprofile.firebaseapp.com",
-        databaseURL: "https://sportsocialmediaprofile-default-rtdb.firebaseio.com",
-        projectId: "sportsocialmediaprofile",
-        storageBucket: "sportsocialmediaprofile.appspot.com",
-        messagingSenderId: "701173843774",
-        appId: "1:701173843774:web:41588c9dcc218e8cc6ce6f"
-      };
-	  firebase.initializeApp(firebaseConfig);
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
 
-	  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
+    document.getElementById('login').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const login = event.target.email.value;
+        const password = event.target.password.value;
 
-	  document
-	    .getElementById("login")
-	    .addEventListener("submit", (event) => {
-	      event.preventDefault();
-	      const login = event.target.email.value;
-	      const password = event.target.password.value;
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(login, password)
+            .then(({ user }) => {
+                return user.getIdToken().then((idToken) => {
+                    return fetch('/sessionLogin', {
+                        method: 'POST',
+                        headers: {
+                            Accept: 'application/json',
+                            'Content-Type': 'application/json',
+                            'CSRF-Token': Cookies.get('XSRF-TOKEN'),
+                        },
+                        body: JSON.stringify({ idToken }),
+                    });
+                });
+            })
 
-	      firebase
-	        .auth()
-	        .signInWithEmailAndPassword(login, password)
-	        .then(({ user }) => {
-	          return user.getIdToken().then((idToken) => {
-	            return fetch("/sessionLogin", {
-	              method: "POST",
-	              headers: {
-	                Accept: "application/json",
-	                "Content-Type": "application/json",
-	                "CSRF-Token": Cookies.get("XSRF-TOKEN"),
-	              },
-	              body: JSON.stringify({ idToken }),
-	            });
-	          })
-	        })
-
-	        .then(() => {
-	          return firebase.auth().signOut();
-	        })
-	        .then(() => {
-	          window.location.assign("/profile");
-	        })
-	        .catch((error) => {
-                let type="";
-                let title="";
-                let text="";
-                switch(error.code){
+            .then(() => {
+                return firebase.auth().signOut();
+            })
+            .then(() => {
+                window.location.assign('/profile');
+            })
+            .catch((error) => {
+                let type = '';
+                let title = '';
+                let text = '';
+                switch (error.code) {
                     case 'auth/user-not-found':
-                        title="User Does Not Exist!";
-                        text="Please Sign Up";
-                        type="warning";
+                        title = 'User Does Not Exist!';
+                        text = 'Please Sign Up';
+                        type = 'warning';
                         break;
                     case 'auth/wrong-password':
                     case 'auth/too-many-requests':
-                        title="Invalid Password";
-                        text="Please try again";
-                        type="error";
+                        title = 'Invalid Password';
+                        text = 'Please try again';
+                        type = 'error';
                         break;
                     default:
-                        title="An Error Occured";
-                        text="Try Again Later!";
-                        type="error";
+                        title = 'An Error Occured';
+                        text = 'Try Again Later!';
+                        type = 'error';
                 }
                 swal(title, text, type);
                 return false;
-
-	    });
-	      return false;
-	    });
+            });
+        return false;
+    });
 </script>
 
 <%- include("partials/footer.ejs") %>

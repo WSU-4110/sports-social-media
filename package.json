@@ -1,31 +1,48 @@
 {
-  "name": "sports-social-media-profile-locater",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/WSU-4110/sports-social-media-profile-locater.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/WSU-4110/sports-social-media-profile-locater/issues"
-  },
-  "homepage": "https://github.com/WSU-4110/sports-social-media-profile-locater#readme",
-  "dependencies": {
-    "axios": "^0.26.0",
-    "body-parser": "^1.19.2",
-    "cookie-parser": "^1.4.6",
-    "csurf": "^1.11.0",
-    "ejs": "^3.1.6",
-    "express": "^4.17.3",
-    "express-ejs-layouts": "^2.5.1",
-    "firebase-admin": "^10.0.2",
-    "fs": "^0.0.1-security",
-    "nodemon": "^2.0.15"
-  }
+    "name": "sports-social-media-profile-locater",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "format:check": "prettier --check .",
+        "format:write": "prettier --write .",
+        "lint:check": "eslint .",
+        "lint:fix": "eslint --fix .",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/WSU-4110/sports-social-media-profile-locater.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/WSU-4110/sports-social-media-profile-locater/issues"
+    },
+    "homepage": "https://github.com/WSU-4110/sports-social-media-profile-locater#readme",
+    "dependencies": {
+        "axios": "^0.26.0",
+        "body-parser": "^1.19.2",
+        "cookie-parser": "^1.4.6",
+        "csurf": "^1.11.0",
+        "ejs": "^3.1.6",
+        "express": "^4.17.3",
+        "express-ejs-layouts": "^2.5.1",
+        "firebase-admin": "^10.0.2",
+        "fs": "^0.0.1-security",
+        "nodemon": "^2.0.15"
+    },
+    "devDependencies": {
+        "eslint": "^8.2.0",
+        "eslint-config-airbnb": "^19.0.4",
+        "eslint-config-node": "^4.1.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-import": "^2.25.3",
+        "eslint-plugin-jsx-a11y": "^6.5.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-react": "^7.28.0",
+        "eslint-plugin-react-hooks": "^4.3.0",
+        "prettier": "^2.5.1"
+    }
 }

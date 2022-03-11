@@ -1,37 +1,35 @@
 <%- include("partials/header.ejs") %>
-<br/>
+<br>
 <section class="h-100">
-	<div class="container h-100">
-		<div class="row justify-content-sm-center h-100">
-			<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
-				<div class="card shadow-lg">
-
-					<div class="card-body p-5">
-						<h1 class="fs-4 card-title fw-bold mb-4">Forgot Password</h1>
-						<form id="login">
-							<div class="mb-3">
-								<label class="mb-2 text-muted" for="email">E-Mail Address</label>
-								<input id="email" type="email" class="form-control" name="email" value="" required />
-								<div class="invalid-feedback">
-									Email is invalid
-								</div>
-							</div>
-							<div class="align-items-center d-flex">
-								<button class="btn btn-primary ms-auto">
-									Submit
-								</button>
-							</div>
-						</form>
-					</div>
-					<div class="card-footer py-3 border-0">
-						<div class="text-center">Don't have an account? <a href="signup" class="text-dark">Sign Up</a></div>
-					</div>
-				</div>
-				<br />
-				<br />
-			</div>
-		</div>
-	</div>
+    <div class="container h-100">
+        <div class="row justify-content-sm-center h-100">
+            <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+                <div class="card shadow-lg">
+                    <div class="card-body p-5">
+                        <h1 class="fs-4 card-title fw-bold mb-4">Forgot Password</h1>
+                        <form id="login">
+                            <div class="mb-3">
+                                <label class="mb-2 text-muted" for="email">E-Mail Address</label>
+                                <input id="email" type="email" class="form-control" name="email" value="" required />
+                                <div class="invalid-feedback">Email is invalid</div>
+                            </div>
+                            <div class="align-items-center d-flex">
+                                <button class="btn btn-primary ms-auto">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer py-3 border-0">
+                        <div class="text-center">
+                            Don't have an account?
+                            <a href="signup" class="text-dark">Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
 </section>
 
 <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
@@ -39,56 +37,53 @@
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-	window.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener('DOMContentLoaded', () => {
         const firebaseConfig = {
-        apiKey: "AIzaSyDhYbSc9y3bw0j7EmLtL2k4huvoK99Uhxs",
-        authDomain: "sportsocialmediaprofile.firebaseapp.com",
-        databaseURL: "https://sportsocialmediaprofile-default-rtdb.firebaseio.com",
-        projectId: "sportsocialmediaprofile",
-        storageBucket: "sportsocialmediaprofile.appspot.com",
-        messagingSenderId: "701173843774",
-        appId: "1:701173843774:web:41588c9dcc218e8cc6ce6f"
-      };
+            apiKey: 'AIzaSyDhYbSc9y3bw0j7EmLtL2k4huvoK99Uhxs',
+            authDomain: 'sportsocialmediaprofile.firebaseapp.com',
+            databaseURL: 'https://sportsocialmediaprofile-default-rtdb.firebaseio.com',
+            projectId: 'sportsocialmediaprofile',
+            storageBucket: 'sportsocialmediaprofile.appspot.com',
+            messagingSenderId: '701173843774',
+            appId: '1:701173843774:web:41588c9dcc218e8cc6ce6f',
+        };
 
-	  firebase.initializeApp(firebaseConfig);
+        firebase.initializeApp(firebaseConfig);
 
-	  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
 
-	  document
-	    .getElementById("login")
-	    .addEventListener("submit", (event) => {
-	      event.preventDefault();
-	      const login = event.target.email.value;
+        document.getElementById('login').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const login = event.target.email.value;
 
-	      firebase
-	        .auth()
-            .sendPasswordResetEmail(login).then(function() {
-                swal("Password Reset Email Sent!", "Email sent to " + login, "success");
-
-            })
-	        .catch((error) => {
-                alert(error);
-                let type="";
-                let title="";
-                let text="";
-                switch(error.code){
-                    case 'auth/user-not-found':
-                        title="User Does Not Exist!";
-                        text="Please Sign Up";
-                        type="warning";
-                        break;
-                    default:
-                        title="An Error Occured";
-                        text="Try Again Later!";
-                        type="error";
-                }
-                swal(title, text, type);
-                return false;
-
-	    });
-	      return false;
-	    });
-	});
+            firebase
+                .auth()
+                .sendPasswordResetEmail(login)
+                .then(function () {
+                    swal('Password Reset Email Sent!', 'Email sent to ' + login, 'success');
+                })
+                .catch((error) => {
+                    alert(error);
+                    let type = '';
+                    let title = '';
+                    let text = '';
+                    switch (error.code) {
+                        case 'auth/user-not-found':
+                            title = 'User Does Not Exist!';
+                            text = 'Please Sign Up';
+                            type = 'warning';
+                            break;
+                        default:
+                            title = 'An Error Occured';
+                            text = 'Try Again Later!';
+                            type = 'error';
+                    }
+                    swal(title, text, type);
+                    return false;
+                });
+            return false;
+        });
+    });
 </script>
 
 <%- include("partials/footer.ejs") %>

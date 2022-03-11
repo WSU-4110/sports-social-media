@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "*.ejs": "html"
+    },
+    "emmet.includeLanguages": {
+        "ejs": "html"
+    },
+    "html.format.wrapLineLength": 160,
+    "editor.formatOnSave": true,
+    "prettier.disableLanguages": ["html"]
+}
