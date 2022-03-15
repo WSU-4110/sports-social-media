@@ -89,6 +89,7 @@ app.get('/profile', (req, res) => {
         .verifySessionCookie(sessionCookie, true)
         .then((userData) => {
             res.render('profile', { userData });
+            console.log(userData);
         })
         .catch((error) => {
             res.redirect(`/login?type=${type}`);
