@@ -122,7 +122,7 @@
                 return db
                     .collection('users')
                     .doc(user.uid)
-                    .set({ favorites: [] })
+                    .set({ favorites: [], email: login, displayName: name })
                     .then(() => {
                         user.updateProfile({
                             displayName: name,
