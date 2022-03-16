@@ -23,6 +23,7 @@
         <div class="card-body">
           <h5 class="card-title"><%= player.name %></h5>
           <h6 class="card-text"><%= player.position %> | <%= player.jersey %></h6>
+          <button id="<%= player.name %>" class="favoriteButton"><%= player.name %></button>
 
           <div class="d-flex justify-content-center icon-bar">
             <% if(player.twitter){ %> <%# IF TWITTER ACCOUNT EXISTS %>
@@ -42,5 +43,51 @@
     </div>
   </div>
 </div>
+
+
+<script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    const firebaseConfig = {
+        apiKey: 'AIzaSyDhYbSc9y3bw0j7EmLtL2k4huvoK99Uhxs',
+        authDomain: 'sportsocialmediaprofile.firebaseapp.com',
+        databaseURL:
+            'https://sportsocialmediaprofile-default-rtdb.firebaseio.com',
+        projectId: 'sportsocialmediaprofile',
+        storageBucket: 'sportsocialmediaprofile.appspot.com',
+        messagingSenderId: '701173843774',
+        appId: '1:701173843774:web:41588c9dcc218e8cc6ce6f',
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
+
+    //Establish database connection
+    const db = firebase.firestore();
+
+    document.querySelectorAll('.favoriteButton').forEach((item) => {
+        item.addEventListener('click', (event) => {
+            return db
+                .collection('users')
+                .doc(`gz80rgotT0VfwhZkbAY20K3hXRZ2`)
+                .update({
+                    favorites: firebase.firestore.FieldValue.arrayUnion(
+                        item.id
+                    ),
+                })
+                .then(() => {
+                    console.log('updated successfully');
+                })
+                .catch((error) => {
+                    // The document probably doesn't exist.
+                    console.error('Error updating document: ', error);
+                });
+        });
+    });
+
+</script>
 
 <%- include("partials/footer.ejs") %>
