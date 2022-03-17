@@ -62,7 +62,7 @@
         const status = response.status;
 
         if (status == 401) {
-          console.log(status);
+          swal("Error", "Please login/signup to use this feature!", "warning");
 
         }
         if (status == 200) {

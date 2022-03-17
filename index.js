@@ -84,9 +84,14 @@ app.get('/signup', (req, res) => {
     res.render('signup');
 });
 
-app.get('/profile', (req, res) => {
+app.get('/profile', async (req, res) => {
     const sessionCookie = req.cookies.session || '';
     const type = req.query.type || 'none';
+    const response = await axios.get(
+        `https://maqhspyw3j.execute-api.us-east-1.amazonaws.com/dev/all.json`
+    );
+    const playerData = response.data;
+    const favoriteInfo = [];
 
     admin
         .auth()
@@ -97,8 +102,17 @@ app.get('/profile', (req, res) => {
                 .get()
                 .then(function (doc) {
                     var userData = doc.data();
-                    console.log(userData);
-                    res.render('profile', { userData });
+                    for (var player of playerData) {
+                        for (var item of userData.favorites) {
+                            if (player.name) {
+                                var playerName = player.name;
+                                if (item == playerName) {
+                                    favoriteInfo.push(player);
+                                }
+                            }
+                        }
+                    }
+                    res.render('profile', { userData, favoriteInfo });
                 });
         })
         .catch((error) => {
@@ -146,6 +160,25 @@ app.post('/favorite', (req, res) => {
                 favorites: admin.firestore.FieldValue.arrayUnion(player),
             });
             res.status(200).send(player + ' added!');
+        })
+        .catch((error) => {
+            res.status(401).send('ERROR');
+        });
+});
+
+app.post('/unfavorite', (req, res) => {
+    const sessionCookie = req.cookies.session || '';
+    const player = req.body.player;
+
+    admin
+        .auth()
+        .verifySessionCookie(sessionCookie, true)
+        .then((userData) => {
+            var user = userData.uid;
+            usersDb.doc(user).update({
+                favorites: admin.firestore.FieldValue.arrayRemove(player),
+            });
+            res.status(200).send(player + ' removed!');
         })
         .catch((error) => {
             res.status(401).send('ERROR');
