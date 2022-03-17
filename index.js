@@ -30,6 +30,10 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(csrfMiddleware);
 
+//firebase database (firestore users)
+const db = admin.firestore();
+const usersDb = db.collection('users');
+
 app.all('*', (req, res, next) => {
     res.cookie('XSRF-TOKEN', req.csrfToken());
     next();
@@ -88,8 +92,14 @@ app.get('/profile', (req, res) => {
         .auth()
         .verifySessionCookie(sessionCookie, true)
         .then((userData) => {
-            res.render('profile', { userData });
-            console.log(userData);
+            usersDb
+                .doc('' + userData.uid)
+                .get()
+                .then(function (doc) {
+                    var userData = doc.data();
+                    console.log(userData);
+                    res.render('profile', { userData });
+                });
         })
         .catch((error) => {
             res.redirect(`/login?type=${type}`);
@@ -121,4 +131,23 @@ app.get('/signout', (req, res) => {
 
 app.get('/forgot', (req, res) => {
     res.render('forgot');
+});
+
+app.post('/favorite', (req, res) => {
+    const sessionCookie = req.cookies.session || '';
+    const player = req.body.player;
+
+    admin
+        .auth()
+        .verifySessionCookie(sessionCookie, true)
+        .then((userData) => {
+            var user = userData.uid;
+            usersDb.doc(user).update({
+                favorites: admin.firestore.FieldValue.arrayUnion(player),
+            });
+            res.status(200).send(player + ' added!');
+        })
+        .catch((error) => {
+            res.status(401).send('ERROR');
+        });
 });
