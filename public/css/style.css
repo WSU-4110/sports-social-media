@@ -92,16 +92,19 @@
 
 /* end of social media icons styling */
 
-#filterd {
-    display: flex;
-    clear: none;
-    width:15%;
-    padding-left:10px;
-}
+/*CSS for the filter functions*/
+
 #filterc {
-    float: left;
-    clear: none;
-    padding-left:450px;
-    display:flex;
-    margin:auto;
+    padding-right:10px;
+    text-align: center;
 }
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#Fil {
+    padding-right:10px;
+}
+/* end of Filter CSS*/
