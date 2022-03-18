@@ -11,7 +11,7 @@
 
 	  <div class="container">
 	<!-- Filter function call -->
-	<h4 id="Fil"> Filters: </h4>
+	<h4 class="p-2"> Filters: </h4>
 	<div id="filterc">
 	<select class="form-select form-selectmd" id="filterC" label="Conference">
 	<option selected disabled>Conference</option>
@@ -39,7 +39,7 @@
 	<%# EJS CODE %>
 
 	<% teamData.forEach(function(team) { %>
-		<div class="col-lg-3 col-md-3 col-sm-12 card shadow hvr-grow teamCard teamDiv" data-conference="<%= team.conference %>" data-division="<%= team.division %>">
+		<div class="col-lg-3 col-md-3 col-sm-12 card shadow hvr-grow teamCard" data-conference="<%= team.conference %>" data-division="<%= team.division %>">
 			<img class="mr-3" src="<%= team.logo %>" alt="Card image cap" />
 			<span id="teamtext"><%= team.team %> </span>
 			<% var teampath= team.team;

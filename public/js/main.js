@@ -7,6 +7,6 @@ $('#filterC').change(function () { // Conference filter function
 
 $('#filterD').change(function () { // DIvision filter function
     var value1 = $('#filterD :selected').text(); // grab the selected option
-    $('.teamDiv').hide(); // hide everything else
+    $('.teamCard').hide(); // hide everything else
     $('[data-division="' + value1 + '"]').show(); // show the teams with data value equal to the selected option
 });
