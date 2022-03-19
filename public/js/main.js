@@ -12,46 +12,45 @@ $('#signup').on('submit', () => {
 
     firebase
         .auth()
-        .createUserWithEmailAndPassword(email, password) // create user
+        .createUserWithEmailAndPassword(email, password)
         .then(({ user }) =>
             db
                 .collection('users')
                 .doc(user.uid)
-                .set({ favorites: [], email: email, displayName: name }) // add user to "users" firestore db
+                .set({ favorites: [], email: email, displayName: name })
                 .then(() => {
                     user.updateProfile({
                         displayName: name,
                     });
                 })
-                .then(() => firebase.auth().signOut())
-                .then(() => {
-                    window.location.assign('/profile?type=success'); // redirect to signup page
-                })
-                .catch((error) => {
-                    const { code } = error; // get error message
-                    let type = '';
-                    let title = '';
-                    let text = '';
-                    switch (code) {
-                        case 'auth/email-already-in-use':
-                            title = 'User Already Exists!';
-                            text = '';
-                            type = 'error';
-                            break;
-                        case 'auth/weak-password':
-                            title = 'Weak Password';
-                            text = 'Please try again';
-                            type = 'error';
-                            break;
-                        default:
-                            title = 'An Error Occured';
-                            text = 'Try Again Later!';
-                            type = 'error';
-                    }
-                    swal(title, text, type); // send error alert
-                    return false;
-                })
-        );
+        )
+        .then(() => firebase.auth().signOut())
+        .then(() => {
+            window.location.assign('/profile?type=success');
+        })
+        .catch((error) => {
+            let type = '';
+            let title = '';
+            let text = '';
+            switch (error.code) {
+                case 'auth/email-already-in-use':
+                    title = 'User Already Exists!';
+                    text = '';
+                    type = 'error';
+                    break;
+                case 'auth/weak-password':
+                    title = 'Weak Password';
+                    text = 'Please try again';
+                    type = 'error';
+                    break;
+                default:
+                    title = 'An Error Occured';
+                    text = 'Try Again Later!';
+                    type = 'error';
+            }
+            swal(title, text, type);
+            return false;
+        });
     return false;
 });
 
