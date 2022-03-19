@@ -21,7 +21,7 @@
         <% } %>
 
         <div class="card-body">
-          <h5 class="card-title"><%= player.name %><span class="favorite"><i class="fa fa-star-o"></i> </span></h5>
+          <h5 class="card-title"><%= player.name %><span class="p-1 favorite"><i class="fa fa-star-o"></i> </span></h5>
           <h6 class="card-text"><%= player.position %> | <%= player.jersey %></h6>
 
           <div class="d-flex justify-content-center icon-bar">
@@ -58,18 +58,19 @@
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ player: player })
-      }).then(response => {
-        const status = response.status;
-
-        if (status == 401) {
-          swal("Error", "Please login/signup to use this feature!", "warning");
-
-        }
-        if (status == 200) {
-          swal("Success", "Player Added", "success");
-        }
       })
-        .catch(err => console.log(err))
+        .then(response => {
+          const status = response.status;
+
+          if (status == 401) {
+            swal("Error", "Please login/signup to use this feature!", "warning");
+
+          }
+          if (status == 200) {
+            swal("Success", player + " has been added to your favorites!", "success");
+          }
+        }).
+        catch(err => console.log(err))
     })
   });
 </script>

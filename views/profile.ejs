@@ -20,7 +20,7 @@
                 <% } %>
 
                 <div class="card-body">
-                    <h5 class="card-title"><%= player.name %><span class="unfavorite" style="color:red"><i class="fa fa-star-o"></i> </span></h5>
+                    <h5 class="card-title"><%= player.name %><span class="p-1 unfavorite" style="color:red"><i class="fa fa-star-o"></i> </span></h5>
                     <h6 class="card-text"><%= player.position %> | <%= player.jersey %></h6>
 
                     <div class="d-flex justify-content-center icon-bar">
@@ -48,26 +48,42 @@
     $(document).ready(function () {
         $('.unfavorite').on('click', function () {
             var player = $(this)[0].previousSibling.data;
-            fetch('/unfavorite', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json, text/plain, */*',
-                    'CSRF-Token': Cookies.get('XSRF-TOKEN'),
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ player: player })
-            }).then(response => {
-                const status = response.status;
-
-                if (status == 401) {
-                    console.log(status);
-
-                }
-                if (status == 200) {
-                    window.location.reload();
-                }
+            swal({
+                title: "Are you sure?",
+                icon: "warning",
+                buttons: [
+                    'No, cancel it!',
+                    'Yes, I am sure!'
+                ],
+                dangerMode: true,
             })
-                .catch(err => console.log(err))
+                .then((unfavorite) => {
+                    if (unfavorite) {
+                        fetch('/unfavorite', {
+                            method: 'POST',
+                            headers: {
+                                'Accept': 'application/json, text/plain, */*',
+                                'CSRF-Token': Cookies.get('XSRF-TOKEN'),
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ player: player })
+                        }).then(response => {
+                            const status = response.status;
+
+                            if (status == 401) {
+                                console.log(status);
+
+                            }
+                            if (status == 200) {
+                                window.location.reload();
+                            }
+                        })
+                            .catch(err => console.log(err))
+
+                    } else {
+                        swal("Canceled!");
+                    }
+                })
         })
     });
 </script>
