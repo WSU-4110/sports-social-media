@@ -1,37 +1,23 @@
 /* eslint-disable no-undef */
-/* Firebase initializeApp */
-function config() {
-    const firebaseConfig = {
-        apiKey: 'AIzaSyDhYbSc9y3bw0j7EmLtL2k4huvoK99Uhxs',
-        authDomain: 'sportsocialmediaprofile.firebaseapp.com',
-        databaseURL:
-            'https://sportsocialmediaprofile-default-rtdb.firebaseio.com',
-        projectId: 'sportsocialmediaprofile',
-        storageBucket: 'sportsocialmediaprofile.appspot.com',
-        messagingSenderId: '701173843774',
-        appId: '1:701173843774:web:41588c9dcc218e8cc6ce6f',
-    };
-    firebase.initializeApp(firebaseConfig);
-    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
-}
 
 /* Firebase Signup */
 $('#signup').on('submit', () => {
-    config();
+    // get input values
     const email = $('#email').val();
     const password = $('#password').val();
     const name = $('#name').val();
 
+    // firestore db
     const db = firebase.firestore();
 
     firebase
         .auth()
-        .createUserWithEmailAndPassword(email, password)
+        .createUserWithEmailAndPassword(email, password) // create user
         .then(({ user }) =>
             db
                 .collection('users')
                 .doc(user.uid)
-                .set({ favorites: [], email: email, displayName: name })
+                .set({ favorites: [], email: email, displayName: name }) // add user to "users" firestore db
                 .then(() => {
                     user.updateProfile({
                         displayName: name,
@@ -39,13 +25,14 @@ $('#signup').on('submit', () => {
                 })
                 .then(() => firebase.auth().signOut())
                 .then(() => {
-                    window.location.assign('/profile?type=success');
+                    window.location.assign('/profile?type=success'); // redirect to signup page
                 })
                 .catch((error) => {
+                    const { code } = error; // get error message
                     let type = '';
                     let title = '';
                     let text = '';
-                    switch (error.code) {
+                    switch (code) {
                         case 'auth/email-already-in-use':
                             title = 'User Already Exists!';
                             text = '';
@@ -61,21 +48,21 @@ $('#signup').on('submit', () => {
                             text = 'Try Again Later!';
                             type = 'error';
                     }
-                    swal(title, text, type);
+                    swal(title, text, type); // send error alert
                     return false;
                 })
         );
     return false;
 });
 
-/* Firebase Signup */
+/* Firebase Forgot Password */
 $('#forgot').on('submit', () => {
-    config();
+    // get email input
     const email = $('#email').val();
 
     firebase
         .auth()
-        .sendPasswordResetEmail(email)
+        .sendPasswordResetEmail(email) // send reset url link to email
         .then(() => {
             swal(
                 'Password Reset Email Sent!',
@@ -84,10 +71,11 @@ $('#forgot').on('submit', () => {
             );
         })
         .catch((error) => {
+            const { code } = error; // get error message
             let type = '';
             let title = '';
             let text = '';
-            switch (error.code) {
+            switch (code) {
                 case 'auth/user-not-found':
                     title = 'User Does Not Exist!';
                     text = 'Please Sign Up';
@@ -98,7 +86,7 @@ $('#forgot').on('submit', () => {
                     text = 'Try Again Later!';
                     type = 'error';
             }
-            swal(title, text, type);
+            swal(title, text, type); // send error alert
             return false;
         });
     return false;
@@ -106,7 +94,6 @@ $('#forgot').on('submit', () => {
 
 /* Firebase Login */
 $('#login').on('submit', () => {
-    config();
     const email = $('#email').val();
     const password = $('#password').val();
 
@@ -131,10 +118,11 @@ $('#login').on('submit', () => {
             window.location.assign('/profile');
         })
         .catch((error) => {
+            const { code } = error;
             let type = '';
             let title = '';
             let text = '';
-            switch (error.code) {
+            switch (code) {
                 case 'auth/user-not-found':
                     title = 'User Does Not Exist!';
                     text = 'Please Sign Up';
@@ -152,14 +140,13 @@ $('#login').on('submit', () => {
                     type = 'error';
             }
             swal(title, text, type);
-            return false;
         });
     return false;
 });
 
 /* Firebase Favorite */
 $('.favorite').on('click', function () {
-    const player = $(this)[0].previousSibling.data;
+    const player = $(this)[0].previousSibling.data; // get player name from playercard
     fetch('/favorite', {
         method: 'POST',
         headers: {
@@ -167,18 +154,18 @@ $('.favorite').on('click', function () {
             'CSRF-Token': Cookies.get('XSRF-TOKEN'),
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ player: player }),
+        body: JSON.stringify({ player: player }), // send post request with player name
     }).then((response) => {
         response
             .json()
-            .then((parsedJson) => {
-                const { status } = parsedJson;
-                const { message } = parsedJson;
+            .then((data) => {
+                const { status } = data; //  response status
+                const { message } = data; // response message
                 if (status === 401) {
-                    swal('Error', message, 'warning');
+                    swal('Error', message, 'warning'); // error alert
                 }
                 if (status === 200) {
-                    swal('Success', message, 'success');
+                    swal('Success', message, 'success'); // success alert
                 }
             })
             .catch((error) => {
@@ -189,13 +176,16 @@ $('.favorite').on('click', function () {
 
 /* Firebase Unfavorite */
 $('.unfavorite').on('click', function () {
-    const player = $(this)[0].previousSibling.data;
+    const player = $(this)[0].previousSibling.data; // get player name from playercard
+    // Confirmation Alert
     swal({
         title: 'Are you sure?',
+        text: `${player} will be removed from your favorites!`,
         icon: 'warning',
-        buttons: ['No, cancel it!', 'Yes, I am sure!'],
+        buttons: ['Cancel', 'Ok'],
         dangerMode: true,
     }).then((unfavorite) => {
+        // if confirmation yes
         if (unfavorite) {
             fetch('/unfavorite', {
                 method: 'POST',
@@ -204,11 +194,10 @@ $('.unfavorite').on('click', function () {
                     'CSRF-Token': Cookies.get('XSRF-TOKEN'),
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ player: player }),
+                body: JSON.stringify({ player: player }), // send post request with player name to unfavorite
             })
                 .then((response) => {
                     const { status } = response;
-
                     if (status === 401) {
                         console.log(status);
                     }
@@ -216,8 +205,12 @@ $('.unfavorite').on('click', function () {
                         window.location.reload();
                     }
                 })
-                .catch((err) => console.log(err));
-        } else {
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+        // if confirmation canceled
+        else {
             swal('Canceled!');
         }
     });
