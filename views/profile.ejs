@@ -1,10 +1,8 @@
 <%- include("partials/header.ejs") %>
-
-<html>
 <div class="text-center">
     <a href="/"><img src="/images/generic-player.png" alt="NBA logo" id="logoNBA" /></a>
-    <h1 class="display-2">Welcome <%= userData.displayName %></h1>
-    <a href="signout" class="btn btn-primary">Sign Out</a>
+    <h1 class="display-2">Welcome <%= currentUserData.displayName %></h1>
+    <a href="logout" class="btn btn-primary">Sign Out</a>
 </div>
 <br />
 <div class="container">
@@ -43,50 +41,4 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
-
-    $(document).ready(function () {
-        $('.unfavorite').on('click', function () {
-            var player = $(this)[0].previousSibling.data;
-            swal({
-                title: "Are you sure?",
-                icon: "warning",
-                buttons: [
-                    'No, cancel it!',
-                    'Yes, I am sure!'
-                ],
-                dangerMode: true,
-            })
-                .then((unfavorite) => {
-                    if (unfavorite) {
-                        fetch('/unfavorite', {
-                            method: 'POST',
-                            headers: {
-                                'Accept': 'application/json, text/plain, */*',
-                                'CSRF-Token': Cookies.get('XSRF-TOKEN'),
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({ player: player })
-                        }).then(response => {
-                            const status = response.status;
-
-                            if (status == 401) {
-                                console.log(status);
-
-                            }
-                            if (status == 200) {
-                                window.location.reload();
-                            }
-                        })
-                            .catch(err => console.log(err))
-
-                    } else {
-                        swal("Canceled!");
-                    }
-                })
-        })
-    });
-</script>
 <%- include("partials/footer.ejs") %>
-
-</html>

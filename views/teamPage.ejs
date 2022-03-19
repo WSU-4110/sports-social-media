@@ -45,34 +45,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
-
-  $(document).ready(function () {
-    $('.favorite').on('click', function () {
-      var player = $(this)[0].previousSibling.data;
-      fetch('/favorite', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json, text/plain, */*',
-          'CSRF-Token': Cookies.get('XSRF-TOKEN'),
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ player: player })
-      })
-        .then(response => {
-          const status = response.status;
-
-          if (status == 401) {
-            swal("Error", "Please login/signup to use this feature!", "warning");
-
-          }
-          if (status == 200) {
-            swal("Success", player + " has been added to your favorites!", "success");
-          }
-        }).
-        catch(err => console.log(err))
-    })
-  });
-</script>
 
 <%- include("partials/footer.ejs") %>

@@ -1,100 +1,100 @@
 #logoNBA {
- max-width: 20%;
- padding-top: 1.5em;
- padding-bottom: 1.5em;
+    max-width: 20%;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
 }
 
 #teamCard {
- width: 25rem;
- display: inline-block;
- margin: auto;
- margin-bottom: 1.5rem;
+    width: 25rem;
+    display: inline-block;
+    margin: auto;
+    margin-bottom: 1.5rem;
 }
 
 #teamtext {
- font-weight: 500;
- padding-left: 3em;
- font-size: 18px;
+    font-weight: 500;
+    padding-left: 3em;
+    font-size: 18px;
 }
 
 .mr-3 {
- width: 20%;
- margin-left: 20px;
+    width: 20%;
+    margin-left: 20px;
 }
 
 #playerCard {
- width: 25rem;
- display: inline-block;
- text-align: center;
- margin: auto;
- margin-bottom: 1.5rem;
+    width: 25rem;
+    display: inline-block;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 1.5rem;
 }
 
 #playerImage {
- width: 15rem;
+    width: 15rem;
 }
 
 .fa {
- font-size: 20px !important;
+    font-size: 20px !important;
 }
 
 /* Grow */
 .hvr-grow {
- display: inline-block;
- vertical-align: middle;
- transform: translateZ(0);
- box-shadow: 0 0 1px rgba(0, 0, 0, 0);
- backface-visibility: hidden;
- -moz-osx-font-smoothing: grayscale;
- transition-duration: 0.3s;
- transition-property: transform;
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
 }
 
 .hvr-grow:hover,
 .hvr-grow:focus,
 .hvr-grow:active {
- transform: scale(1.1);
+    transform: scale(1.1);
 }
 /* end of grow */
 
 /* Social Media Icon Styling */
 .icon-bar {
- margin-top: 2em;
+    margin-top: 2em;
 }
 
 .btn-social {
- margin-left: 0.5em;
- margin-right: 0.5em;
- border-radius: 50%;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    border-radius: 50%;
 }
 
 .btn-twitter {
- background: #1da1f2;
- color: white !important;
+    background: #1da1f2;
+    color: white !important;
 }
 
 .btn-instagram {
- /* background: #833AB4; */
- background: linear-gradient(
-  45deg,
-  #405de6,
-  #5851db,
-  #833ab4,
-  #c13584,
-  #e1306c,
-  #fd1d1d
- );
- color: white !important;
+    /* background: #833AB4; */
+    background: linear-gradient(
+        45deg,
+        #405de6,
+        #5851db,
+        #833ab4,
+        #c13584,
+        #e1306c,
+        #fd1d1d
+    );
+    color: white !important;
 }
 
 .btn-facebook {
- background: #1877f2;
- color: white !important;
+    background: #1877f2;
+    color: white !important;
 }
 
 .fa-facebook {
- padding-left: 3px;
- padding-right: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
 }
 
 /* end of social media icons styling */
