@@ -68,6 +68,42 @@ $('#signup').on('submit', () => {
     return false;
 });
 
+/* Firebase Signup */
+$('#forgot').on('submit', () => {
+    config();
+    const email = $('#email').val();
+
+    firebase
+        .auth()
+        .sendPasswordResetEmail(email)
+        .then(() => {
+            swal(
+                'Password Reset Email Sent!',
+                `Email sent to ${email}`,
+                'success'
+            );
+        })
+        .catch((error) => {
+            let type = '';
+            let title = '';
+            let text = '';
+            switch (error.code) {
+                case 'auth/user-not-found':
+                    title = 'User Does Not Exist!';
+                    text = 'Please Sign Up';
+                    type = 'warning';
+                    break;
+                default:
+                    title = 'An Error Occured';
+                    text = 'Try Again Later!';
+                    type = 'error';
+            }
+            swal(title, text, type);
+            return false;
+        });
+    return false;
+});
+
 /* Firebase Login */
 $('#login').on('submit', () => {
     config();
@@ -122,35 +158,32 @@ $('#login').on('submit', () => {
 });
 
 /* Firebase Favorite */
-/* Firebase Favorite */
-$(document).ready(() => {
-    $('.favorite').on('click', function () {
-        const player = $(this)[0].previousSibling.data;
-        fetch('/favorite', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json, text/plain, */*',
-                'CSRF-Token': Cookies.get('XSRF-TOKEN'),
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ player: player }),
-        }).then((response) => {
-            response
-                .json()
-                .then((parsedJson) => {
-                    const { status } = parsedJson;
-                    const { message } = parsedJson;
-                    if (status === 401) {
-                        swal('Error', message, 'warning');
-                    }
-                    if (status === 200) {
-                        swal('Success', message, 'success');
-                    }
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-        });
+$('.favorite').on('click', function () {
+    const player = $(this)[0].previousSibling.data;
+    fetch('/favorite', {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json, text/plain, */*',
+            'CSRF-Token': Cookies.get('XSRF-TOKEN'),
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ player: player }),
+    }).then((response) => {
+        response
+            .json()
+            .then((parsedJson) => {
+                const { status } = parsedJson;
+                const { message } = parsedJson;
+                if (status === 401) {
+                    swal('Error', message, 'warning');
+                }
+                if (status === 200) {
+                    swal('Success', message, 'success');
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     });
 });
 

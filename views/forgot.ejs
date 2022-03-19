@@ -7,7 +7,7 @@
                 <div class="card shadow-lg">
                     <div class="card-body p-5">
                         <h1 class="fs-4 card-title fw-bold mb-4">Forgot Password</h1>
-                        <form id="login">
+                        <form id="forgot">
                             <div class="mb-3">
                                 <label class="mb-2 text-muted" for="email">E-Mail Address</label>
                                 <input id="email" type="email" class="form-control" name="email" value="" required />
@@ -36,38 +36,5 @@
 <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
-    document.getElementById('login').addEventListener('submit', (event) => {
-        event.preventDefault();
-        const login = event.target.email.value;
-
-        firebase
-            .auth()
-            .sendPasswordResetEmail(login)
-            .then(function () {
-                swal('Password Reset Email Sent!', 'Email sent to ' + login, 'success');
-            })
-            .catch((error) => {
-                alert(error);
-                let type = '';
-                let title = '';
-                let text = '';
-                switch (error.code) {
-                    case 'auth/user-not-found':
-                        title = 'User Does Not Exist!';
-                        text = 'Please Sign Up';
-                        type = 'warning';
-                        break;
-                    default:
-                        title = 'An Error Occured';
-                        text = 'Try Again Later!';
-                        type = 'error';
-                }
-                swal(title, text, type);
-                return false;
-            });
-        return false;
-    });
-</script>
 
 <%- include("partials/footer.ejs") %>
