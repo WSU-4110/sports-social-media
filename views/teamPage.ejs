@@ -4,7 +4,7 @@
     <br>
     <div class="text-center">
       <h1 class="display-2"><%= team[0].team %></h1>
-      <img height="200px" width="200px" id="teamLogo" src="<%= team[0].teamLogo %>">
+      <img id="teamLogo" src="<%= team[0].teamLogo %>">
     </div>
     <br>
 
@@ -16,7 +16,7 @@
           <%# EJS CODE %>
 
           <% team.slice(1).forEach(function(player) { %>
-          <div class="col-lg-3 col-md-3 col-sm-12 card shadow" id="playerCard">
+          <div class="col-lg-3 col-md-3 col-sm-12 card shadow" id="playerCard" style="--teamColor: #<%= team[0].teamColor %>">
 
             <div class="image-cropper shadow">
             <div class ="image-cropper-subContainer">
@@ -29,22 +29,19 @@
             </div>
 
             <div class="card-body" id="playerInfo">
-              <h4 class="card-title"><%= player.name %> </h4>
+              <h5 class="card-title"><%= player.name %> </h5>
 
-              <div class="playerStats">
-                <h5 class="card-text"><%= player.position %> | <%= player.jersey %> </h5>
+
+              <div class="d-flex justify-content-evenly playerStats">
+                <div class="playerStats-subContainer">
+                  <h5 class="card-text"><%= player.jersey %></h5>
+                  <h6 class="stat-title-text">Jersey No.</h6>
+                </div>
+                <div class="playerStats-subContainer">
+                  <h5 class="card-text"><%= player.position %></h5>
+                  <h6 class="stat-title-text">Position</h6>
+                </div>
               </div>
-
-              <!-- <div class="d-flex justify-content-evenly playerStats"> -->
-                <!-- <div class="playerStats-subContainer"> -->
-                  <!-- <h5 class="card-text"><%= player.position %></h5> -->
-                  <!-- <h6 class="stat-title-text">Position</h6> -->
-                <!-- </div> -->
-                <!-- <div class="playerStats-subContainer"> -->
-                  <!-- <h5 class="card-text"><%= player.jersey %></h5> -->
-                  <!-- <h6 class="stat-title-text">Jersey No.</h6> -->
-                <!-- </div> -->
-              <!-- </div> -->
 
               <div class="d-flex justify-content-center icon-bar">
 
