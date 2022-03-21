@@ -15,7 +15,7 @@
     padding-right: 7em;
 }
 
-#teamCard {
+.teamCard {
     width: 25rem;
     display: inline-block;
     margin: auto;
@@ -163,3 +163,18 @@
 }
 
 /* end of social media icons styling */
+
+/*CSS for the filter functions*/
+
+#filterc {
+    padding-right: 10px;
+    text-align: center;
+}
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* end of Filter CSS*/
