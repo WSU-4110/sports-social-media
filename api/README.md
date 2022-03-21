@@ -2,7 +2,6 @@
 
 These are files required to create the backend API that is used to access data
 
-
 ## Requirements
 
 1. AWS S3 Bucket

@@ -1,25 +1,25 @@
 # sports-social-media-profile-locater
 
-
 ## Requirements
 
 For development, you will only need Node.js and a node global package installed in your environement.
 
 ### Node
-- #### Node installation on Windows
 
-  Just go on [official Node.js website](https://nodejs.org/) and download the installer.
-Also, be sure to have `git` available in your PATH, `npm` might need it (You can find git [here](https://git-scm.com/)).
+-   #### Node installation on Windows
 
-- #### Node installation on Ubuntu
+    Just go on [official Node.js website](https://nodejs.org/) and download the installer.
+    Also, be sure to have `git` available in your PATH, `npm` might need it (You can find git [here](https://git-scm.com/)).
 
-  You can install nodejs and npm easily with apt install, just run the following commands.
-  
-      $ sudo apt install nodejs
-      $ sudo apt install npm
+-   #### Node installation on Ubuntu
 
-- #### Other Operating Systems
-  You can find more information about the installation on the [official Node.js website](https://nodejs.org/) and the [official NPM website](https://npmjs.org/).
+    You can install nodejs and npm easily with apt install, just run the following commands.
+
+        $ sudo apt install nodejs
+        $ sudo apt install npm
+
+-   #### Other Operating Systems
+    You can find more information about the installation on the [official Node.js website](https://nodejs.org/) and the [official NPM website](https://npmjs.org/).
 
 If the installation was successful, you should be able to run the following command.
 
@@ -28,17 +28,17 @@ If the installation was successful, you should be able to run the following comm
 
     $ npm --version
     6.1.0
-    
+
 ## Running Locally
 
 ```sh
-git clone https://github.com/WSU-4110/sports-social-media-profile-locater.git 
+git clone https://github.com/WSU-4110/sports-social-media-profile-locater.git
 cd sports-social-media-profile-locater
 npm install
 node index.js
 ```
 
-### To view changes without restart of server 
+### To view changes without restart of server
 
 ```sh
 nodemon index.js
@@ -53,10 +53,13 @@ node index.js
 ## Initial Mockups
 
 ### Landing Page
+
 ![alt text](https://github.com/WSU-4110/sports-social-media-profile-locater/blob/main/Mockups/MockUI-Home.png?raw=true)
 
 ### Team Page
+
 ![alt text](https://github.com/WSU-4110/sports-social-media-profile-locater/blob/main/Mockups/MockUI-PlayerCards.png?raw=true)
 
 ### WorkFlow
+
 ![alt text](https://github.com/WSU-4110/sports-social-media-profile-locater/blob/main/Mockups/Workflow2.png?raw=true)

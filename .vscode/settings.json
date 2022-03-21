@@ -1,0 +1,15 @@
+{
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "files.associations": {
+      "*.ejs": "html"
+  },
+  "emmet.includeLanguages": {
+      "ejs": "html"
+  },
+    "html.format.wrapLineLength": 160,
+    "prettier.htmlWhitespaceSensitivity": "ignore",
+    "workbench.colorTheme": "GitHub Dark",
+    "editor.formatOnSave": true
+  }

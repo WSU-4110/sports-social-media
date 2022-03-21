@@ -1,79 +1,76 @@
 #logoNBA {
-    max-width:20%;
-    padding-top:1.5em;
-    padding-bottom:1.5em;
+    max-width: 20%;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
 }
 
-
 #teamLogo {
-  margin-bottom: 5rem;
-  height: 200px;
-  width: 200px;
+    margin-bottom: 5rem;
+    height: 200px;
+    width: 200px;
 }
 
 .teamPage-container {
-  padding-left: 7em;
-  padding-right: 7em;
+    padding-left: 7em;
+    padding-right: 7em;
 }
 
 .teamCard {
     width: 25rem;
-    display:inline-block;
+    display: inline-block;
     margin: auto;
     margin-bottom: 1.5rem;
 }
 
-
 #teamtext {
-    font-weight:500;
-    padding-left:3em;
-    font-size:18px;
+    font-weight: 500;
+    padding-left: 3em;
+    font-size: 18px;
 }
 
 .mr-3 {
-    width:20%;
-    margin-left:20px;
+    width: 20%;
+    margin-left: 20px;
 }
 
 #playerCard {
     width: 20rem;
-    display:inline-block;
+    display: inline-block;
     text-align: center;
     margin: auto;
     margin-bottom: 8rem;
     color: var(--teamColor);
     /* test */
     position: relative;
-
 }
 
 .image-cropper {
-  width: 125px;
-  height: 125px;
-  position: absolute;
-  overflow: hidden;
-  border-radius: 50%;
-  background-color: white;
-  top: -15%;
-  Left: 30%;
+    width: 125px;
+    height: 125px;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: white;
+    top: -15%;
+    left: 30%;
 }
 
 .image-cropper-subContainer {
-  height: 100px;
-  width: 100px;
-  position: absolute;
-  overflow: hidden;
-  /* border-radius: 50%; */
-  background-color: white;
-  Left: 10%;
-  top: 10%;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    overflow: hidden;
+    /* border-radius: 50%; */
+    background-color: white;
+    left: 10%;
+    top: 10%;
 }
 
 /* test */
 #playerImage {
     width: 8rem;
     position: relative;
-    Right: 12%;
+    right: 12%;
     /* position: absolute;
     top:-25%;
     left: 15%;
@@ -82,26 +79,23 @@
 }
 
 #playerInfo {
-  margin-top: 5rem;
+    margin-top: 5rem;
 }
 
 .card-body h4 {
-  font-size: 1.6rem;
+    font-size: 1.6rem;
 }
 
 .playerStats {
-  margin-top: 1em;
-}
-
-.card-body h5 {
+    margin-top: 1em;
 }
 
 .card-body h6 {
-  font-size: 0.8em;
+    font-size: 0.8em;
 }
 
 .stat-title-text {
-  color: blue;
+    color: blue;
 }
 
 .fa {
@@ -129,35 +123,43 @@
 
 /* Social Media Icon Styling */
 .icon-bar {
-  margin-top: 1.25rem;
-  margin-bottom: 0.5rem;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
 }
 
 .btn-social {
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-  border-radius: 50%;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    border-radius: 50%;
 }
 
 .btn-twitter {
-  background: #1DA1F2;
-  color: white !important;
+    background: #1da1f2;
+    color: white !important;
 }
 
 .btn-instagram {
-  /* background: #833AB4; */
-  background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
-  color: white !important;
+    /* background: #833AB4; */
+    background: linear-gradient(
+        45deg,
+        #405de6,
+        #5851db,
+        #833ab4,
+        #c13584,
+        #e1306c,
+        #fd1d1d
+    );
+    color: white !important;
 }
 
 .btn-facebook {
-  background: #1877F2;
-  color: white !important;
+    background: #1877f2;
+    color: white !important;
 }
 
 .fa-facebook {
-  padding-left: 3px;
-  padding-right: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
 }
 
 /* end of social media icons styling */
@@ -165,7 +167,7 @@
 /*CSS for the filter functions*/
 
 #filterc {
-    padding-right:10px;
+    padding-right: 10px;
     text-align: center;
 }
 .container {
