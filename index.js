@@ -211,6 +211,52 @@ app.post('/unfavorite', (req, res) => {
         });
 });
 
+app.post('/signup', (req, res) => {
+    const { email, name, password } = req.body; // get user email address, name, and password
+
+    admin
+        .auth()
+        .createUser({
+            // create user in firebase auth account
+            email: email,
+            password: password,
+            displayName: name,
+        })
+
+        .then((user) => {
+            db.collection('users').doc(user.uid).set({
+                // create user in firebase firestore
+                favorites: [],
+                email: user.email,
+                displayName: user.displayName,
+            });
+            res.status(200).json({
+                message: `${email} has been registered!`, // send registration success
+                status: 200,
+            });
+        })
+        .catch((error) => {
+            const message = error.code; // get error message from Firebase
+
+            let returnMessage; // variable to assign error code message
+
+            switch (message) {
+                case 'auth/email-already-exists': // error occurs when email has already been registered;
+                    returnMessage = 'User already exists!';
+                    break;
+                case 'auth/invalid-password': // error occurs when invalid/weak password is entered
+                    returnMessage = 'Weak/invalid password!';
+                    break;
+                default:
+                    returnMessage = 'An error occurred!'; // error occurs in general cases
+            }
+            res.status(401).json({
+                message: returnMessage, // assign error message to return to client
+                status: 401,
+            });
+        });
+});
+
 app.listen(port, () => {
     console.log(`App listening on port ${port}`);
 });

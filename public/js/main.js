@@ -7,50 +7,36 @@ $('#signup').on('submit', () => {
     const password = $('#password').val();
     const name = $('#name').val();
 
-    // firestore db
-    const db = firebase.firestore();
-
-    firebase
-        .auth()
-        .createUserWithEmailAndPassword(email, password)
-        .then(({ user }) =>
-            db
-                .collection('users')
-                .doc(user.uid)
-                .set({ favorites: [], email: email, displayName: name })
-                .then(() => {
-                    user.updateProfile({
-                        displayName: name,
-                    });
-                })
-        )
-        .then(() => firebase.auth().signOut())
-        .then(() => {
-            window.location.assign('/profile?type=success');
-        })
-        .catch((error) => {
-            let type = '';
-            let title = '';
-            let text = '';
-            switch (error.code) {
-                case 'auth/email-already-in-use':
-                    title = 'User Already Exists!';
-                    text = '';
-                    type = 'error';
-                    break;
-                case 'auth/weak-password':
-                    title = 'Weak Password';
-                    text = 'Please try again';
-                    type = 'error';
-                    break;
-                default:
-                    title = 'An Error Occured';
-                    text = 'Try Again Later!';
-                    type = 'error';
-            }
-            swal(title, text, type);
-            return false;
-        });
+    fetch('/signup', {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json, text/plain, */*',
+            'CSRF-Token': Cookies.get('XSRF-TOKEN'),
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            email: email,
+            name: name,
+            password: password,
+        }),
+    }).then((response) => {
+        response
+            .json()
+            .then((data) => {
+                const { status } = data; //  response status
+                const { message } = data; // response message
+                if (status === 401) {
+                    swal('Error', message, 'warning'); // error alert
+                }
+                if (status === 200) {
+                    swal('Success', message, 'success'); // success alert
+                    window.location.assign('/profile?type=success');
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    });
     return false;
 });
 
