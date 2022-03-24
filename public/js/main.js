@@ -131,7 +131,9 @@ $('#login').on('submit', () => {
 
 /* Firebase Favorite */
 $('.favorite').on('click', function () {
-    const player = $(this)[0].previousSibling.data; // get player name from playercard
+    let player = $(this)[0].previousSibling.data; // get player name from playercard
+    player = player.trim();
+
     fetch('/favorite', {
         method: 'POST',
         headers: {
@@ -151,6 +153,9 @@ $('.favorite').on('click', function () {
                 }
                 if (status === 200) {
                     swal('Success', message, 'success'); // success alert
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1000);
                 }
             })
             .catch((error) => {
@@ -161,7 +166,8 @@ $('.favorite').on('click', function () {
 
 /* Firebase Unfavorite */
 $('.unfavorite').on('click', function () {
-    const player = $(this)[0].previousSibling.data; // get player name from playercard
+    let player = $(this)[0].previousSibling.data; // get player name from playercard
+    player = player.trim();
     // Confirmation Alert
     swal({
         title: 'Are you sure?',
