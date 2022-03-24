@@ -90,49 +90,6 @@ app.get('/teams/:teamName', async (req, res) => {
     res.render('teamPage', { team });
 });
 
-app.post('/signup', async (req, res) => {
-    const { email, name, password } = req.body; // get user email address, name, and password
-
-    try {
-        const user = await fbAuth.createUser({
-            email: email,
-            password: password,
-            displayName: name,
-        });
-        usersDb.doc(user.uid).set({
-            favorites: [],
-            email: user.email,
-            displayName: user.displayName,
-        });
-        res.status(200).json({
-            message: `${email} has been registered!`, // send registration success
-            status: 200,
-        });
-    } catch (error) {
-        const message = error.code; // get error message from Firebase
-        let returnMessage; // variable to assign error code message
-        switch (message) {
-            case 'auth/email-already-exists': // error occurs when email has already been registered;
-                returnMessage = 'User already exists!';
-                break;
-            case 'auth/invalid-password': // error occurs when invalid/weak password is entered
-                returnMessage = 'Weak/invalid password!';
-                break;
-            default:
-                returnMessage = 'An error occurred!'; // error occurs in general cases
-        }
-        res.status(401).json({
-            message: returnMessage, // assign error message to return to client
-            status: 401,
-        });
-    }
-});
-
-/* Signup Page */
-app.get('/signup', (req, res) => {
-    res.render('signup');
-});
-
 /* Login Page */
 app.get('/login', (req, res) => {
     res.render('login');
@@ -149,12 +106,66 @@ app.get('/forgot', (req, res) => {
     res.render('forgot');
 });
 
+/* Signup Page */
+app.get('/signup', (req, res) => {
+    res.render('signup');
+});
+
+/* Signup Post */
+app.post('/signup', async (req, res) => {
+    const { email, name, password } = req.body; // get user email address, name, and password
+
+    try {
+        // create firebase user
+        const user = await fbAuth.createUser({
+            email: email,
+            password: password,
+            displayName: name,
+        });
+
+        // add firebase user in the firestore
+        usersDb.doc(user.uid).set({
+            favorites: [],
+            email: user.email,
+            displayName: user.displayName,
+        });
+
+        // send success message
+        res.status(200).json({
+            message: `${email} has been registered!`, // send registration success
+            status: 200,
+        });
+    } catch (error) {
+        // error message handling
+        const message = error.code; // get error message from Firebase
+        let returnMessage; // variable to assign error code message
+
+        switch (message) {
+            case 'auth/email-already-exists': // error occurs when email has already been registered;
+                returnMessage = 'User already exists!';
+                break;
+            case 'auth/invalid-password': // error occurs when invalid/weak password is entered
+                returnMessage = 'Weak/invalid password!';
+                break;
+            default:
+                returnMessage = 'An error occurred!'; // error occurs in general cases
+        }
+
+        // send error message
+        res.status(401).json({
+            message: returnMessage, // assign error message to return to client
+            status: 401,
+        });
+    }
+});
+
 /* Session Login */
 app.post('/sessionLogin', async (req, res) => {
     const idToken = req.body.idToken.toString();
     const expiresIn = 60 * 60 * 24 * 5 * 1000;
 
     try {
+        // create session cookie
         const sessionCookie = await fbAuth.createSessionCookie(idToken, {
             expiresIn,
         });
@@ -162,6 +173,7 @@ app.post('/sessionLogin', async (req, res) => {
         res.cookie('session', sessionCookie, options);
         res.end(JSON.stringify({ status: 'success' }));
     } catch (error) {
+        // error handling
         console.log(error);
         res.status(401).send('UNAUTHORIZED REQUEST!');
     }
@@ -176,7 +188,7 @@ app.get('/profile', async (req, res) => {
     const favoriteInfo = []; // empty array to store favorite info
 
     try {
-        const user = await fbAuth.verifySessionCookie(sessionCookie, true);
+        const user = await fbAuth.verifySessionCookie(sessionCookie, true); // verify session cookie
         const fav = await usersDb.doc(user.uid).get(); // get signed in user inforamtion
         const currentUserData = fav.data();
         const favoritesData = currentUserData.favorites; // get all favorites from user
@@ -207,7 +219,7 @@ app.post('/favorite', async (req, res) => {
     const { player } = req.body; // get player name to add to favorite
 
     try {
-        const user = await fbAuth.verifySessionCookie(sessionCookie, true);
+        const user = await fbAuth.verifySessionCookie(sessionCookie, true); // verify session cookie for user
         usersDb.doc(user.uid).update({
             favorites: admin.firestore.FieldValue.arrayUnion(player), // add player to current user favorites
         });
@@ -237,8 +249,8 @@ app.post('/unfavorite', async (req, res) => {
     const { player } = req.body; // get player name to remove from favorites
 
     try {
-        const user = await fbAuth.verifySessionCookie(sessionCookie, true);
-        usersDb.doc(`${user.uid}`).update({
+        const user = await fbAuth.verifySessionCookie(sessionCookie, true); // verify session cookie for user
+        usersDb.doc(user.uid).update({
             favorites: admin.firestore.FieldValue.arrayRemove(player), // remove player from current user favorites
         });
         res.status(200).send(`${player} removed!`); // send success
