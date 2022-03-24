@@ -21,6 +21,7 @@ admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     databaseURL: 'https://sportsocialmediaprofile-default-rtdb.firebaseio.com',
 });
+const fbAuth = admin.auth();
 const db = admin.firestore();
 const usersDb = db.collection('users');
 
@@ -58,20 +59,73 @@ app.get('/', (req, res) => {
 });
 
 /* Team Page */
-app.get('/teams/:teamName', (req, res) => {
+app.get('/teams/:teamName', async (req, res) => {
     const { teamName } = req.params; // gets teamname
-    let team;
-    const getTeam = async () => {
+    const sessionCookie = req.cookies.session || '';
+    const response = await axios.get(`${API}/${teamName}.json`); // gets team info with players info
+    const team = response.data;
+
+    if (sessionCookie !== '') {
         try {
-            const response = await axios.get(`${API}/${teamName}.json`); // gets team info with players info
-            team = response.data;
-            res.render('teamPage', { team });
+            const user = await fbAuth.verifySessionCookie(sessionCookie, true);
+            const fav = await usersDb.doc(user.uid).get(); // get signed in user inforamtion
+            const currentUserData = fav.data();
+            const favoritesData = currentUserData.favorites; // get all favorites from user
+            team.forEach((player) => {
+                favoritesData.forEach((favorites) => {
+                    // only grab player info and discard team info from all.json file
+                    if (player.name) {
+                        const playerName = player.name; // get player name from all player
+                        const favoritesName = favorites; // get favorite player name
+                        if (favoritesName === playerName) {
+                            player.favStatus = 'true'; // if favorite player name matches a player get all info and push into empty array
+                        }
+                    }
+                });
+            });
         } catch (error) {
-            res.status(401).send('An Error Occuered!');
             console.error(error);
         }
-    };
-    getTeam();
+    }
+    res.render('teamPage', { team });
+});
+
+app.post('/signup', async (req, res) => {
+    const { email, name, password } = req.body; // get user email address, name, and password
+
+    try {
+        const user = await fbAuth.createUser({
+            email: email,
+            password: password,
+            displayName: name,
+        });
+        usersDb.doc(user.uid).set({
+            favorites: [],
+            email: user.email,
+            displayName: user.displayName,
+        });
+        res.status(200).json({
+            message: `${email} has been registered!`, // send registration success
+            status: 200,
+        });
+    } catch (error) {
+        const message = error.code; // get error message from Firebase
+        let returnMessage; // variable to assign error code message
+        switch (message) {
+            case 'auth/email-already-exists': // error occurs when email has already been registered;
+                returnMessage = 'User already exists!';
+                break;
+            case 'auth/invalid-password': // error occurs when invalid/weak password is entered
+                returnMessage = 'Weak/invalid password!';
+                break;
+            default:
+                returnMessage = 'An error occurred!'; // error occurs in general cases
+        }
+        res.status(401).json({
+            message: returnMessage, // assign error message to return to client
+            status: 401,
+        });
+    }
 });
 
 /* Signup Page */
@@ -96,23 +150,21 @@ app.get('/forgot', (req, res) => {
 });
 
 /* Session Login */
-app.post('/sessionLogin', (req, res) => {
+app.post('/sessionLogin', async (req, res) => {
     const idToken = req.body.idToken.toString();
     const expiresIn = 60 * 60 * 24 * 5 * 1000;
-    admin
-        .auth()
-        .createSessionCookie(idToken, { expiresIn })
-        .then(
-            (sessionCookie) => {
-                const options = { maxAge: expiresIn, httpOnly: true };
-                res.cookie('session', sessionCookie, options);
-                res.end(JSON.stringify({ status: 'success' }));
-            },
-            (error) => {
-                console.log(error);
-                res.status(401).send('UNAUTHORIZED REQUEST!');
-            }
-        );
+
+    try {
+        const sessionCookie = await fbAuth.createSessionCookie(idToken, {
+            expiresIn,
+        });
+        const options = { maxAge: expiresIn, httpOnly: true };
+        res.cookie('session', sessionCookie, options);
+        res.end(JSON.stringify({ status: 'success' }));
+    } catch (error) {
+        console.log(error);
+        res.status(401).send('UNAUTHORIZED REQUEST!');
+    }
 });
 
 /* Profile Page */
@@ -123,138 +175,77 @@ app.get('/profile', async (req, res) => {
     const playerData = response.data; // response from all player data
     const favoriteInfo = []; // empty array to store favorite info
 
-    admin
-        .auth()
-        .verifySessionCookie(sessionCookie, true) // verify if user logged in
-        .then((userData) => {
-            usersDb
-                .doc(`${userData.uid}`) // get signed in user inforamtion
-                .get()
-                .then((doc) => {
-                    const currentUserData = doc.data(); // get all data from user
-                    const favoritesData = currentUserData.favorites; // get all favorites from user
-                    // get all players info and compare with favorites
-                    playerData.forEach((player) => {
-                        favoritesData.forEach((favorites) => {
-                            // only grab player info and discard team info from all.json file
-                            if (player.name) {
-                                const playerName = player.name; // get player name from all player
-                                const favoritesName = favorites; // get favorite player name
-                                if (favoritesName === playerName) {
-                                    favoriteInfo.push(player); // if favorite player name matches a player get all info and push into empty array
-                                }
-                            }
-                        });
-                    });
-                    favoriteInfo.sort((a, b) => a.name.localeCompare(b.name)); // sort favorites by name
-                    res.render('profile', { currentUserData, favoriteInfo });
-                });
-        })
-        .catch((error) => {
-            console.log(error);
-            res.redirect(`/login?type=${type}`);
+    try {
+        const user = await fbAuth.verifySessionCookie(sessionCookie, true);
+        const fav = await usersDb.doc(user.uid).get(); // get signed in user inforamtion
+        const currentUserData = fav.data();
+        const favoritesData = currentUserData.favorites; // get all favorites from user
+        // get all players info and compare with favorites
+        playerData.forEach((player) => {
+            favoritesData.forEach((favorites) => {
+                // only grab player info and discard team info from all.json file
+                if (player.name) {
+                    const playerName = player.name; // get player name from all player
+                    const favoritesName = favorites; // get favorite player name
+                    if (favoritesName === playerName) {
+                        favoriteInfo.push(player); // if favorite player name matches a player get all info and push into empty array
+                    }
+                }
+            });
         });
+        favoriteInfo.sort((a, b) => a.name.localeCompare(b.name)); // sort favorites by name
+        res.render('profile', { currentUserData, favoriteInfo });
+    } catch (error) {
+        console.log(error);
+        res.redirect(`/login?type=${type}`);
+    }
 });
 
 /* Favorite a player */
-app.post('/favorite', (req, res) => {
+app.post('/favorite', async (req, res) => {
     const sessionCookie = req.cookies.session || '';
     const { player } = req.body; // get player name to add to favorite
 
-    admin
-        .auth()
-        .verifySessionCookie(sessionCookie, true)
-        .then((userData) => {
-            const user = userData.uid; // get current user
-            usersDb.doc(user).update({
-                favorites: admin.firestore.FieldValue.arrayUnion(player), // add player to current user favorites
-            });
-            res.status(200).json({
-                message: `${player} has been added to your favorites!`, // send success
-                status: 200,
-            });
-        })
-        .catch((error) => {
-            const message = error.code; // get error message from Firebase
-            if (message === 'auth/argument-error') {
-                res.status(401).json({
-                    message: 'Please login to use this feature!', // error happens when user is not logged in
-                    status: 401,
-                });
-            } else {
-                res.status(401).json({
-                    message: 'An error occured!', // any other error
-                    status: 401,
-                });
-            }
+    try {
+        const user = await fbAuth.verifySessionCookie(sessionCookie, true);
+        usersDb.doc(user.uid).update({
+            favorites: admin.firestore.FieldValue.arrayUnion(player), // add player to current user favorites
         });
+        res.status(200).json({
+            message: `${player} has been added to your favorites!`, // send success
+            status: 200,
+        });
+    } catch (error) {
+        const message = error.code; // get error message from Firebase
+        if (message === 'auth/argument-error') {
+            res.status(401).json({
+                message: 'Please login to use this feature!', // error happens when user is not logged in
+                status: 401,
+            });
+        } else {
+            res.status(401).json({
+                message: 'An error occured!', // any other error
+                status: 401,
+            });
+        }
+    }
 });
 
 /* Unfavorite a player */
-app.post('/unfavorite', (req, res) => {
+app.post('/unfavorite', async (req, res) => {
     const sessionCookie = req.cookies.session || '';
     const { player } = req.body; // get player name to remove from favorites
 
-    admin
-        .auth()
-        .verifySessionCookie(sessionCookie, true)
-        .then((userData) => {
-            const user = userData.uid; // get current user
-            usersDb.doc(user).update({
-                favorites: admin.firestore.FieldValue.arrayRemove(player), // remove player from current user favorites
-            });
-            res.status(200).send(`${player} removed!`); // send success
-        })
-        .catch((error) => {
-            console.log(error);
-            res.status(401).send('ERROR');
+    try {
+        const user = await fbAuth.verifySessionCookie(sessionCookie, true);
+        usersDb.doc(`${user.uid}`).update({
+            favorites: admin.firestore.FieldValue.arrayRemove(player), // remove player from current user favorites
         });
-});
-
-app.post('/signup', (req, res) => {
-    const { email, name, password } = req.body; // get user email address, name, and password
-
-    admin
-        .auth()
-        .createUser({
-            // create user in firebase auth account
-            email: email,
-            password: password,
-            displayName: name,
-        })
-
-        .then((user) => {
-            db.collection('users').doc(user.uid).set({
-                // create user in firebase firestore
-                favorites: [],
-                email: user.email,
-                displayName: user.displayName,
-            });
-            res.status(200).json({
-                message: `${email} has been registered!`, // send registration success
-                status: 200,
-            });
-        })
-        .catch((error) => {
-            const message = error.code; // get error message from Firebase
-
-            let returnMessage; // variable to assign error code message
-
-            switch (message) {
-                case 'auth/email-already-exists': // error occurs when email has already been registered;
-                    returnMessage = 'User already exists!';
-                    break;
-                case 'auth/invalid-password': // error occurs when invalid/weak password is entered
-                    returnMessage = 'Weak/invalid password!';
-                    break;
-                default:
-                    returnMessage = 'An error occurred!'; // error occurs in general cases
-            }
-            res.status(401).json({
-                message: returnMessage, // assign error message to return to client
-                status: 401,
-            });
-        });
+        res.status(200).send(`${player} removed!`); // send success
+    } catch (error) {
+        console.log(error);
+        res.status(401).send('ERROR');
+    }
 });
 
 app.listen(port, () => {

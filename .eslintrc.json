@@ -9,6 +9,7 @@
         "no-process-exit": "off",
         "object-shorthand": "off",
         "node/no-unpublished-require": 0,
+        "no-param-reassign": 0,
         "class-methods-use-this": "off"
     }
 }
