@@ -43,19 +43,32 @@ app.all('*', (req, res, next) => {
     next();
 });
 
-/* Home Page  */
-app.get('/', (req, res) => {
-    const getAllTeams = async () => {
+// /* Home Page  */
+app.get('/', async (req, res) => {
+    const sessionCookie = req.cookies.session || '';
+
+    const response = await axios.get(`${API}/teams.json`); // gets all team name and logo from api
+    const teamData = response.data;
+    const favoriteTeamsArray = [];
+
+    if (sessionCookie !== '') {
+        // check if a user is logged in or not
         try {
-            const response = await axios.get(`${API}/teams.json`); // gets all team name and logo from api
-            const teamData = response.data;
-            res.render('home', { teamData });
+            const user = await fbAuth.verifySessionCookie(sessionCookie, true);
+            const fav = await usersDb.doc(user.uid).get(); // get signed in user information
+            const currentUserData = fav.data();
+            const favoriteTeamsData = currentUserData.favoriteTeams; // get all favorite teams from user
+
+            for (let i = 0; i < favoriteTeamsData.length; i++) {
+                // push all favorite teams into an array to pass to the teampage
+                favoriteTeamsArray.push(favoriteTeamsData[i]);
+            }
         } catch (error) {
             console.error(error);
         }
-    };
+    }
 
-    getAllTeams();
+    res.render('home', { teamData, favoriteTeamsArray });
 });
 
 /* Team Page */
@@ -63,14 +76,25 @@ app.get('/teams/:teamName', async (req, res) => {
     const { teamName } = req.params; // gets teamname
     const sessionCookie = req.cookies.session || '';
     const response = await axios.get(`${API}/${teamName}.json`); // gets team info with players info
+
+    const favoriteTeamsArray = [];
+
     const team = response.data;
 
     if (sessionCookie !== '') {
         try {
             const user = await fbAuth.verifySessionCookie(sessionCookie, true);
-            const fav = await usersDb.doc(user.uid).get(); // get signed in user inforamtion
+            const fav = await usersDb.doc(user.uid).get(); // get signed in user information
+
             const currentUserData = fav.data();
-            const favoritesData = currentUserData.favorites; // get all favorites from user
+            const favoritesData = currentUserData.favorites; // get all favorite players from user
+            const favoriteTeamsData = currentUserData.favoriteTeams; // get all favorite teams from user
+
+            for (let i = 0; i < favoriteTeamsData.length; i++) {
+                // push all favorite teams into an array to pass to the teampage
+                favoriteTeamsArray.push(favoriteTeamsData[i]);
+            }
+
             team.forEach((player) => {
                 favoritesData.forEach((favorites) => {
                     // only grab player info and discard team info from all.json file
@@ -87,7 +111,7 @@ app.get('/teams/:teamName', async (req, res) => {
             console.error(error);
         }
     }
-    res.render('teamPage', { team });
+    res.render('teamPage', { team, favoriteTeamsArray });
 });
 
 /* Login Page */
@@ -126,6 +150,7 @@ app.post('/signup', async (req, res) => {
         // add firebase user in the firestore
         usersDb.doc(user.uid).set({
             favorites: [],
+            favoriteTeams: [],
             email: user.email,
             displayName: user.displayName,
         });
@@ -254,6 +279,53 @@ app.post('/unfavorite', async (req, res) => {
             favorites: admin.firestore.FieldValue.arrayRemove(player), // remove player from current user favorites
         });
         res.status(200).send(`${player} removed!`); // send success
+    } catch (error) {
+        console.log(error);
+        res.status(401).send('ERROR');
+    }
+});
+
+/* Favorite a team */
+app.post('/favoriteTeam', async (req, res) => {
+    const sessionCookie = req.cookies.session || '';
+    const { teamName } = req.body; // get team name to add to favorite teams
+
+    try {
+        const user = await fbAuth.verifySessionCookie(sessionCookie, true); // verify session cookie for user
+        usersDb.doc(user.uid).update({
+            favoriteTeams: admin.firestore.FieldValue.arrayUnion(teamName), // add team to current user favoriteTeams
+        });
+        res.status(200).json({
+            message: `${teamName} has been added to your favorite teams!`, // send success
+            status: 200,
+        });
+    } catch (error) {
+        const message = error.code; // get error message from Firebase
+        if (message === 'auth/argument-error') {
+            res.status(401).json({
+                message: 'Please login to use this feature!', // error happens when user is not logged in
+                status: 401,
+            });
+        } else {
+            res.status(401).json({
+                message: 'An error occured!', // any other error
+                status: 401,
+            });
+        }
+    }
+});
+
+/* Unfavorite a team */
+app.post('/unfavoriteTeam', async (req, res) => {
+    const sessionCookie = req.cookies.session || '';
+    const { teamName } = req.body; // get team name to remove from favorites
+
+    try {
+        const user = await fbAuth.verifySessionCookie(sessionCookie, true); // verify session cookie for user
+        usersDb.doc(user.uid).update({
+            favoriteTeams: admin.firestore.FieldValue.arrayRemove(teamName), // remove team from current user favorites
+        });
+        res.status(200).send(`${teamName} removed!`); // send success
     } catch (error) {
         console.log(error);
         res.status(401).send('ERROR');

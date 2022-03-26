@@ -2,51 +2,66 @@
 
 <!-- NBA LOGO -->
 <div class="text-center">
-   <a href="/"><img src="/images/nba-logo.svg" alt="NBA logo" id="logoNBA" /></a>
+  <a href="/"><img src="/images/nba-logo.svg" alt="NBA logo" id="logoNBA" /></a>
 </div>
 <div class="container">
-   <div class="container-fluid">
-      <div class="filters">
-         <!-- Filter function call -->
-         <h4 class="p-2"> Filters: </h4>
-         <div id="filterc">
-            <select class="form-select form-selectmd" id="filterC" label="Conference">
-               <option selected disabled>Conference</option>
-               <option value="1">Eastern Conference</option>
-               <option value="2">Western Conference</option>
-            </select>
-         </div>
-         <div id="filterd">
-            <select class="form-select form-selectmd" id="filterD" aria-label="Divisions">
-               <option selected disabled>Division</option>
-               <option value="1">Atlantic Division</option>
-               <option value="2">Central Division</option>
-               <option value="3">Southeast Division</option>
-               <option value="4">Northwest Division</option>
-               <option value="5">Pacific Division</option>
-               <option value="6">Southwest Division</option>
-            </select>
-         </div>
+  <div class="container-fluid">
+    <div class="filters">
+      <!-- Filter function call -->
+      <h4 class="p-2">Filters:</h4>
+      <div id="filterc">
+        <select
+          class="form-select form-selectmd"
+          id="filterC"
+          label="Conference"
+        >
+          <option selected disabled>Conference</option>
+          <option value="1">Eastern Conference</option>
+          <option value="2">Western Conference</option>
+        </select>
       </div>
-      <hr>
-      <div class="row justifiy-content-evenly">
-         <!-- TEAM CARD -->
-         <%# EJS CODE %>
-         <% teamData.forEach(function(team) { %>
-         <div class="col-lg-3 col-md-3 col-sm-12 card shadow hvr-grow teamCard" data-conference="<%= team.conference %>" data-division="<%= team.division %>">
-            <img class="mr-3" src="<%= team.logo %>" alt="Card image cap" />
-            <span id="teamtext"><%= team.team %> </span>
-            <% var teampath= team.team;
-               teampath=teampath.split(" ").join("_");
-               teampath=teampath.toLowerCase();
-               teampath="/teams/"+teampath;
-               %>
-            <a class="stretched-link" href="<%= teampath %>"></a>
-         </div>
-         <% }); %>
-         <%# END EJS CODE %>
+      <div id="filterd">
+        <select
+          class="form-select form-selectmd"
+          id="filterD"
+          aria-label="Divisions"
+        >
+          <option selected disabled>Division</option>
+          <option value="1">Atlantic Division</option>
+          <option value="2">Central Division</option>
+          <option value="3">Southeast Division</option>
+          <option value="4">Northwest Division</option>
+          <option value="5">Pacific Division</option>
+          <option value="6">Southwest Division</option>
+        </select>
       </div>
-   </div>
+    </div>
+    <hr />
+    <div class="row justifiy-content-evenly">
+      <!-- TEAM CARD -->
+      <%# EJS CODE %> <% teamData.forEach(function(team) { %>
+      <div
+        class="col-lg-3 col-md-3 col-sm-12 card shadow hvr-grow teamCard"
+        data-conference="<%= team.conference %>"
+        data-division="<%= team.division %>"
+      >
+        <img class="mr-3" src="<%= team.logo %>" alt="Card image cap" />
+
+        <span id="teamtext"><%= team.team %> </span>
+        <% var teampath= team.team; teampath=teampath.split(" ").join("_");
+        teampath=teampath.toLowerCase(); teampath="/teams/"+teampath; %>
+        <a class="stretched-link" href="<%= teampath %>"></a>
+        <% if (favoriteTeamsArray.includes(team.team)) { %>
+        <span class="unfavoriteTeam" style="color: #ffd700"
+          ><i class="fa fa-star"></i
+        ></span>
+        <%} else { %>
+        <span class="favoriteTeam"><i class="fa fa-star-o"></i></span>
+        <% } %>
+      </div>
+      <% }); %> <%# END EJS CODE %>
+    </div>
+  </div>
 </div>
 
 <%- include("partials/footer.ejs") %>
