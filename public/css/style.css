@@ -11,8 +11,8 @@
 }
 
 .teamPage-container {
-    padding-left: 7em;
-    padding-right: 7em;
+    /* padding-left: 7em;
+    padding-right: 7em; */
 }
 
 .teamCard {
@@ -35,13 +35,14 @@
 
 #playerCard {
     width: 20rem;
-    display: inline-block;
+    height: 17.8rem;
+    display: flex;
+    align-items: center;
     text-align: center;
-    margin: auto;
+    margin-left: 1.25em;
+    margin-right: 1.25em;
     margin-bottom: 8rem;
     color: var(--teamColor);
-    /* test */
-    position: relative;
 }
 
 .image-cropper {
@@ -52,7 +53,6 @@
     border-radius: 50%;
     background-color: white;
     top: -15%;
-    left: 30%;
 }
 
 .image-cropper-subContainer {
