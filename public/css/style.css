@@ -178,3 +178,15 @@
 }
 
 /* end of Filter CSS*/
+
+@media only screen and (min-width: 992px) {
+    .navbar .navbar-nav .nav-item .nav-link {
+        padding: 0.5em 3em;
+    }
+    .navbar .navbar-nav .nav-item:not(:last-child) .nav-link {
+        border-right: 2px solid #575252;
+    }
+}
+.navbar-collapse.in {
+    display: block !important;
+}
