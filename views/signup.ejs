@@ -10,8 +10,8 @@
                         <form id="signup">
                             <div class="mb-3">
                                 <label class="mb-2 text-muted" for="name"
-                                    >Name</label
-                                >
+                                    >Username</label>
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                 <input
                                     id="name"
                                     type="text"
@@ -22,14 +22,14 @@
                                     autofocus
                                 />
                                 <div class="invalid-feedback">
-                                    Name is required
+                                    Username is required
                                 </div>
                             </div>
 
                             <div class="mb-3">
                                 <label class="mb-2 text-muted" for="email"
-                                    >E-Mail Address</label
-                                >
+                                    >E-Mail Address</label>
+                                    <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
                                 <input
                                     id="email"
                                     type="email"
@@ -39,14 +39,14 @@
                                     required
                                 />
                                 <div class="invalid-feedback">
-                                    Email is invalid
+                                    Invalid E-Mail
                                 </div>
                             </div>
 
                             <div class="mb-3">
                                 <label class="mb-2 text-muted" for="password"
-                                    >Password</label
-                                >
+                                    >Password</label>
+                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                 <input
                                     id="password"
                                     type="password"
@@ -59,10 +59,17 @@
                                 </div>
                             </div>
 
-                            <p class="form-text text-muted mb-3">
-                                By registering you agree with our terms and
-                                condition.
-                            </p>
+                            <div class="form-check d-flex justify-content-center mb-5">
+                                <input
+                                  class="form-check-input me-2"
+                                  type="checkbox"
+                                  value=""
+                                  id="form2Example3cg"
+                                />
+                            <label class="form-check-label" for="form2Example3g">
+                                I accept the terms and conditions.
+                            </label>
+                            </div>
 
                             <div class="align-items-center d-flex">
                                 <button class="btn btn-primary ms-auto">
