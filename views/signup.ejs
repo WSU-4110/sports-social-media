@@ -9,21 +9,33 @@
             <h1 class="fs-4 card-title fw-bold mb-4">Register</h1>
             <form id="signup">
               <div class="mb-3">
-                <label class="mb-2 text-muted" for="name">Username</label>
+                <label class="mb-2 text-muted" for="name">Username <span class="input-group-addon"><i class="fa fa-user"></i></span></label> 
+                
                 <input id="name" type="text" class="form-control" name="name" pattern="^[_A-z0-9]{1,}$" minlength="1" maxlength="15" value="" title="No Special Characters Allowed. No Space Allowed." required autofocus />
                 <div class="invalid-feedback"> Name is required </div>
               </div>
               <div class="mb-3">
-                <label class="mb-2 text-muted" for="email">E-Mail Address</label>
+                <label class="mb-2 text-muted" for="email">E-Mail Address <span class="input-group-addon"><i class="fa fa-envelope"></i></span></label>
                 <input id="email" type="email" class="form-control" name="email" value="" required />
                 <div class="invalid-feedback"> Email is invalid </div>
               </div>
               <div class="mb-3">
-                <label class="mb-2 text-muted" for="password">Password</label>
+                <label class="mb-2 text-muted" for="password">Password <span class="input-group-addon"><i class="fa fa-lock"></i></span></label>
                 <input id="password" type="password" class="form-control" name="password" required />
                 <div class="invalid-feedback"> Password is required </div>
               </div>
-              <p class="form-text text-muted mb-3"> By registering you agree with our terms and condition. </p>
+    
+              <div class="form-check d-flex justify-content-center mb-5">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  value=""
+                  id="form2Example3cg"
+                />
+            <label class="form-check-label" for="form2Example3g">
+                I accept the terms and conditions.
+            </label>
+            </div>
               <div class="align-items-center d-flex">
                 <button class="btn btn-primary ms-auto"> Register </button>
               </div>
