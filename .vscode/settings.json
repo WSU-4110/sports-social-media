@@ -8,6 +8,9 @@
   "emmet.includeLanguages": {
       "ejs": "html"
   },
+    "[html]": {
+      "editor.defaultFormatter": null
+    },
     "html.format.wrapLineLength": 160,
     "prettier.htmlWhitespaceSensitivity": "ignore",
     "workbench.colorTheme": "GitHub Dark",
