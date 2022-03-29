@@ -43,7 +43,7 @@ app.all('*', (req, res, next) => {
     next();
 });
 
-// /* Home Page  */
+/* Home Page  */
 app.get('/', async (req, res) => {
     const sessionCookie = req.cookies.session || '';
 
@@ -59,10 +59,13 @@ app.get('/', async (req, res) => {
             const currentUserData = fav.data();
             const favoriteTeamsData = currentUserData.favoriteTeams; // get all favorite teams from user
 
-            for (let i = 0; i < favoriteTeamsData.length; i++) {
-                // push all favorite teams into an array to pass to the teampage
-                favoriteTeamsArray.push(favoriteTeamsData[i]);
-            }
+            teamData.forEach((team) => {
+                if (favoriteTeamsData.includes(team.team)) {
+                    team.favoriteTeamStatus = 'true'
+
+                }
+            });
+
         } catch (error) {
             console.error(error);
         }
@@ -87,15 +90,13 @@ app.get('/teams/:teamName', async (req, res) => {
             const fav = await usersDb.doc(user.uid).get(); // get signed in user information
 
             const currentUserData = fav.data();
-            const favoritesData = currentUserData.favorites; // get all favorite players from user
+            const favoritesData = currentUserData.favorites; // get all favorites from user
             const favoriteTeamsData = currentUserData.favoriteTeams; // get all favorite teams from user
 
-            for (let i = 0; i < favoriteTeamsData.length; i++) {
-                // push all favorite teams into an array to pass to the teampage
-                favoriteTeamsArray.push(favoriteTeamsData[i]);
-            }
-
             team.forEach((player) => {
+                if (favoriteTeamsData.includes(player.team)) {
+                    player.favoriteTeamStatus = 'true';
+                }
                 favoritesData.forEach((favorites) => {
                     // only grab player info and discard team info from all.json file
                     if (player.name) {
@@ -107,6 +108,7 @@ app.get('/teams/:teamName', async (req, res) => {
                     }
                 });
             });
+
         } catch (error) {
             console.error(error);
         }
@@ -211,14 +213,20 @@ app.get('/profile', async (req, res) => {
     const response = await axios.get(`${API}/all.json`); // request all player data
     const playerData = response.data; // response from all player data
     const favoriteInfo = []; // empty array to store favorite info
+    const favoriteTeamsInfo = []; //empty array to store favorite teams info
 
     try {
         const user = await fbAuth.verifySessionCookie(sessionCookie, true); // verify session cookie
         const fav = await usersDb.doc(user.uid).get(); // get signed in user inforamtion
         const currentUserData = fav.data();
         const favoritesData = currentUserData.favorites; // get all favorites from user
+        const favoriteTeamsData = currentUserData.favoriteTeams; // get all favorite teams from user
+
         // get all players info and compare with favorites
         playerData.forEach((player) => {
+            if (favoriteTeamsData.includes(player.team)) {
+                favoriteTeamsInfo.push(player);
+            }
             favoritesData.forEach((favorites) => {
                 // only grab player info and discard team info from all.json file
                 if (player.name) {
@@ -231,7 +239,8 @@ app.get('/profile', async (req, res) => {
             });
         });
         favoriteInfo.sort((a, b) => a.name.localeCompare(b.name)); // sort favorites by name
-        res.render('profile', { currentUserData, favoriteInfo });
+        favoriteTeamsInfo.sort((a, b) => a.team.localeCompare(b.team)); // sort favorites by name
+        res.render('profile', { currentUserData, favoriteInfo, favoriteTeamsInfo });
     } catch (error) {
         console.log(error);
         res.redirect(`/login?type=${type}`);
