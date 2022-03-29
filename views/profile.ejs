@@ -4,11 +4,32 @@
         ><img src="/images/generic-player.png" alt="NBA logo" id="logoNBA"
     /></a>
     <h1 class="display-2">Welcome <%= currentUserData.displayName %></h1>
-    <a href="logout" class="btn btn-primary">Sign Out</a>
-    <a href="account" class="btn btn-primary">Account Settings</a>
-
 </div>
+<nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse  bg-transparent text-dark">
+  <div class="position-sticky">
+    <div class="list-group list-group-flush mx-3 mt-4">
+      <a
+        href="#FavTeam"
+        class="list-group-item list-group-item-action py-2 ripple"
+        aria-current="true"
+      >
+        <span>Favorite Teams</span>
+      </a>
+      <a href="#FavPlayer" class="list-group-item list-group-item-action py-2 ripple">
+        <span>Favorite Players</span>
+      </a>
+      <a href="account" class="list-group-item list-group-item-action py-2 ripple">
+        <span>Account Settings</span>
+      </a>
+      <a href="logout" class="list-group-item list-group-item-action py-2 ripple"
+        ><span>Sign Out</span></a>
+  </div>
+</nav>
 <br />
+<br />
+<br />
+<h1 class=" text-center display-2" id="FavPlayer">Favorite Players</h1>
+<br>
 <br />
 <br />
 <div class="container teamPage-container">
@@ -87,7 +108,10 @@
                 </div>
             </div>
             <% }); %>
-
+            <h1 class=" text-center display-2" id="FavTeam">Favorite Teams</h1>
+            <br>
+            <br />
+            <br />
             <div class="row justifiy-content-evenly">
                 <%favoriteTeamsInfo.forEach(function(team) { %>
                 <div
