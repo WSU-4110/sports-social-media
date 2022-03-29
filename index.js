@@ -46,10 +46,8 @@ app.all('*', (req, res, next) => {
 /* Home Page  */
 app.get('/', async (req, res) => {
     const sessionCookie = req.cookies.session || '';
-
     const response = await axios.get(`${API}/teams.json`); // gets all team name and logo from api
     const teamData = response.data;
-    const favoriteTeamsArray = [];
 
     if (sessionCookie !== '') {
         // check if a user is logged in or not
@@ -71,7 +69,7 @@ app.get('/', async (req, res) => {
         }
     }
 
-    res.render('home', { teamData, favoriteTeamsArray });
+    res.render('home', { teamData });
 });
 
 /* Team Page */
@@ -79,9 +77,6 @@ app.get('/teams/:teamName', async (req, res) => {
     const { teamName } = req.params; // gets teamname
     const sessionCookie = req.cookies.session || '';
     const response = await axios.get(`${API}/${teamName}.json`); // gets team info with players info
-
-    const favoriteTeamsArray = [];
-
     const team = response.data;
 
     if (sessionCookie !== '') {
@@ -113,7 +108,7 @@ app.get('/teams/:teamName', async (req, res) => {
             console.error(error);
         }
     }
-    res.render('teamPage', { team, favoriteTeamsArray });
+    res.render('teamPage', { team });
 });
 
 /* Login Page */

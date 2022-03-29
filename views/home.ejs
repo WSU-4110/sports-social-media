@@ -41,7 +41,7 @@
                teampath=teampath.toLowerCase();
                teampath="/teams/"+teampath;
                %>
-              <a href="<%= teampath %>"><span id="teamtext"><%= team.team %> </span></a>
+              <a id="teamtextLink" href="<%= teampath %>"><span id="teamtext"><%= team.team %> </span></a>
 
             <% if (team.favoriteTeamStatus) { %>
               <span class="unfavoriteTeam" style="color: #ffd700"
