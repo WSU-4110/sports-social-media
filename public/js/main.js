@@ -209,11 +209,9 @@ $('.unfavorite').on('click', function () {
 
 /* Firebase Team Favorite */
 $('.favoriteTeam').on('click', function () {
-    //    let teamName = document.querySelector('.display-2').innerHTML; // grab team name from page
 
     let teamName = $(this)[0].parentNode.innerText; // get team name from team card
-    teamName = teamName.replace(/(\r\n|\n|\r)/gm, "");
-    teamName.trim();
+    teamName = teamName.trim();
 
     fetch('/favoriteTeam', {
         method: 'POST',
@@ -247,11 +245,9 @@ $('.favoriteTeam').on('click', function () {
 
 /* Firebase Unfavorite */
 $('.unfavoriteTeam').on('click', function () {
-    //let teamName = document.querySelector('.display-2').innerHTML; // grab team name from page
 
     let teamName = $(this)[0].parentNode.innerText; // get team name from team card
-    teamName = teamName.replace(/(\r\n|\n|\r)/gm, "");
-    teamName.trim();
+    teamName = teamName.trim();
 
     // Confirmation Alert
     swal({
