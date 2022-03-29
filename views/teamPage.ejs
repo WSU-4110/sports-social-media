@@ -3,6 +3,18 @@
     <br>
     <div class="text-center">
       <h1 class="display-2"><%= team[0].team %></h1>
+      
+
+          <!-- check if the array of user's favorite teams includes the current pages team -->
+    <% if (team[0].favoriteTeamStatus) { %>
+        <span class="unfavoriteTeam" style="color: #ffd700"
+            ><i class="fa fa-star"></i
+        ></span>
+        <%} else { %>
+        <span class="favoriteTeam"><i class="fa fa-star-o"></i></span>
+        <% } %>
+        <br />
+
       <img id="teamLogo" src="<%= team[0].teamLogo %>">
     </div>
     <br>

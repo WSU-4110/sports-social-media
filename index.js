@@ -71,7 +71,12 @@ app.get('/teams/:teamName', async (req, res) => {
             const fav = await usersDb.doc(user.uid).get(); // get signed in user inforamtion
             const currentUserData = fav.data();
             const favoritesData = currentUserData.favorites; // get all favorites from user
+            const favoriteTeamsData = currentUserData.favoriteTeams; // get all favorite teams from user
+
             team.forEach((player) => {
+                if (favoriteTeamsData.includes(player.team)) {
+                    player.favoriteTeamStatus = 'true';
+                }
                 favoritesData.forEach((favorites) => {
                     // only grab player info and discard team info from all.json file
                     if (player.name) {
@@ -83,6 +88,7 @@ app.get('/teams/:teamName', async (req, res) => {
                     }
                 });
             });
+
         } catch (error) {
             console.error(error);
         }
@@ -254,6 +260,53 @@ app.post('/unfavorite', async (req, res) => {
             favorites: admin.firestore.FieldValue.arrayRemove(player), // remove player from current user favorites
         });
         res.status(200).send(`${player} removed!`); // send success
+    } catch (error) {
+        console.log(error);
+        res.status(401).send('ERROR');
+    }
+});
+
+/* Favorite a team */
+app.post('/favoriteTeam', async (req, res) => {
+    const sessionCookie = req.cookies.session || '';
+    const { teamName } = req.body; // get team name to add to favorite teams
+
+    try {
+        const user = await fbAuth.verifySessionCookie(sessionCookie, true); // verify session cookie for user
+        usersDb.doc(user.uid).update({
+            favoriteTeams: admin.firestore.FieldValue.arrayUnion(teamName), // add team to current user favoriteTeams
+        });
+        res.status(200).json({
+            message: `${teamName} has been added to your favorite teams!`, // send success
+            status: 200,
+        });
+    } catch (error) {
+        const message = error.code; // get error message from Firebase
+        if (message === 'auth/argument-error') {
+            res.status(401).json({
+                message: 'Please login to use this feature!', // error happens when user is not logged in
+                status: 401,
+            });
+        } else {
+            res.status(401).json({
+                message: 'An error occured!', // any other error
+                status: 401,
+            });
+        }
+    }
+});
+
+/* Unfavorite a team */
+app.post('/unfavoriteTeam', async (req, res) => {
+    const sessionCookie = req.cookies.session || '';
+    const { teamName } = req.body; // get team name to remove from favorites
+
+    try {
+        const user = await fbAuth.verifySessionCookie(sessionCookie, true); // verify session cookie for user
+        usersDb.doc(user.uid).update({
+            favoriteTeams: admin.firestore.FieldValue.arrayRemove(teamName), // remove team from current user favorites
+        });
+        res.status(200).send(`${teamName} removed!`); // send success
     } catch (error) {
         console.log(error);
         res.status(401).send('ERROR');
