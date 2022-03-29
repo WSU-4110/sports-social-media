@@ -129,6 +129,89 @@ $('#login').on('submit', () => {
     return false;
 });
 
+/* Firebase Change Password */
+$('#deleteAccount').on('click', () => {
+    swal({
+        title: 'Are you sure?',
+        text: 'Your Account will be deleted!',
+        icon: 'warning',
+        buttons: ['Cancel', 'Ok'],
+        dangerMode: true,
+    }).then((deleteAccount) => {
+        // if confirmation yes
+        if (deleteAccount) {
+            fetch('/delete', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json, text/plain, */*',
+                    'CSRF-Token': Cookies.get('XSRF-TOKEN'),
+                    'Content-Type': 'application/json',
+                },
+            })
+                .then((response) => {
+                    const { status } = response;
+                    if (status === 401) {
+                        console.log(status);
+                    }
+                    if (status === 200) {
+                        window.location.assign('/');
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+        // if confirmation canceled
+        else {
+            swal('Canceled!');
+        }
+    });
+});
+
+/* Firebase Change Username */
+$('#changeUsername').on('submit', () => {
+    // get email input
+    const username = $('#username').val();
+    swal({
+        title: 'Are you sure?',
+        text: 'Your username will be changed',
+        icon: 'warning',
+        buttons: ['Cancel', 'Ok'],
+        dangerMode: true,
+    }).then((changeUsername) => {
+        // if confirmation yes
+        if (changeUsername) {
+            fetch('/changeusername', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json, text/plain, */*',
+                    'CSRF-Token': Cookies.get('XSRF-TOKEN'),
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username: username }), // send post request with player name to unfavorite
+            })
+                .then((response) => {
+                    const { status } = response;
+                    if (status === 401) {
+                        console.log(status);
+                    }
+                    if (status === 200) {
+                        window.location.reload();
+                        console.log(status);
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+        // if confirmation canceled
+        else {
+            swal('Canceled!');
+        }
+    });
+    return false;
+});
+
 /* Firebase Favorite */
 $('.favorite').on('click', function () {
     let player = $(this)[0].previousSibling.data; // get player name from playercard
@@ -186,6 +269,87 @@ $('.unfavorite').on('click', function () {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ player: player }), // send post request with player name to unfavorite
+            })
+                .then((response) => {
+                    const { status } = response;
+                    if (status === 401) {
+                        console.log(status);
+                    }
+                    if (status === 200) {
+                        window.location.reload();
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+        // if confirmation canceled
+        else {
+            swal('Canceled!');
+        }
+    });
+});
+
+/* Firebase Team Favorite */
+$('.favoriteTeam').on('click', function () {
+
+    let teamName = $(this)[0].parentNode.innerText; // get team name from team card
+    teamName = teamName.trim();
+
+    fetch('/favoriteTeam', {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json, text/plain, */*',
+            'CSRF-Token': Cookies.get('XSRF-TOKEN'),
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ teamName: teamName }), // send post request with team name
+    }).then((response) => {
+        response
+            .json()
+            .then((data) => {
+                const { status } = data; //  response status
+                const { message } = data; // response message
+                if (status === 401) {
+                    swal('Error', message, 'warning'); // error alert
+                }
+                if (status === 200) {
+                    swal('Success', message, 'success'); // success alert
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1000);
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    });
+});
+
+/* Firebase Unfavorite */
+$('.unfavoriteTeam').on('click', function () {
+
+    let teamName = $(this)[0].parentNode.innerText; // get team name from team card
+    teamName = teamName.trim();
+
+    // Confirmation Alert
+    swal({
+        title: 'Are you sure?',
+        text: `${teamName} will be removed from your favorites teams!`,
+        icon: 'warning',
+        buttons: ['Cancel', 'Ok'],
+        dangerMode: true,
+    }).then((unfavorite) => {
+        // if confirmation yes
+        if (unfavorite) {
+            fetch('/unfavoriteTeam', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json, text/plain, */*',
+                    'CSRF-Token': Cookies.get('XSRF-TOKEN'),
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ teamName: teamName }), // send post request with team name to unfavorite
             })
                 .then((response) => {
                     const { status } = response;

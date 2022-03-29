@@ -1,0 +1,35 @@
+<%- include("partials/header.ejs") %>
+<div class="text-center">
+    <a href="/"><img src="/images/generic-player.png" alt="NBA logo" id="logoNBA" /></a>
+    <h1 class="display-2">Username: <%= currentUserData.displayName %></h1>
+    <a href="logout" class="btn btn-primary">Sign Out</a>
+</div>
+<section class="h-100">
+  <div class="container h-100 p-5">
+      <div class="row justify-content-sm-center h-100">
+          <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+                  <div class="card-body p-5">
+                    <h1 class="fs-4 card-title fw-bold mb-4">Change Username</h1>
+                    <form id="changeUsername" class="inline-form">
+                        <div class="mb-3">
+                            <input id="username" type="text" class="form-control" name="username" pattern="^[_A-z0-9]{1,}$" minlength="1" maxlength="15" title="No Special Characters. No Space Allowed"  required autofocus/>
+                            <div class="invalid-feedback">Username is invalid</div>
+                        </div>
+                        <div class="align-items-center d-flex">
+                            <button class="btn btn-primary ms-auto">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-body p-5">
+                  <h1 class="fs-4 card-title fw-bold mb-4">Delete Account</h1>
+                  <button type="button" class="btn btn-danger" id="deleteAccount">Delete Account</button>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<%- include("partials/footer.ejs") %>

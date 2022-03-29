@@ -3,12 +3,24 @@
     <br>
     <div class="text-center">
       <h1 class="display-2"><%= team[0].team %></h1>
+      
+
+          <!-- check if the array of user's favorite teams includes the current pages team -->
+    <% if (team[0].favoriteTeamStatus) { %>
+        <span class="unfavoriteTeam" style="color: #ffd700"
+            ><i class="fa fa-star"></i
+        ></span>
+        <%} else { %>
+        <span class="favoriteTeam"><i class="fa fa-star-o"></i></span>
+        <% } %>
+        <br />
+
       <img id="teamLogo" src="<%= team[0].teamLogo %>">
     </div>
     <br>
     <div class="container teamPage-container">
       <div class="container-fluid">
-        <div class="row justify-content-evenly">
+        <div class="row justify-content-center">
           <!-- PLAYER CARD -->
           <%# EJS CODE %>
           <% team.slice(1).forEach(function(player) { %>
@@ -66,5 +78,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    
-<%- include("partials/footer.ejs") %> 
+
+<%- include("partials/footer.ejs") %>

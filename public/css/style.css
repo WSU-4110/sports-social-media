@@ -1,3 +1,17 @@
+html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+  }
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+  }
 #logoNBA {
     max-width: 20%;
     padding-top: 1.5em;
@@ -11,8 +25,8 @@
 }
 
 .teamPage-container {
-    padding-left: 7em;
-    padding-right: 7em;
+    /* padding-left: 7em;
+    padding-right: 7em; */
 }
 
 .teamCard {
@@ -25,7 +39,12 @@
 #teamtext {
     font-weight: 500;
     padding-left: 3em;
-    font-size: 18px;
+    font-size: 17px;
+}
+
+#teamtextLink{
+    color: inherit;
+    text-decoration: none;
 }
 
 .mr-3 {
@@ -35,13 +54,14 @@
 
 #playerCard {
     width: 20rem;
-    display: inline-block;
+    height: 17.8rem;
+    display: flex;
+    align-items: center;
     text-align: center;
-    margin: auto;
+    margin-left: 1.25em;
+    margin-right: 1.25em;
     margin-bottom: 8rem;
     color: var(--teamColor);
-    /* test */
-    position: relative;
 }
 
 .image-cropper {
@@ -52,7 +72,6 @@
     border-radius: 50%;
     background-color: white;
     top: -15%;
-    left: 30%;
 }
 
 .image-cropper-subContainer {
@@ -179,6 +198,7 @@
 
 /* end of Filter CSS*/
 
+
 @media only screen and (min-width: 992px) {
     .navbar .navbar-nav .nav-item .nav-link {
         padding: 0.5em 3em;
@@ -219,3 +239,4 @@
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
 }
+

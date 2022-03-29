@@ -35,13 +35,31 @@
          <% teamData.forEach(function(team) { %>
          <div class="col-lg-3 col-md-3 col-sm-12 card shadow hvr-grow teamCard" data-conference="<%= team.conference %>" data-division="<%= team.division %>">
             <img class="mr-3" src="<%= team.logo %>" alt="Card image cap" />
-            <span id="teamtext"><%= team.team %> </span>
-            <a class="stretched-link" href="teams/<%= team.path %>"></a>
+
+            
+            <% var teampath= team.team;
+               teampath=teampath.split(" ").join("_");
+               teampath=teampath.toLowerCase();
+               teampath="/teams/"+teampath;
+               %>
+              <a id="teamtextLink" href="<%= teampath %>"><span id="teamtext"><%= team.team %> </span></a>
+
+            <% if (team.favoriteTeamStatus) { %>
+              <span class="unfavoriteTeam" style="color: #ffd700"
+                ><i class="fa fa-star"></i
+              ></span>
+              <%} else { %>
+              <span class="favoriteTeam"><i class="fa fa-star-o"></i></span>
+              <% } %>
+
          </div>
          <% }); %>
          <%# END EJS CODE %>
       </div>
    </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <%- include("partials/footer.ejs") %>
