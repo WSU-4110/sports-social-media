@@ -247,6 +247,56 @@ app.get('/profile', async (req, res) => {
     }
 });
 
+app.get('/account', async (req, res) => {
+    const sessionCookie = req.cookies.session || ''; // get cookie info
+    const type = req.query.type || 'none';
+
+    try {
+        const user = await fbAuth.verifySessionCookie(sessionCookie, true); // verify session cookie
+        const fav = await usersDb.doc(user.uid).get(); // get signed in user inforamtion
+        const currentUserData = fav.data();
+        res.render('accountSettings', { currentUserData });
+    } catch (error) {
+        res.redirect(`/login?type=${type}`);
+    }
+});
+
+/* Delete Account */
+app.post('/delete', async (req, res) => {
+    const sessionCookie = req.cookies.session || '';
+
+    try {
+        const user = await fbAuth.verifySessionCookie(sessionCookie, true); // verify session cookie for user
+        fbAuth.deleteUser(user.uid);
+        usersDb.doc(user.uid).delete();
+        res.clearCookie('session'); // clears session cookie which logs out user
+        res.status(200).send('deleted'); // send success
+    } catch (error) {
+        console.log(error);
+        res.status(401).send('ERROR');
+    }
+});
+
+/* Change Username */
+app.post('/changeusername', async (req, res) => {
+    const sessionCookie = req.cookies.session || '';
+
+    const { username } = req.body; // get player name to add to favorite
+    try {
+        const user = await fbAuth.verifySessionCookie(sessionCookie, true); // verify session cookie for user
+        fbAuth.updateUser(user.uid, {
+            displayName: username,
+        });
+        usersDb.doc(user.uid).update({
+            displayName: username, // add player to current user favorites
+        });
+        res.status(200).send('deleted'); // send success
+    } catch (error) {
+        console.log(error);
+        res.status(401).send('ERROR');
+    }
+});
+
 /* Favorite a player */
 app.post('/favorite', async (req, res) => {
     const sessionCookie = req.cookies.session || '';

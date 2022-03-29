@@ -16,8 +16,8 @@ a, a:hover, a:visited, a:active {
 }
 
 .teamPage-container {
-    padding-left: 7em;
-    padding-right: 7em;
+    /* padding-left: 7em;
+    padding-right: 7em; */
 }
 
 .teamCard {
@@ -40,13 +40,14 @@ a, a:hover, a:visited, a:active {
 
 #playerCard {
     width: 20rem;
-    display: inline-block;
+    height: 17.8rem;
+    display: flex;
+    align-items: center;
     text-align: center;
-    margin: auto;
+    margin-left: 1.25em;
+    margin-right: 1.25em;
     margin-bottom: 8rem;
     color: var(--teamColor);
-    /* test */
-    position: relative;
 }
 
 .image-cropper {
@@ -57,7 +58,6 @@ a, a:hover, a:visited, a:active {
     border-radius: 50%;
     background-color: white;
     top: -15%;
-    left: 30%;
 }
 
 .image-cropper-subContainer {
@@ -183,3 +183,17 @@ a, a:hover, a:visited, a:active {
 }
 
 /* end of Filter CSS*/
+html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+  }
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+  }
