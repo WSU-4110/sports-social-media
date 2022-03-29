@@ -42,6 +42,14 @@
                teampath="/teams/"+teampath;
                %>
             <a class="stretched-link" href="<%= teampath %>"></a>
+
+            <% if (team.favoriteTeamStatus) { %>
+              <span class="unfavoriteTeam" style="color: #ffd700"
+                ><i class="fa fa-star"></i
+              ></span>
+              <%} else { %>
+              <span class="favoriteTeam"><i class="fa fa-star-o"></i></span>
+              <% } %>
          </div>
          <% }); %>
          <%# END EJS CODE %>

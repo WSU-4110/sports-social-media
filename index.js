@@ -44,18 +44,34 @@ app.all('*', (req, res, next) => {
 });
 
 /* Home Page  */
-app.get('/', (req, res) => {
-    const getAllTeams = async () => {
+app.get('/', async (req, res) => {
+    const sessionCookie = req.cookies.session || '';
+
+    const response = await axios.get(`${API}/teams.json`); // gets all team name and logo from api
+    const teamData = response.data;
+    const favoriteTeamsArray = [];
+
+    if (sessionCookie !== '') {
+        // check if a user is logged in or not
         try {
-            const response = await axios.get(`${API}/teams.json`); // gets all team name and logo from api
-            const teamData = response.data;
-            res.render('home', { teamData });
+            const user = await fbAuth.verifySessionCookie(sessionCookie, true);
+            const fav = await usersDb.doc(user.uid).get(); // get signed in user information
+            const currentUserData = fav.data();
+            const favoriteTeamsData = currentUserData.favoriteTeams; // get all favorite teams from user
+
+            teamData.forEach((team) => {
+                if (favoriteTeamsData.includes(team.team)) {
+                    team.favoriteTeamStatus = 'true'
+
+                }
+            });
+
         } catch (error) {
             console.error(error);
         }
-    };
+    }
 
-    getAllTeams();
+    res.render('home', { teamData, favoriteTeamsArray });
 });
 
 /* Team Page */
