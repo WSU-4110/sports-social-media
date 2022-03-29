@@ -1,6 +1,8 @@
 <%- include("partials/header.ejs") %>
 <div class="text-center">
-    <a href="/"><img src="/images/generic-player.png" alt="NBA logo" id="logoNBA" /></a>
+    <a href="/"
+        ><img src="/images/generic-player.png" alt="NBA logo" id="logoNBA"
+    /></a>
     <h1 class="display-2">Welcome <%= currentUserData.displayName %></h1>
     <a href="logout" class="btn btn-primary">Sign Out</a>
 </div>
@@ -9,51 +11,102 @@
 <br />
 <div class="container teamPage-container">
     <div class="container-fluid">
-      <div class="row justify-content-evenly">
+        <div class="row justify-content-evenly">
             <!-- PLAYER CARD -->
-            <%# EJS CODE %> 
-            <% favoriteInfo.forEach(function(player) { %>
-                <div class="col-lg-3 col-md-3 col-sm-12 card shadow" id="playerCard">
-                    <div class="image-cropper shadow">
-                    <div class ="image-cropper-subContainer">
-                    <% if(player.headshot){ %> <%# IF TWITTER ACCOUNT EXISTS  %>
-                    <img class="card-img-top rounded-circle" id="playerImage" src="<%= player.headshot %>">
-                    <% } else{ %>
-                    <img class="card-img-top rounded-circle" id="playerImage" src="/images/generic-player.png">
-                    <% } %>
+            <%# EJS CODE %> <% favoriteInfo.forEach(function(player) { %>
+            <div
+                class="col-lg-3 col-md-3 col-sm-12 card shadow"
+                id="playerCard"
+            >
+                <div class="image-cropper shadow">
+                    <div class="image-cropper-subContainer">
+                        <% if(player.headshot){ %> <%# IF TWITTER ACCOUNT EXISTS
+                        %>
+                        <img
+                            class="card-img-top rounded-circle"
+                            id="playerImage"
+                            src="<%= player.headshot %>"
+                        />
+                        <% } else{ %>
+                        <img
+                            class="card-img-top rounded-circle"
+                            id="playerImage"
+                            src="/images/generic-player.png"
+                        />
+                        <% } %>
                     </div>
-                    </div>
-                    <div class="card-body" id="playerInfo">
-                      <h5 class="card-title"><%= player.name %><span class="p-1 unfavorite" style="color:#FFD700"><i class="fa fa-star"></i></span>                      </h5>
-                      <div class="d-flex justify-content-evenly playerStats">
+                </div>
+                <div class="card-body" id="playerInfo">
+                    <h5 class="card-title">
+                        <%= player.name %><span
+                            class="p-1 unfavorite"
+                            style="color: #ffd700"
+                            ><i class="fa fa-star"></i
+                        ></span>
+                    </h5>
+                    <div class="d-flex justify-content-evenly playerStats">
                         <div class="playerStats-subContainer">
-                          <h5 class="card-text"><%= player.jersey %></h5>
-                          <h6 class="stat-title-text">Jersey No.</h6>
+                            <h5 class="card-text"><%= player.jersey %></h5>
+                            <h6 class="stat-title-text">Jersey No.</h6>
                         </div>
                         <div class="playerStats-subContainer">
-                          <h5 class="card-text"><%= player.position %></h5>
-                          <h6 class="stat-title-text">Position</h6>
+                            <h5 class="card-text"><%= player.position %></h5>
+                            <h6 class="stat-title-text">Position</h6>
                         </div>
-                      </div>
-        
-                      <div class="d-flex justify-content-center icon-bar">
-        
-                        <% if(player.twitter){ %> <%# IF TWITTER ACCOUNT EXISTS  %>
-                        <a class="btn btn-lg btn-social btn-twitter text-decoration-none hvr-grow" href="<%=player.twitter %>" target="_blank"><i class="fa fa-twitter"></i></a>
-                        <% } %>
-        
-                        <% if(player.instagram){ %> <%# IF INSTAGRAM ACCOUNT EXISTS  %>
-                        <a class="btn btn-lg btn-social text-decoration-none btn-instagram hvr-grow" href="<%=player.instagram %>" target="_blank"><i class="fa fa-instagram"></i></a>
-                        <% } %>
-        
-                        <% if(player.facebook){ %> <%# IF FACEBOOK ACCOUNT EXISTS  %>
-                        <a class="btn btn-lg btn-social btn-facebook text-decoration-none hvr-grow" href="<%=player.facebook %>" target="_blank"><i class="fa fa-facebook"></i></a>
-                        <% } %>
-                      </div>
                     </div>
-                  </div>
-                  <% }); %>
-        <%# END EJS CODE %>
+
+                    <div class="d-flex justify-content-center icon-bar">
+                        <% if(player.twitter){ %> <%# IF TWITTER ACCOUNT EXISTS
+                        %>
+                        <a
+                            class="btn btn-lg btn-social btn-twitter text-decoration-none hvr-grow"
+                            href="<%=player.twitter %>"
+                            target="_blank"
+                            ><i class="fa fa-twitter"></i
+                        ></a>
+                        <% } %> <% if(player.instagram){ %> <%# IF INSTAGRAM
+                        ACCOUNT EXISTS %>
+                        <a
+                            class="btn btn-lg btn-social text-decoration-none btn-instagram hvr-grow"
+                            href="<%=player.instagram %>"
+                            target="_blank"
+                            ><i class="fa fa-instagram"></i
+                        ></a>
+                        <% } %> <% if(player.facebook){ %> <%# IF FACEBOOK
+                        ACCOUNT EXISTS %>
+                        <a
+                            class="btn btn-lg btn-social btn-facebook text-decoration-none hvr-grow"
+                            href="<%=player.facebook %>"
+                            target="_blank"
+                            ><i class="fa fa-facebook"></i
+                        ></a>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <% }); %> <%# END EJS CODE %>
+
+            <div class="row justifiy-content-evenly">
+            <%favoriteTeamsInfo.forEach(function(team) { %>
+
+                <div
+        class="col-lg-3 col-md-3 col-sm-12 card shadow hvr-grow teamCard"
+
+      >
+        <img class="mr-3" src="<%= team.teamLogo %>" alt="Card image cap" />
+
+        <span id="teamtext"><%= team.team %> </span>
+        <% var teampath= team.team; teampath=teampath.split(" ").join("_");
+        teampath=teampath.toLowerCase(); teampath="/teams/"+teampath; %>
+        <a class="stretched-link" href="<%= teampath %>"></a>
+
+      </div>
+
+
+
+            
+            <% }); %>
+        </div>
         </div>
     </div>
 </div>

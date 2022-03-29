@@ -148,6 +148,7 @@ app.post('/signup', async (req, res) => {
         // add firebase user in the firestore
         usersDb.doc(user.uid).set({
             favorites: [],
+            favoriteTeams: [],
             email: user.email,
             displayName: user.displayName,
         });
@@ -208,14 +209,22 @@ app.get('/profile', async (req, res) => {
     const response = await axios.get(`${API}/all.json`); // request all player data
     const playerData = response.data; // response from all player data
     const favoriteInfo = []; // empty array to store favorite info
+    const favoriteTeamsInfo = []; //empty array to store favorite teams info
+
+
 
     try {
         const user = await fbAuth.verifySessionCookie(sessionCookie, true); // verify session cookie
         const fav = await usersDb.doc(user.uid).get(); // get signed in user inforamtion
         const currentUserData = fav.data();
         const favoritesData = currentUserData.favorites; // get all favorites from user
+        const favoriteTeamsData = currentUserData.favoriteTeams; // get all favorite teams from user
+
         // get all players info and compare with favorites
         playerData.forEach((player) => {
+            if (favoriteTeamsData.includes(player.team)) {
+                favoriteTeamsInfo.push(player);
+            }
             favoritesData.forEach((favorites) => {
                 // only grab player info and discard team info from all.json file
                 if (player.name) {
@@ -228,7 +237,8 @@ app.get('/profile', async (req, res) => {
             });
         });
         favoriteInfo.sort((a, b) => a.name.localeCompare(b.name)); // sort favorites by name
-        res.render('profile', { currentUserData, favoriteInfo });
+        favoriteTeamsInfo.sort((a, b) => a.team.localeCompare(b.team)); // sort favorites by name
+        res.render('profile', { currentUserData, favoriteInfo, favoriteTeamsInfo });
     } catch (error) {
         console.log(error);
         res.redirect(`/login?type=${type}`);
