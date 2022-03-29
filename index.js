@@ -211,8 +211,6 @@ app.get('/profile', async (req, res) => {
     const favoriteInfo = []; // empty array to store favorite info
     const favoriteTeamsInfo = []; //empty array to store favorite teams info
 
-
-
     try {
         const user = await fbAuth.verifySessionCookie(sessionCookie, true); // verify session cookie
         const fav = await usersDb.doc(user.uid).get(); // get signed in user inforamtion
