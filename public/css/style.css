@@ -25,7 +25,12 @@
 #teamtext {
     font-weight: 500;
     padding-left: 3em;
-    font-size: 18px;
+    font-size: 17px;
+}
+
+#teamtextLink{
+    color: inherit;
+    text-decoration: none;
 }
 
 .mr-3 {
