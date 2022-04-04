@@ -292,7 +292,6 @@ $('.unfavorite').on('click', function () {
 
 /* Firebase Team Favorite */
 $('.favoriteTeam').on('click', function () {
-
     let teamName = $(this)[0].parentNode.innerText; // get team name from team card
     teamName = teamName.trim();
 
@@ -328,7 +327,6 @@ $('.favoriteTeam').on('click', function () {
 
 /* Firebase Unfavorite */
 $('.unfavoriteTeam').on('click', function () {
-
     let teamName = $(this)[0].parentNode.innerText; // get team name from team card
     teamName = teamName.trim();
 
@@ -386,4 +384,57 @@ $('#filterD').change(() => {
     const value1 = $('#filterD :selected').text(); // grab the selected option
     $('.teamCard').hide(); // hide everything else
     $(`[data-division="${value1}"]`).show(); // show the teams with data value equal to the selected option
+});
+
+$(document).ready(() => {
+    $.ajaxSetup({ cache: false });
+    $('#search').keyup(() => {
+        $('#result').html('');
+        $('#state').val('');
+        const searchField = $('#search').val();
+        if (searchField !== '') {
+            const expression = new RegExp(searchField, 'i');
+            $.getJSON(
+                'https://maqhspyw3j.execute-api.us-east-1.amazonaws.com/dev/all.json',
+                (data) => {
+                    let index = 0;
+                    $.each(data, (key, value) => {
+                        if (value.name) {
+                            if (index < 10) {
+                                if (value.name.search(expression) !== -1) {
+                                    let insta;
+                                    let twitter;
+                                    let facebook = '';
+                                    if (value.instagram) {
+                                        insta = `| <a href="${value.instagram}" target="_blank"><i class="fa fa-instagram"></i></a>`;
+                                    }
+                                    if (value.twitter) {
+                                        twitter = ` <a href="${value.twitter}" target="_blank"><i class="fa fa-twitter fa-xs"></i></a>`;
+                                    }
+                                    if (value.facebook) {
+                                        facebook = `| <a href="${value.facebook}" target="_blank"><i class="fa fa-facebook"></i></a>`;
+                                    }
+                                    $('#result').append(
+                                        `<div class="list-group-item link-class"><img src="${value.headshot}" height="40" width="40" class="img-thumbnail"/> 
+                                        ${value.name} 
+                                        <span class="text-muted"> |  ${value.jersey} | ${value.position}</span> 
+                                        <span class="social-search-list">${twitter} ${insta} ${facebook} </div>`
+                                    );
+                                    index += 1;
+                                }
+                            } else {
+                                return false;
+                            }
+                        }
+                    });
+                }
+            );
+        }
+    });
+
+    $('#result').on('click', 'li', function () {
+        const clickText = $(this).text().split('|');
+        $('#search').val($.trim(clickText[0]));
+        $('#result').html('');
+    });
 });
