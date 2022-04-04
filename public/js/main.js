@@ -409,13 +409,16 @@ $(document).ready(() => {
                                         insta = `| <a href="${value.instagram}" target="_blank"><i class="fa fa-instagram"></i></a>`;
                                     }
                                     if (value.twitter) {
-                                        twitter = ` <a href="${value.twitter}" target="_blank"><i class="fa fa-twitter"></i></a>`;
+                                        twitter = ` <a href="${value.twitter}" target="_blank"><i class="fa fa-twitter fa-xs"></i></a>`;
                                     }
                                     if (value.facebook) {
                                         facebook = `| <a href="${value.facebook}" target="_blank"><i class="fa fa-facebook"></i></a>`;
                                     }
                                     $('#result').append(
-                                        `<div class="list-group-item link-class"><img src="${value.headshot}" height="40" width="40" class="img-thumbnail" /> ${value.name} <span class="text-muted"> |  ${value.jersey} | ${value.position}  ${twitter} ${insta} ${facebook} </span></div>`
+                                        `<div class="list-group-item link-class"><img src="${value.headshot}" height="40" width="40" class="img-thumbnail"/> 
+                                        ${value.name} 
+                                        <span class="text-muted"> |  ${value.jersey} | ${value.position}</span> 
+                                        <span class="social-search-list">${twitter} ${insta} ${facebook} </div>`
                                     );
                                     index += 1;
                                 }

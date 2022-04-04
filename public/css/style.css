@@ -1,17 +1,19 @@
 html {
     position: relative;
     min-height: 100%;
-  }
-  body {
+}
+body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
-  }
+}
+
 footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 60px;
-  }
+}
+
 #logoNBA {
     max-width: 20%;
     padding-top: 1.5em;
@@ -24,11 +26,6 @@ footer {
     width: 200px;
 }
 
-.teamPage-container {
-    /* padding-left: 7em;
-    padding-right: 7em; */
-}
-
 .teamCard {
     width: 25rem;
     display: inline-block;
@@ -38,11 +35,11 @@ footer {
 
 #teamtext {
     font-weight: 500;
-    padding-left: 3em;
+    padding-left: 1.5em;
     font-size: 17px;
 }
 
-#teamtextLink{
+#teamtextLink {
     color: inherit;
     text-decoration: none;
 }
@@ -198,7 +195,6 @@ footer {
 
 /* end of Filter CSS*/
 
-
 @media only screen and (min-width: 992px) {
     .navbar .navbar-nav .nav-item .nav-link {
         padding: 0.5em 3em;
@@ -240,3 +236,22 @@ footer {
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
 }
 
+/* Search Bar Styling */
+.form-inline {
+    width: 345px;
+    margin: 0 auto;
+    display: block;
+}
+
+.social-search-list {
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+#result {
+    z-index: 9999;
+    position: absolute;
+    width: 345px;
+}
+
+/* End of Search Bar Styling */

@@ -59,11 +59,9 @@ app.get('/', async (req, res) => {
 
             teamData.forEach((team) => {
                 if (favoriteTeamsData.includes(team.team)) {
-                    team.favoriteTeamStatus = 'true'
-
+                    team.favoriteTeamStatus = 'true';
                 }
             });
-
         } catch (error) {
             console.error(error);
         }
@@ -103,7 +101,6 @@ app.get('/teams/:teamName', async (req, res) => {
                     }
                 });
             });
-
         } catch (error) {
             console.error(error);
         }
@@ -208,7 +205,7 @@ app.get('/profile', async (req, res) => {
     const response = await axios.get(`${API}/all.json`); // request all player data
     const playerData = response.data; // response from all player data
     const favoriteInfo = []; // empty array to store favorite info
-    const favoriteTeamsInfo = []; //empty array to store favorite teams info
+    const favoriteTeamsInfo = []; // empty array to store favorite teams info
 
     try {
         const user = await fbAuth.verifySessionCookie(sessionCookie, true); // verify session cookie
@@ -235,7 +232,11 @@ app.get('/profile', async (req, res) => {
         });
         favoriteInfo.sort((a, b) => a.name.localeCompare(b.name)); // sort favorites by name
         favoriteTeamsInfo.sort((a, b) => a.team.localeCompare(b.team)); // sort favorites by name
-        res.render('profile', { currentUserData, favoriteInfo, favoriteTeamsInfo });
+        res.render('profile', {
+            currentUserData,
+            favoriteInfo,
+            favoriteTeamsInfo,
+        });
     } catch (error) {
         console.log(error);
         res.redirect(`/login?type=${type}`);
