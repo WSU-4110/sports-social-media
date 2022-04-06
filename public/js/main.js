@@ -7,6 +7,33 @@ $('#signup').on('submit', () => {
     const password = $('#password').val();
     const name = $('#name').val();
 
+    class User {
+        constructor(email) {
+            this.email = email;
+        }
+    }
+
+    class UserBuilder {
+        constructor(email) {
+            this.user = new User(email);
+        }
+        setName(name) {
+            this.user.name = name;
+            return this
+        }
+
+        setPassword(password) {
+            this.user.password = password;
+            return this
+        }
+
+        buildUser() {
+            return this.user
+        }
+    }
+
+    let user = new UserBuilder(email).setName(name).setPassword(password).buildUser();
+
     fetch('/signup', {
         method: 'POST',
         headers: {
@@ -15,9 +42,9 @@ $('#signup').on('submit', () => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            email: email,
-            name: name,
-            password: password,
+            email: user.email,
+            name: user.name,
+            password: user.password,
         }),
     }).then((response) => {
         response
