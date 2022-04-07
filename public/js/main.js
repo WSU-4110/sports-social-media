@@ -1,19 +1,21 @@
 /* eslint-disable no-undef */
 
-const Item = function (item) {
+const Item = function (item, type) {
+    this.type = type;
     this.item = item;
 
     this.log = function () {
-        console.log(`User: ${this.item}`);
+        console.log(`${this.type}: ${this.item}`);
     };
 };
 
-const DecoratedItem = function (item, type) {
-    this.item = item;
-    this.type = type;
+const DecoratedItem = function (action, item, type) {
+    this.item = item.item;
+    this.type = item.type;
+    this.action = action;
 
     this.log = function () {
-        console.log(`Favoriting ${this.type}: ${this.item}`);
+        console.log(`${this.action} ${this.type}: ${this.item}`);
     };
 };
 
@@ -234,10 +236,10 @@ $('.favorite').on('click', function () {
     let player = $(this)[0].previousSibling.data; // get player name from playercard
     player = player.trim();
 
-    const item = new Item(player);
+    const item = new Item(player, 'player');
     item.log();
 
-    const decorated = new DecoratedItem(player, 'player');
+    const decorated = new DecoratedItem('Favoriting', item);
     decorated.log();
 
     fetch('/favorite', {
@@ -274,6 +276,12 @@ $('.favorite').on('click', function () {
 $('.unfavorite').on('click', function () {
     let player = $(this)[0].previousSibling.data; // get player name from playercard
     player = player.trim();
+
+    const item = new Item(player, 'player');
+    item.log();
+
+    const decorated = new DecoratedItem('UnFavoriting', item);
+    decorated.log();
     // Confirmation Alert
     swal({
         title: 'Are you sure?',
@@ -318,10 +326,10 @@ $('.favoriteTeam').on('click', function () {
     let teamName = $(this)[0].parentNode.innerText; // get team name from team card
     teamName = teamName.trim();
 
-    const item = new Item(teamName);
+    const item = new Item(teamName, 'team');
     item.log();
 
-    const decorated = new DecoratedItem(teamName, 'team');
+    const decorated = new DecoratedItem('Favoriting', item);
     decorated.log();
 
     fetch('/favoriteTeam', {
@@ -358,6 +366,12 @@ $('.favoriteTeam').on('click', function () {
 $('.unfavoriteTeam').on('click', function () {
     let teamName = $(this)[0].parentNode.innerText; // get team name from team card
     teamName = teamName.trim();
+
+    const item = new Item(teamName, 'team');
+    item.log();
+
+    const decorated = new DecoratedItem('Favoriting', item);
+    decorated.log();
 
     // Confirmation Alert
     swal({
