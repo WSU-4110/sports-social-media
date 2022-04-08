@@ -255,3 +255,17 @@ footer {
 }
 
 /* End of Search Bar Styling */
+
+/* Request Form Styling */
+#requestForm {
+  padding: 1em;
+  width: 35rem;
+  height: 22rem;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-container {
+  align-items: center;
+}

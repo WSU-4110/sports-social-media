@@ -415,9 +415,9 @@ $(document).ready(() => {
                                         facebook = `| <a href="${value.facebook}" target="_blank"><i class="fa fa-facebook"></i></a>`;
                                     }
                                     $('#result').append(
-                                        `<div class="list-group-item link-class"><img src="${value.headshot}" height="40" width="40" class="img-thumbnail"/> 
-                                        ${value.name} 
-                                        <span class="text-muted"> |  ${value.jersey} | ${value.position}</span> 
+                                        `<div class="list-group-item link-class"><img src="${value.headshot}" height="40" width="40" class="img-thumbnail"/>
+                                        ${value.name}
+                                        <span class="text-muted"> |  ${value.jersey} | ${value.position}</span>
                                         <span class="social-search-list">${twitter} ${insta} ${facebook} </div>`
                                     );
                                     index += 1;
@@ -438,3 +438,33 @@ $(document).ready(() => {
         $('#result').html('');
     });
 });
+
+// FOR HOMEWORK 4 - BUILDER SOFTARE DESIGN
+
+// define a constructor for Form object
+function Form(name, isManager, isPlayer) {
+  this.name = name;
+  this.isManager = isManager || false;
+  this.isPlayer = isPlayer || false;
+}
+
+// we extend the function's prototype
+Form.prototype.managesTeam = function() {
+  console.log(this.isManager? "This person is a team manager" : "This person does not manage a team");
+}
+
+Form.prototype.playsforTeam = function() {
+  console.log(this.isPlayer? "This person is a player for a team" : "This person does not player for a team");
+}
+
+// creates a form instance with properties
+var person1 = new Form("Bob", true, false);
+var person2 = new Form("LeBron", false, true);
+
+// prints out: This person is a team manager
+person1.managesTeam();
+
+// prints out: This person is a player for a team
+person2.playsforTeam();
+
+// Now, both instances of the Form constructor can access a shared instance of the playsforTeam and managesTeam method.

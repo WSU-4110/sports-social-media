@@ -1,0 +1,77 @@
+<%- include("partials/header.ejs") %>
+
+<div class="text-center">
+  <h2>Request Form</h2>
+</div>
+<div class ="form-container container">
+<div class="container-fluid">
+
+  <div class="card shadow" id="requestForm">
+    <form class="request-form">
+      <div class="form-group">
+        <label for="name">Full Name</label><br />
+        <input type="text" name="name" required/>
+      </div>
+
+      <div class="form-group">
+        <label for="player">Are you a player?</label><br />
+        <input type="radio" id="playerYes" name="player" value="Yes"/>
+        <label for="playerYes">Yes</label>
+        <input type="radio" id="playerNo" name="player" value="No"/>
+        <label for="playerNo">No</label>
+      </div>
+
+      <div class="form-group">
+        <label for="player">Are you a manager?</label><br />
+        <input type="radio" id="managerYes" name="manager" value="Yes"/>
+        <label for="managerYes">Yes</label>
+        <input type="radio" id="managerNo" name="manager" value="No"/>
+        <label for="managerNo">No</label>
+      </div>
+
+      <div class="form-group">
+        <label for="socialApp">What social media profile(s) would you like added?</label><br />
+        <input type="checkbox" id="appTwitter" name="twitter" value="twitter" />
+        <label for="appTwitter">Twitter</label>
+        <input type="checkbox" id="appInstagram" name="instagram" value="instagram"/>
+        <label for="appInstagram">Instagram</label>
+        <input type="checkbox" id="appFacebook" name="facebook" value="facebook" />
+        <label for="appFacebook">Facebook</label>
+      </div>
+
+      <div class="form-group">
+        <label for="URL">URLs for each social media app request:</label><br />
+        <input type="textarea" id="URL" name="URL" required/>
+      </div><br />
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+</div>
+
+<div class="results">
+  <h2>Form Data</h2>
+  <pre></pre>
+</div>
+
+<script>
+    function handleFormSubmit(event) {
+      event.preventDefault();
+
+      const data = new FormData(event.target);
+
+      const formJSON = Object.fromEntries(data.entries());
+
+      // for multi-selects, we need special handling
+      formJSON.snacks = data.getAll('snacks');
+
+      const results = document.querySelector('.results pre');
+      results.innerText = JSON.stringify(formJSON, null, 2);
+    }
+
+    const form = document.querySelector('.request-form');
+    form.addEventListener('submit', handleFormSubmit);
+  });
+</script>
+
+<%- include("partials/footer.ejs") %>
