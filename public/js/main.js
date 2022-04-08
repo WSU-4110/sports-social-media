@@ -1,5 +1,24 @@
 /* eslint-disable no-undef */
 
+const Item = function (item, type) {
+    this.type = type;
+    this.item = item;
+
+    this.log = function () {
+        console.log(`${this.type}: ${this.item}`);
+    };
+};
+
+const DecoratedItem = function (action, item, type) {
+    this.item = item.item;
+    this.type = item.type;
+    this.action = action;
+
+    this.log = function () {
+        console.log(`test: ${this.action} ${this.type}: ${this.item}`);
+    };
+};
+
 /* Firebase Signup */
 $('#signup').on('submit', () => {
     // get input values
@@ -217,6 +236,12 @@ $('.favorite').on('click', function () {
     let player = $(this)[0].previousSibling.data; // get player name from playercard
     player = player.trim();
 
+    const item = new Item(player, 'player');
+    item.log();
+
+    const decorated = new DecoratedItem('Favoriting', item);
+    decorated.log();
+
     fetch('/favorite', {
         method: 'POST',
         headers: {
@@ -251,6 +276,12 @@ $('.favorite').on('click', function () {
 $('.unfavorite').on('click', function () {
     let player = $(this)[0].previousSibling.data; // get player name from playercard
     player = player.trim();
+
+    const item = new Item(player, 'player');
+    item.log();
+
+    const decorated = new DecoratedItem('UnFavoriting', item);
+    decorated.log();
     // Confirmation Alert
     swal({
         title: 'Are you sure?',
@@ -295,6 +326,12 @@ $('.favoriteTeam').on('click', function () {
     let teamName = $(this)[0].parentNode.innerText; // get team name from team card
     teamName = teamName.trim();
 
+    const item = new Item(teamName, 'team');
+    item.log();
+
+    const decorated = new DecoratedItem('Favoriting', item);
+    decorated.log();
+
     fetch('/favoriteTeam', {
         method: 'POST',
         headers: {
@@ -329,6 +366,12 @@ $('.favoriteTeam').on('click', function () {
 $('.unfavoriteTeam').on('click', function () {
     let teamName = $(this)[0].parentNode.innerText; // get team name from team card
     teamName = teamName.trim();
+
+    const item = new Item(teamName, 'team');
+    item.log();
+
+    const decorated = new DecoratedItem('Favoriting', item);
+    decorated.log();
 
     // Confirmation Alert
     swal({
@@ -398,6 +441,7 @@ $(document).ready(() => {
                 'https://maqhspyw3j.execute-api.us-east-1.amazonaws.com/dev/all.json',
                 (data) => {
                     let index = 0;
+                    // eslint-disable-next-line consistent-return
                     $.each(data, (key, value) => {
                         if (value.name) {
                             if (index < 10) {
