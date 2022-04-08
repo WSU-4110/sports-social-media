@@ -15,7 +15,7 @@ const DecoratedItem = function (action, item, type) {
     this.action = action;
 
     this.log = function () {
-        console.log(`${this.action} ${this.type}: ${this.item}`);
+        console.log(`test: ${this.action} ${this.type}: ${this.item}`);
     };
 };
 
