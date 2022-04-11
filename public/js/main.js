@@ -398,6 +398,7 @@ $(document).ready(() => {
                 'https://maqhspyw3j.execute-api.us-east-1.amazonaws.com/dev/all.json',
                 (data) => {
                     let index = 0;
+                    // eslint-disable-next-line consistent-return
                     $.each(data, (key, value) => {
                         if (value.name) {
                             if (index < 10) {

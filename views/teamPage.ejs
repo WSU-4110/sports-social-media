@@ -7,9 +7,9 @@
       <span class="display-2">
         <%= team[0].team %>          <!-- check if the array of user's favorite teams includes the current pages team -->
       <% if (team[0].favoriteTeamStatus) { %>
-        <span class="unfavoriteTeam"><i class="fa fa-star teamFavIcon"></i></span>
+        <span class="unfavoriteTeam" title="Remove Team from Favorites"><i class="fa fa-star teamFavIcon"></i></span>
           <%} else { %>
-          <span class="favoriteTeam"><i class="fa fa-star-o teamFavIcon"></i></span>
+          <span class="favoriteTeam" title="Add Team to Favorites"><i class="fa fa-star-o teamFavIcon"></i></span>
         <% } %>
       </span>
       <hr>
@@ -33,9 +33,9 @@
             <div class="card-body" id="playerInfo">
               <h5 class="card-title"><%= player.name %>
                 <% if(!player.favStatus){%>
-                  <span class="p-1 favoritePlayer"><i class="fa fa-star-o"></i></span>
+                  <span class="p-1 favoritePlayer" title="Add Player to Favorites"><i class="fa fa-star-o"></i></span>
                   <% }else{ %>
-                    <span class="p-1 unfavoritePlayer"><i class="fa fa-star"></i></span>
+                    <span class="p-1 unfavoritePlayer" title="Remove Player from Favorites"><i class="fa fa-star"></i></span>
               <% } %>
             </h5>
               <div class="d-flex justify-content-evenly playerStats">

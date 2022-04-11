@@ -114,10 +114,6 @@ footer {
     color: blue;
 }
 
-.fa {
-    font-size: 20px !important;
-}
-
 /* Grow */
 .hvr-grow {
     display: inline-block;
@@ -257,7 +253,8 @@ footer {
 
 /* End of Search Bar Styling */
 
-/* Favorite */
+/* Favorite Button Syling */
+/* This is the big favorite icon for team on teampage  */
 .teamFavIcon {
     font-size: 45px !important;
 }
@@ -266,3 +263,5 @@ footer {
 .unfavoritePlayer {
     color: #ffd700;
 }
+
+/* End of Favorite Styling */
