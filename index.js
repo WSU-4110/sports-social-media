@@ -387,6 +387,10 @@ app.post('/unfavoriteTeam', async (req, res) => {
     }
 });
 
+app.use((req, res) => {
+    res.status(404).send('Sorry, page not found');
+});
+
 app.listen(port, () => {
     console.log(`App listening on port ${port}`);
 });

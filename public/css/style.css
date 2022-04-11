@@ -36,7 +36,7 @@ footer {
 #teamtext {
     font-weight: 500;
     padding-left: 1.5em;
-    font-size: 17px;
+    font-size: 16px;
 }
 
 #teamtextLink {
@@ -244,8 +244,9 @@ footer {
 }
 
 .social-search-list {
-    padding-left: 10px;
+    padding-left: 45px;
     font-size: 20px;
+    display: block;
 }
 
 #result {
@@ -255,3 +256,13 @@ footer {
 }
 
 /* End of Search Bar Styling */
+
+/* Favorite */
+.teamFavIcon {
+    font-size: 45px !important;
+}
+
+.unfavoriteTeam,
+.unfavoritePlayer {
+    color: #ffd700;
+}

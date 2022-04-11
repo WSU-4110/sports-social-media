@@ -213,7 +213,7 @@ $('#changeUsername').on('submit', () => {
 });
 
 /* Firebase Favorite */
-$('.favorite').on('click', function () {
+$('.favoritePlayer').on('click', function () {
     let player = $(this)[0].previousSibling.data; // get player name from playercard
     player = player.trim();
 
@@ -248,7 +248,7 @@ $('.favorite').on('click', function () {
 });
 
 /* Firebase Unfavorite */
-$('.unfavorite').on('click', function () {
+$('.unfavoritePlayer').on('click', function () {
     let player = $(this)[0].previousSibling.data; // get player name from playercard
     player = player.trim();
     // Confirmation Alert
@@ -418,7 +418,9 @@ $(document).ready(() => {
                                         `<div class="list-group-item link-class"><img src="${value.headshot}" height="40" width="40" class="img-thumbnail"/> 
                                         ${value.name} 
                                         <span class="text-muted"> |  ${value.jersey} | ${value.position}</span> 
-                                        <span class="social-search-list">${twitter} ${insta} ${facebook} </div>`
+                                        <span class="social-search-list">${twitter} ${insta} ${facebook}</span>
+                                        
+                                        </div>`
                                     );
                                     index += 1;
                                 }
