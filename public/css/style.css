@@ -36,7 +36,7 @@ footer {
 #teamtext {
     font-weight: 500;
     padding-left: 1.5em;
-    font-size: 17px;
+    font-size: 16px;
 }
 
 #teamtextLink {
@@ -112,10 +112,6 @@ footer {
 
 .stat-title-text {
     color: blue;
-}
-
-.fa {
-    font-size: 20px !important;
 }
 
 /* Grow */
@@ -244,8 +240,9 @@ footer {
 }
 
 .social-search-list {
-    padding-left: 10px;
+    padding-left: 45px;
     font-size: 20px;
+    display: block;
 }
 
 #result {
@@ -255,3 +252,16 @@ footer {
 }
 
 /* End of Search Bar Styling */
+
+/* Favorite Button Syling */
+/* This is the big favorite icon for team on teampage  */
+.teamFavIcon {
+    font-size: 45px !important;
+}
+
+.unfavoriteTeam,
+.unfavoritePlayer {
+    color: #ffd700;
+}
+
+/* End of Favorite Styling */
