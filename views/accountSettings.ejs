@@ -1,7 +1,7 @@
 <%- include("partials/header.ejs") %>
 <div class="text-center">
     <a href="/"><img src="/images/generic-player.png" alt="NBA logo" id="logoNBA" /></a>
-    <h1 class="display-2">Username: <%= currentUserData.displayName %></h1>
+    <h1 class="display-2" id="currentUsername">Username: <%= currentUserData.displayName %></h1>
     <a href="logout" class="btn btn-primary">Sign Out</a>
 </div>
 <section class="h-100">
@@ -16,7 +16,7 @@
                             <div class="invalid-feedback">Username is invalid</div>
                         </div>
                         <div class="align-items-center d-flex">
-                            <button class="btn btn-primary ms-auto">Submit</button>
+                            <button class="btn btn-primary ms-auto" id="changeUsernameSubmit">Submit</button>
                         </div>
                     </form>
                 </div>
