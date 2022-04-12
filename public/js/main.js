@@ -170,46 +170,56 @@ $('#deleteAccount').on('click', () => {
 
 /* Firebase Change Username */
 $('#changeUsername').on('submit', () => {
-    // get email input
     const username = $('#username').val();
-    swal({
-        title: 'Are you sure?',
-        text: 'Your username will be changed',
-        icon: 'warning',
-        buttons: ['Cancel', 'Ok'],
-        dangerMode: true,
-    }).then((changeUsername) => {
-        // if confirmation yes
-        if (changeUsername) {
-            fetch('/changeusername', {
-                method: 'POST',
-                headers: {
-                    Accept: 'application/json, text/plain, */*',
-                    'CSRF-Token': Cookies.get('XSRF-TOKEN'),
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username: username }), // send post request with player name to unfavorite
-            })
-                .then((response) => {
-                    const { status } = response;
-                    if (status === 401) {
-                        console.log(status);
-                    }
-                    if (status === 200) {
-                        window.location.reload();
-                        console.log(status);
-                    }
+    const currentUsername = $('#currentUsername').text().split(' ')[1].trim();
+
+    if (currentUsername != username) {
+        swal({
+            title: 'Are you sure?',
+            text: 'Your username will be changed',
+            icon: 'warning',
+            buttons: ['Cancel', 'Ok'],
+            dangerMode: true,
+        }).then((changeUsername) => {
+            // if confirmation yes
+            if (changeUsername) {
+                fetch('/changeusername', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json, text/plain, */*',
+                        'CSRF-Token': Cookies.get('XSRF-TOKEN'),
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username: username }), // send post request with player name to unfavorite
                 })
-                .catch((error) => {
-                    console.log(error);
-                });
-        }
-        // if confirmation canceled
-        else {
-            swal('Canceled!');
-        }
-    });
-    return false;
+                    .then((response) => {
+                        const { status } = response;
+                        if (status === 401) {
+                            console.log(status);
+                        }
+                        if (status === 200) {
+                            window.location.reload();
+                            console.log(status);
+                        }
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            }
+            // if confirmation canceled
+            else {
+                swal('Canceled!');
+            }
+        });
+        return false;
+    } else {
+        swal({
+            text: `${username} is already your current username! Choose something different if you wish to change it.`,
+            icon: 'error',
+            showCloseButton: true,
+        });
+        return false;
+    }
 });
 
 /* Firebase Favorite */
