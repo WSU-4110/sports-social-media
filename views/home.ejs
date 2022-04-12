@@ -36,20 +36,16 @@
          <div class="col-lg-3 col-md-3 col-sm-12 card shadow hvr-grow teamCard" data-conference="<%= team.conference %>" data-division="<%= team.division %>">
             <img class="mr-3" src="<%= team.logo %>" alt="Card image cap" />
 
-
             <% var teampath= team.team;
                teampath=teampath.split(" ").join("_");
                teampath=teampath.toLowerCase();
                teampath="/teams/"+teampath;
                %>
-              <a id="teamtextLink" href="<%= teampath %>"><span id="teamtext"><%= team.team %> </span></a>
-
+              <a id="teamtextLink" href="<%= teampath %>"><span id="teamtext"><%= team.team %></span></a>
             <% if (team.favoriteTeamStatus) { %>
-              <span class="unfavoriteTeam" style="color: #ffd700">
-                <i class="fa fa-star"></i>
-              </span>
+              <span class="unfavoriteTeam" title="Remove Team from Favorites"><i class="fa fa-star"></i></span>
               <%} else { %>
-              <span class="favoriteTeam"><i class="fa fa-star-o"></i></span>
+              <span class="favoriteTeam" title="Add Team to Favorites"><i class="fa fa-star-o"></i></span>
               <% } %>
 
          </div>
