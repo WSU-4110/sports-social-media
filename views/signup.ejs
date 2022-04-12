@@ -7,7 +7,8 @@
         <div class="card shadow-lg">
           <div class="card-body p-5">
             <h1 class="fs-4 card-title fw-bold mb-4">Register</h1>
-            <form id="signup">
+            <form id="signup" action="/newaccount" method=post
+            oninput='confirmPassword.setCustomValidity(confirmPassword.value != password.value ? "Passwords do not match." : "")'>
               <div class="mb-3">
                 <label class="mb-2 text-muted" for="name">Username <span class="input-group-addon"><i class="fa fa-user"></i></span></label> 
                 
@@ -16,13 +17,18 @@
               </div>
               <div class="mb-3">
                 <label class="mb-2 text-muted" for="email">E-Mail Address <span class="input-group-addon"><i class="fa fa-envelope"></i></span></label>
-                <input id="email" type="email" class="form-control" name="email" value="" required />
+                <input id="email" type="email" class="form-control" name="email" value="" required/>
                 <div class="invalid-feedback"> Email is invalid </div>
               </div>
               <div class="mb-3">
                 <label class="mb-2 text-muted" for="password">Password <span class="input-group-addon"><i class="fa fa-lock"></i></span></label>
-                <input id="password" type="password" class="form-control" name="password" required />
+                <input id="password" type="password" class="form-control" name="password" required/>
                 <div class="invalid-feedback"> Password is required </div>
+              </div>
+              <div class="mb-3">
+                <label class="mb-2 text-muted" for="password">Confirm Password <span class="input-group-addon"><i class="fa fa-check"></i></span></label>
+                <input id="confirmPassword" type="password" class="form-control" name="confirmPassword"/>
+                <div class="invalid-feedback"> Confirm password </div>
               </div>
     
               <div class="form-check d-flex justify-content-center mb-5">
