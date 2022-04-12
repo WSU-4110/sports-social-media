@@ -390,3 +390,8 @@ app.post('/unfavoriteTeam', async (req, res) => {
 app.listen(port, () => {
     console.log(`App listening on port ${port}`);
 });
+
+/* Request Form Page */
+app.get('/requestForm', (req, res) => {
+    res.render('requestForm');
+});
