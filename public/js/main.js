@@ -170,30 +170,8 @@ $('#deleteAccount').on('click', () => {
 
 /* Firebase Change Username */
 $('#changeUsername').on('submit', () => {
-    class UserName {
-        constructor(email, name) {
-            // eslint-disable-next-line new-cap
-            this.user = new this.user(email, name);
-        }
-    }
-    class changeUserName {
-        constructor(email, name) {
-            this.user = new UserName(email, name);
-        }
-
-        getEmail() {
-            return email;
-        }
-
-        setUsername(newName) {
-            this.user.name = newName;
-        }
-    }
-
     // get email input
     const username = $('#username').val();
-    // eslint-disable-next-line new-cap
-    user = new changeUserName(username).setUsername(newName);
     swal({
         title: 'Are you sure?',
         text: 'Your username will be changed',
@@ -210,7 +188,7 @@ $('#changeUsername').on('submit', () => {
                     'CSRF-Token': Cookies.get('XSRF-TOKEN'),
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ username: user.username }), // send post request with player name to unfavorite
+                body: JSON.stringify({ username: username }), // send post request with player name to unfavorite
             })
                 .then((response) => {
                     const { status } = response;
@@ -407,3 +385,5 @@ $('#filterD').change(() => {
     $('.teamCard').hide(); // hide everything else
     $(`[data-division="${value1}"]`).show(); // show the teams with data value equal to the selected option
 });
+
+/* Sidebar scipt */
