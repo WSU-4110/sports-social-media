@@ -1,4 +1,3 @@
-/* eslint-disable max-classes-per-file */
 /* eslint-disable no-undef */
 
 /* Firebase Signup */
@@ -44,6 +43,7 @@ $('#signup').on('submit', () => {
 /* Firebase Forgot Password */
 $('#forgot').on('submit', () => {
     // get email input
+    const email = $('#email').val();
 
     firebase
         .auth()
@@ -170,50 +170,60 @@ $('#deleteAccount').on('click', () => {
 
 /* Firebase Change Username */
 $('#changeUsername').on('submit', () => {
-    // get email input
     const username = $('#username').val();
-    swal({
-        title: 'Are you sure?',
-        text: 'Your username will be changed',
-        icon: 'warning',
-        buttons: ['Cancel', 'Ok'],
-        dangerMode: true,
-    }).then((changeUsername) => {
-        // if confirmation yes
-        if (changeUsername) {
-            fetch('/changeusername', {
-                method: 'POST',
-                headers: {
-                    Accept: 'application/json, text/plain, */*',
-                    'CSRF-Token': Cookies.get('XSRF-TOKEN'),
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username: username }), // send post request with player name to unfavorite
-            })
-                .then((response) => {
-                    const { status } = response;
-                    if (status === 401) {
-                        console.log(status);
-                    }
-                    if (status === 200) {
-                        window.location.reload();
-                        console.log(status);
-                    }
+    const currentUsername = $('#currentUsername').text().split(' ')[1].trim();
+
+    if (currentUsername != username) {
+        swal({
+            title: 'Are you sure?',
+            text: 'Your username will be changed',
+            icon: 'warning',
+            buttons: ['Cancel', 'Ok'],
+            dangerMode: true,
+        }).then((changeUsername) => {
+            // if confirmation yes
+            if (changeUsername) {
+                fetch('/changeusername', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json, text/plain, */*',
+                        'CSRF-Token': Cookies.get('XSRF-TOKEN'),
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username: username }), // send post request with player name to unfavorite
                 })
-                .catch((error) => {
-                    console.log(error);
-                });
-        }
-        // if confirmation canceled
-        else {
-            swal('Canceled!');
-        }
-    });
-    return false;
+                    .then((response) => {
+                        const { status } = response;
+                        if (status === 401) {
+                            console.log(status);
+                        }
+                        if (status === 200) {
+                            window.location.reload();
+                            console.log(status);
+                        }
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            }
+            // if confirmation canceled
+            else {
+                swal('Canceled!');
+            }
+        });
+        return false;
+    } else {
+        swal({
+            text: `${username} is already your current username! Choose something different if you wish to change it.`,
+            icon: 'error',
+            showCloseButton: true,
+        });
+        return false;
+    }
 });
 
 /* Firebase Favorite */
-$('.favorite').on('click', function () {
+$('.favoritePlayer').on('click', function () {
     let player = $(this)[0].previousSibling.data; // get player name from playercard
     player = player.trim();
 
@@ -248,7 +258,7 @@ $('.favorite').on('click', function () {
 });
 
 /* Firebase Unfavorite */
-$('.unfavorite').on('click', function () {
+$('.unfavoritePlayer').on('click', function () {
     let player = $(this)[0].previousSibling.data; // get player name from playercard
     player = player.trim();
     // Confirmation Alert
@@ -386,4 +396,58 @@ $('#filterD').change(() => {
     $(`[data-division="${value1}"]`).show(); // show the teams with data value equal to the selected option
 });
 
-/* Sidebar scipt */
+$(document).ready(() => {
+    $.ajaxSetup({ cache: false });
+    $('#search').keyup(() => {
+        $('#result').html('');
+        $('#state').val('');
+        const searchField = $('#search').val();
+        if (searchField !== '') {
+            const expression = new RegExp(searchField, 'i');
+            $.getJSON(
+                'https://maqhspyw3j.execute-api.us-east-1.amazonaws.com/dev/all.json',
+                (data) => {
+                    let index = 0;
+                    // eslint-disable-next-line consistent-return
+                    $.each(data, (key, value) => {
+                        if (value.name) {
+                            if (index < 10) {
+                                if (value.name.search(expression) !== -1) {
+                                    let insta;
+                                    let twitter;
+                                    let facebook = '';
+                                    if (value.instagram) {
+                                        insta = `| <a href="${value.instagram}" target="_blank"><i class="fa fa-instagram"></i></a>`;
+                                    }
+                                    if (value.twitter) {
+                                        twitter = ` <a href="${value.twitter}" target="_blank"><i class="fa fa-twitter fa-xs"></i></a>`;
+                                    }
+                                    if (value.facebook) {
+                                        facebook = `| <a href="${value.facebook}" target="_blank"><i class="fa fa-facebook"></i></a>`;
+                                    }
+                                    $('#result').append(
+                                        `<div class="list-group-item link-class"><img src="${value.headshot}" height="40" width="40" class="img-thumbnail"/> 
+                                        ${value.name} 
+                                        <span class="text-muted"> |  ${value.jersey} | ${value.position}</span> 
+                                        <span class="social-search-list">${twitter} ${insta} ${facebook}</span>
+                                        
+                                        </div>`
+                                    );
+                                    index += 1;
+                                }
+                            } else {
+                                return false;
+                            }
+                        }
+                    });
+                }
+            );
+        }
+    });
+
+    $('#result').on('click', 'li', function () {
+        const clickText = $(this).text().split('|');
+        $('#search').val($.trim(clickText[0]));
+        $('#result').html('');
+    });
+});

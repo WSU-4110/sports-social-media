@@ -6,6 +6,7 @@ body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
 }
+
 footer {
     position: absolute;
     bottom: 0;
@@ -24,11 +25,6 @@ footer {
     width: 200px;
 }
 
-.teamPage-container {
-    /* padding-left: 7em;
-    padding-right: 7em; */
-}
-
 .teamCard {
     width: 25rem;
     display: inline-block;
@@ -38,8 +34,8 @@ footer {
 
 #teamtext {
     font-weight: 500;
-    padding-left: 3em;
-    font-size: 17px;
+    padding-left: 1.5em;
+    font-size: 16px;
 }
 
 #teamtextLink {
@@ -115,10 +111,6 @@ footer {
 
 .stat-title-text {
     color: blue;
-}
-
-.fa {
-    font-size: 20px !important;
 }
 
 /* Grow */
@@ -197,7 +189,22 @@ footer {
 }
 
 /* end of Filter CSS*/
+#navbarTitle {
+  margin: auto;
+  padding: 5px;
+}
 
+#navbarItems {
+  align-items: center;
+}
+@media only screen and (min-width: 992px) {
+    .navbar .navbar-nav .nav-item .nav-link {
+        padding: 0.5em 3em;
+    }
+    .navbar .navbar-nav .nav-item:not(:last-child) .nav-link {
+        border-right: 2px solid #575252;
+    }
+}
 .navbar-collapse.in {
     display: block !important;
 }
@@ -280,3 +287,55 @@ i.far.fa-credit-card:hover {
         float: none;
     }
 }
+
+
+/* Search Bar Styling */
+.form-inline {
+    width: 345px;
+    margin: 0 auto;
+    display: block;
+}
+
+.social-search-list {
+    padding-left: 45px;
+    font-size: 20px;
+    display: block;
+}
+
+#result {
+    z-index: 9999;
+    position: absolute;
+    width: 345px;
+}
+
+/* End of Search Bar Styling */
+
+/* Favorite Button Syling */
+/* This is the big favorite icon for team on teampage  */
+.teamFavIcon {
+    font-size: 45px !important;
+}
+
+.unfavoriteTeam,
+.unfavoritePlayer {
+    color: #ffd700;
+}
+
+/* End of Favorite Styling */
+
+/* Request Form Styling */
+
+#removePlayerCard {
+  margin-top: 3em;
+}
+
+#checkboxText {
+  font-size: 0.875em;
+}
+
+#checkboxRow {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* End of Request Form Styling */
