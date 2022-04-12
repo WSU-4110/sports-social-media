@@ -191,6 +191,14 @@ footer {
 
 /* end of Filter CSS*/
 
+#navbarTitle {
+  margin: auto;
+  padding: 5px;
+}
+
+#navbarItems {
+  align-items: center;
+}
 @media only screen and (min-width: 992px) {
     .navbar .navbar-nav .nav-item .nav-link {
         padding: 0.5em 3em;
@@ -265,3 +273,20 @@ footer {
 }
 
 /* End of Favorite Styling */
+
+/* Request Form Styling */
+
+#removePlayerCard {
+  margin-top: 3em;
+}
+
+#checkboxText {
+  font-size: 0.875em;
+}
+
+#checkboxRow {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* End of Request Form Styling */
