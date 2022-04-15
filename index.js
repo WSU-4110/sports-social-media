@@ -388,6 +388,11 @@ app.post('/unfavoriteTeam', async (req, res) => {
     }
 });
 
+/* Request Form Page */
+app.get('/requestForm', (req, res) => {
+    res.render('requestForm');
+});
+
 app.use((req, res) => {
     res.status(404).send('Sorry, page not found');
 });
@@ -400,7 +405,4 @@ app.listen(process.env.PORT || port, function () {
     );
 });
 
-/* Request Form Page */
-app.get('/requestForm', (req, res) => {
-    res.render('requestForm');
-});
+
