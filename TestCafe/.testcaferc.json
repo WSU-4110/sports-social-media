@@ -1,0 +1,38 @@
+{
+    "src": ["src/specs/**/*.ts"],
+    "browsers": ["chrome"],
+    "compilerOptions": {
+      "typescript": 
+          { 
+            "configPath": "tsconfig.json"
+          }
+      },
+    "reporter": [
+      {
+        "name": "spec"
+      },
+      {
+        "name": "spec",
+        "output": "testcafe-results/report-text.txt"
+      },
+      {
+        "name": "nunit3",
+        "output": "testcafe-results/report-nunit.xml"
+      },
+      {
+        "name": "json",
+        "output": "testcafe-results/report-json.json"
+      }
+    ],
+    "pageLoadTimeout": 20000,
+    "selectorTimeout": 20000,
+    "assertionTimeout": 20000,
+  
+    "skipJsErrors": true,
+    "screenshots": {
+      "takeOnFails": true,
+      "path": "testcafe-results/screenshots/",
+      "pathPattern": "${DATE}_${TIME}/${TEST_ID}/${FILE_INDEX}_${RUN_ID}_${BROWSER}"
+    }
+  }
+  
