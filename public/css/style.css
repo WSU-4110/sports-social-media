@@ -190,12 +190,12 @@ footer {
 
 /* end of Filter CSS*/
 #navbarTitle {
-  margin: auto;
-  padding: 5px;
+    margin: auto;
+    padding: 5px;
 }
 
 #navbarItems {
-  align-items: center;
+    align-items: center;
 }
 @media only screen and (min-width: 992px) {
     .navbar .navbar-nav .nav-item .nav-link {
@@ -210,60 +210,25 @@ footer {
 }
 
 /*sidebar css */
-.wrapper {
-    position: fixed;
-}
 .sidebar {
     position: absolute;
-    width: 180px;
-    height: 95%;
-    background: #000000e0;
-    margin-right: 20px;
-}
-
-.text-muted {
-    color: #adb5bd !important;
-}
-
-ul {
-    padding-bottom: 20px;
-}
-
-ul li a img {
-    background: #66bb6a;
-    top: 0;
-    border: none;
-    width: 20px;
+    width: 200px;
+    height: 96%;
+    margin: auto;
 }
 
 .sidebar ul li {
-    padding: 15px;
+    padding-top: 10px;
+    list-style-type: none;
+    width: 100%;
 }
 
 .sidebar ul li a {
     color: #fff;
-    display: block;
 }
 
-.sidebar ul li a .fas {
-    width: 30px;
-    color: #bdb8d7 !important;
-}
-
-i.fas.fa-home:hover,
-i.fas.fa-file-invoice:hover,
-i.fas.fa-video:hover,
-i.fas.fa-id-badge:hover,
-i.fas.fa-external-link-alt:hover,
-i.fas.fa-code:hover,
-i.far.fa-calendar-alt:hover,
-i.far.fa-credit-card:hover {
-    color: #304ffe !important;
-}
-
-.sidebar ul li a .far {
-    width: 30px;
-    color: #bdb8d7 !important;
+.sidebar hr {
+    color: #fff;
 }
 
 @media screen and (max-width: 700px) {
@@ -271,6 +236,7 @@ i.far.fa-credit-card:hover {
         width: 100%;
         height: auto;
         position: relative;
+        padding-top: 0px;
     }
     .sidebar a {
         float: left;
@@ -287,7 +253,6 @@ i.far.fa-credit-card:hover {
         float: none;
     }
 }
-
 
 /* Search Bar Styling */
 .form-inline {
@@ -326,16 +291,16 @@ i.far.fa-credit-card:hover {
 /* Request Form Styling */
 
 #removePlayerCard {
-  margin-top: 3em;
+    margin-top: 3em;
 }
 
 #checkboxText {
-  font-size: 0.875em;
+    font-size: 0.875em;
 }
 
 #checkboxRow {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 /* End of Request Form Styling */
