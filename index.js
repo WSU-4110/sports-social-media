@@ -5,13 +5,14 @@ const csrf = require('csurf');
 const bodyParser = require('body-parser');
 const express = require('express');
 const admin = require('firebase-admin');
-
+require('dotenv').config();
 /* API URL */
 const API = 'https://maqhspyw3j.execute-api.us-east-1.amazonaws.com/dev';
 
 /* Firebase Service Account Settings */
-const serviceAccount = require('./serviceAccountKey.json');
-
+const serviceAccount = JSON.parse(
+    Buffer.from(process.env.FIREBASE_CREDS, 'base64').toString('ascii')
+);
 /* APP Settings */
 const app = express();
 const port = 3000;
@@ -387,15 +388,19 @@ app.post('/unfavoriteTeam', async (req, res) => {
     }
 });
 
+/* Request Form Page */
+app.get('/requestForm', (req, res) => {
+    res.render('requestForm');
+});
+
 app.use((req, res) => {
     res.status(404).send('Sorry, page not found');
 });
 
-app.listen(port, () => {
-    console.log(`App listening on port ${port}`);
-});
-
-/* Request Form Page */
-app.get('/requestForm', (req, res) => {
-    res.render('requestForm');
+app.listen(process.env.PORT || port, function () {
+    console.log(
+        'Express server listening on port %d in %s mode',
+        this.address().port,
+        app.settings.env
+    );
 });

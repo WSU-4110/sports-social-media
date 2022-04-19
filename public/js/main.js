@@ -212,14 +212,13 @@ $('#changeUsername').on('submit', () => {
             }
         });
         return false;
-    } else {
-        swal({
-            text: `${username} is already your current username! Choose something different if you wish to change it.`,
-            icon: 'error',
-            showCloseButton: true,
-        });
-        return false;
     }
+    swal({
+        text: `${username} is already your current username! Choose something different if you wish to change it.`,
+        icon: 'error',
+        showCloseButton: true,
+    });
+    return false;
 });
 
 /* Firebase Favorite */
