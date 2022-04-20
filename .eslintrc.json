@@ -1,5 +1,6 @@
 {
     "extends": ["airbnb", "prettier", "plugin:node/recommended"],
+    "ignorePatterns": ["testcafe"],
     "plugins": ["prettier"],
     "rules": {
         "prettier/prettier": ["error", { "endOfLine": "auto"}, { "usePrettierrc": true }],
