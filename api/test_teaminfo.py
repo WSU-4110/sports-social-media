@@ -2,7 +2,7 @@ from os import name
 import unittest
 from modules.gsearch import get_individual_teams
 
-class TruthTest(unittest.TestCase):
+class TeamInfoTest(unittest.TestCase):
     def test_for_500(self):
         actual=get_individual_teams("weee")
         expected=500
