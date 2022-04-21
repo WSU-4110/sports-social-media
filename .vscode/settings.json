@@ -1,18 +1,27 @@
 {
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+        "source.fixAll.eslint": true
     },
     "files.associations": {
-      "*.ejs": "html"
-  },
-  "emmet.includeLanguages": {
-      "ejs": "html"
-  },
+        "*.ejs": "html"
+    },
+    "emmet.includeLanguages": {
+        "ejs": "html"
+    },
     "[html]": {
-      "editor.defaultFormatter": null
+        "editor.defaultFormatter": null
     },
     "html.format.wrapLineLength": 160,
     "prettier.htmlWhitespaceSensitivity": "ignore",
     "workbench.colorTheme": "GitHub Dark",
-    "editor.formatOnSave": true
-  }
+    "editor.formatOnSave": true,
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./api",
+        "-p",
+        "test_*.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestEnabled": true
+}
