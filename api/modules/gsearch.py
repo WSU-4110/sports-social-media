@@ -5,7 +5,7 @@ import json
 import os
 import glob
 from operator import itemgetter
-from modules.constants import google_headers, espn_headers
+from .constants import google_headers, espn_headers
 from decouple import config
 
 FOLDER_PATH=config('FOLDER_PATH')
