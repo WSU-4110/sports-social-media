@@ -4,7 +4,7 @@
  * [Firebase](#firebase)
  * [AWS](#aws)
 
-### Node
+# Node
 
 For development, you will only need Node.js and a node global package installed in your environement.
 
@@ -40,7 +40,7 @@ npm install
 node index.js
 ```
 
-### Firebase
+# Firebase
 
 Firebase is required to store data for users
 
@@ -50,7 +50,7 @@ Firebase is required to store data for users
 4.  From the previous step copy the contents in the JSON file and encode it by visiting https://www.base64encode.org/
 5.  Save the result in an .env file with the key name "FIREBASE_CREDS" as shown in the .env.example file
 
-### AWS Resources
+# AWS Resources
 
 Visit [API Section](https://github.com/WSU-4110/sports-social-media-profile-locater/tree/main/api).
 
