@@ -171,3 +171,11 @@ def save_to_json(team, data):
     file.write(data)
     file.close()
     print("Saved " + filename )
+
+def get_singlePlayer(i):
+     response = requests.get('https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/'+ str(i) + '/roster', headers=espn_headers)
+     data = response.json()
+     status = response.status_code
+     if status == 200 and len(data) > 0:
+         return status, data
+     return status
