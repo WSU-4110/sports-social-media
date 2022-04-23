@@ -1,6 +1,6 @@
 ## sports-social-media-profile-locater api
 
-These are the files that are used to gather the data of the players for certain leagues. Currently, all files are setup for acquiring data of NBA players and teams.
+These are the files that are used to gather the data of the players for certain leagues. Currently, all files are setup for acquiring data of NBA players and teams. The below resources are used to create an API. 
 
 
 
