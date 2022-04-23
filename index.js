@@ -389,7 +389,7 @@ app.post('/unfavoriteTeam', async (req, res) => {
 });
 
 /* Request Form Page */
-app.get('/requestForm', (req, res) => {
+app.get('/request', (req, res) => {
     res.render('requestForm');
 });
 
