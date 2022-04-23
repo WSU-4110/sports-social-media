@@ -124,6 +124,15 @@ def get_players():
         the_data = []
         i+=1       
     
+def get_singlePlayer(i):
+     response = requests.get('https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/'+ str(i) + '/roster', headers=espn_headers)
+     data = response.json()
+     status = response.status_code
+     if status == "success" and len(data) > 0:
+         return status, data
+     return status
+
+      
 ## SAVE ALL PLAYER DATA INCLUDING SOCIAL MEDIA ACCOUNTS TO JSON ##
 def save_to_json(team, data):
     team=(team.replace(" " , "_")).lower()
