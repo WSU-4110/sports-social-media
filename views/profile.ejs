@@ -8,7 +8,7 @@
 <div class ="text-center btn-block" id = "row">
     <a class="btn btn-dark" id="bttnRow" href="#FavPlayer">Favorite Players</a>
     <a class="btn btn-dark text-light" id="bttnRow" href="#FavTeam">Favorite Teams</a>
-    <a class="btn btn-dark text-light" id="bttnRow" href="account">Account Setting</a>
+    <a class="btn btn-dark text-light" id="bttnRow" href="#Asettings">Account Setting</a>
     <a class="btn btn-dark text-light" id="bttnRow" href="logout">Sign Out</a>
 </div>
 
@@ -123,6 +123,37 @@
                 </div>
                 <% }); %><%# END EJS CODE %>
             </div>
+            <h1 class=" text-center display-2" id="Asettings">Account Settings</h1>
+            <br>
+            <br />
+            <br />
+            <section class="h-100">
+                <div class="container h-100 p-5">
+                    <div class="row justify-content-sm-center h-100">
+                        <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+                                <div class="card-body p-5">
+                                  <h1 class="fs-4 card-title fw-bold mb-4">Change Username</h1>
+                                  <form id="changeUsername" class="inline-form">
+                                      <div class="mb-3">
+                                          <input id="username" type="text" class="form-control" name="username" pattern="^[_A-z0-9]{1,}$" minlength="1" maxlength="15" title="No Special Characters. No Space Allowed"  required autofocus/>
+                                          <div class="invalid-feedback">Username is invalid</div>
+                                      </div>
+                                      <div class="align-items-center d-flex">
+                                          <button class="btn btn-primary ms-auto" id="changeUsernameSubmit">Submit</button>
+                                      </div>
+                                  </form>
+                              </div>
+                              <div class="card-body p-5">
+                                <button type="button" class="btn btn-danger" id="deleteAccount">Delete Account</button>
+              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </section>
+              
+              <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+              <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         </div>
     </div>
 </div>
