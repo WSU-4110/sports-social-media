@@ -66,7 +66,7 @@ This is used to send notifications to a Microsoft Teams channel that alerts the 
 4. Select Configure, provide a name, and upload an image for your webhook if necessary:
 5. Copy and save the unique webhook URL present in the dialog window. The URL maps to the channel and you can use it to send information to Teams. Select Done.
 
-# Enviroment Variables
+# Environment Variables
 
 You are required to setup the following enviroment variables as shown in the .env.example file
 
