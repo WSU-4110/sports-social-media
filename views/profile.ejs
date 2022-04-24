@@ -1,30 +1,17 @@
 <%- include("partials/header.ejs") %>
-<div class="text-center">
-    <a href="/"
-        ><img src="/images/generic-player.png" alt="NBA logo" id="logoNBA"
-    /></a>
+<div class="text-center" id = "banner">
     <h1 class="display-2">Welcome <%= currentUserData.displayName %></h1>
 </div>
-<nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse  bg-transparent text-dark">
-  <div class="position-sticky">
-    <div class="list-group list-group-flush mx-3 mt-4">
-      <a
-        href="#FavTeam"
-        class="list-group-item list-group-item-action py-2 ripple"
-        aria-current="true"
-      >
-        <span>Favorite Teams</span>
-      </a>
-      <a href="#FavPlayer" class="list-group-item list-group-item-action py-2 ripple">
-        <span>Favorite Players</span>
-      </a>
-      <a href="account" class="list-group-item list-group-item-action py-2 ripple">
-        <span>Account Settings</span>
-      </a>
-      <a href="logout" class="list-group-item list-group-item-action py-2 ripple"
-        ><span>Sign Out</span></a>
-  </div>
-</nav>
+
+
+
+<div class ="text-center btn-block" id = "row">
+    <a class="btn btn-dark" id="bttnRow" href="#FavPlayer">Favorite Players</a>
+    <a class="btn btn-dark text-light" id="bttnRow" href="#FavTeam">Favorite Teams</a>
+    <a class="btn btn-dark text-light" id="bttnRow" href="account">Account Setting</a>
+    <a class="btn btn-dark text-light" id="bttnRow" href="logout">Sign Out</a>
+</div>
+
 <br />
 <br />
 <br />
