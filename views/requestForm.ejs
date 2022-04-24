@@ -2,7 +2,6 @@
 
 <div class="container">
   <div class="row justify-content-evenly">
-
     <div class="card shadow-lg" id="removePlayerCard">
       <div class="card-body">
       <h5 class="card-title">Add a Social Media Account</h5>
@@ -10,18 +9,29 @@
         If you are a player and wish to have an account added to the site, please fill the form below.
       </div>
       <hr />
-
       <!-- ADD A SOCIAL MEDIA ACCOUNT FORM -->
-      <form action="mailto:sportsmedialocater@gmail.com" enctype="text/plain" method="GET">
-        <div class="row">
-          <div class="col">
+      <form action="mailto:sportsmedialocater@gmail.com?subject=Please Add My Social Media Account" method="post" enctype="text/plain">
+        <div class="row p-2 ">
+          <div class="col-sm">
             <input type="text" class="form-control" name="firstName" placeholder="First name" aria-label="First name" required>
           </div>
-          <div class="col">
-            <input type="text" class="form-control" name="lastName" placeholder="Last name" aria-label="Last name" required>
           </div>
+          <div class="row p-2 ">
+            <div class="col-sm">
+              <input type="text" class="form-control" name="lastName" placeholder="Last name" aria-label="Last name" required>
+            </div>
+          </div>
+          <div class="row p-2 ">
+              <div class="col-sm">
+                <input type="text" class="form-control" name="verifySocial" placeholder="Verfication Social Media Account" aria-label="Verfication Social Media Account" required>
+              </div>
+          </div>
+          <div class="row p-2 ">
+            <div class="col-sm">
+              <input type="text" class="form-control" name="addSocial" placeholder="Link To Social Media Account You Wish To Add" aria-label="Social Media Account You Wish To Add" required>
+            </div>
         </div>
-        <div class="row" id="checkboxRow">
+        <div class="row p-2" id="checkboxRow">
           <div class="col">
             <div class="form-check">
               <input class="form-check-input" type="checkbox" id="addMediaCheck" required>
@@ -35,11 +45,10 @@
           <button type="submit" class="btn btn-primary" value="Send">Submit</button>
         </div>
       </form>
-
     </div>
     </div>
 
-    <div class="card shadow-lg" id="removePlayerCard">
+    <div class="card shadow-lg mb-5" id="removePlayerCard">
       <div class="card-body">
       <h5 class="card-title">Remove a Player</h5>
       <div class="form-text">
@@ -48,15 +57,22 @@
       <hr />
 
       <!-- REMOVE A PLAYER FORM -->
-      <form action="mailto:sportsmedialocater@gmail.com" enctype="text/plain" method="GET">
-        <div class="row">
-          <div class="col">
+      <form action="mailto:sportsmedialocater@gmail.com?subject=Please Remove My Information" method="post" enctype="text/plain">
+        <div class="row p-2 ">
+          <div class="col-sm">
             <input type="text" class="form-control" name="firstName" placeholder="First name" aria-label="First name" required>
           </div>
-          <div class="col">
-            <input type="text" class="form-control" name="lastName" placeholder="Last name" aria-label="Last name" required>
           </div>
-        </div>
+          <div class="row p-2 ">
+            <div class="col-sm">
+              <input type="text" class="form-control" name="lastName" placeholder="Last name" aria-label="Last name" required>
+            </div>
+          </div>
+          <div class="row p-2 ">
+              <div class="col-sm">
+                <input type="text" class="form-control" name="verifySocial" placeholder="Verfication Social Media Account" aria-label="Verfication Social Media Account" required>
+              </div>
+          </div>
         <div class="row" id="checkboxRow">
           <div class="col">
             <div class="form-check">
@@ -71,11 +87,9 @@
           <button type="submit" class="btn btn-primary" value="Send">Submit</button>
         </div>
       </form>
-
     </div>
     </div>
   </div>
-
 </div>
 
 <%- include("partials/footer.ejs") %>
