@@ -15,17 +15,9 @@
     <hr>
     <div class="container-fluid mt-5">
         <div class="row justify-content-evenly">
-            <div class="col-lg-3 col-md-3 col-sm-12 card shadow hvr-grow teamCard">
-                    <a href="#" id="teamtextLink" >
-                        <span id="teamtext">NO PLAYERS FOUND</span></a>
-                </div>
             <!-- PLAYER CARD -->
-            <% if(favoriteInfo){ %>
-
-
-            <% } %>
-            <% else{ %>
-            <%# EJS CODE %> <% favoriteInfo.forEach(function(player) { %>
+            <%# EJS CODE %> 
+            <% favoriteInfo.forEach(function(player) { %>
             <div
                 class="col-lg-3 col-md-3 col-sm-12 card shadow"
                 id="playerCard"
