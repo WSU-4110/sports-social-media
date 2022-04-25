@@ -76,7 +76,6 @@ footer {
     width: 100px;
     position: absolute;
     overflow: hidden;
-    /* border-radius: 50%; */
     background-color: white;
     left: 10%;
     top: 10%;
@@ -87,11 +86,6 @@ footer {
     width: 8rem;
     position: relative;
     right: 12%;
-    /* position: absolute;
-    top:-25%;
-    left: 15%;
-    border: 3px solid #fff;
-    background: url(../images/white-img.png) */
 }
 
 #playerInfo {
@@ -287,7 +281,6 @@ footer {
 /* End of Favorite Styling */
 
 /* Request Form Styling */
-
 #removePlayerCard {
     margin-top: 3em;
 }

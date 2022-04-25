@@ -2,7 +2,6 @@
     <!-- NBA LOGO -->
     <div class="text-center p-5">
       <hr>
-
       <img id="teamLogo" src="<%= team[0].teamLogo %>">
       <span class="display-2">
         <%= team[0].team %>          <!-- check if the array of user's favorite teams includes the current pages team -->
@@ -20,7 +19,7 @@
           <!-- PLAYER CARD -->
           <%# EJS CODE %>
           <% team.slice(1).forEach(function(player) { %>
-          <div class="col-lg-3 col-md-3 col-sm-12 card shadow" id="playerCard" style="--teamColor: #<%= team[0].teamColor %>">
+          <div class="col-lg-3 col-md-3 col-sm-12 card shadow hvr-grow" id="playerCard" style="--teamColor: #<%= team[0].teamColor %>">
             <div class="image-cropper shadow">
             <div class ="image-cropper-subContainer">
             <% if(player.headshot){ %> <%# IF TWITTER ACCOUNT EXISTS  %>
