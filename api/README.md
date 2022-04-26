@@ -36,7 +36,7 @@ You will need to setup an AWS EC2 instance that will run the python files on a w
 3. Ensure you have python installed
 4. Install all requirements
 ``
-pip install requirements.txt
+pip install -r requirements.txt
 ``
 5. Setup a cronjob 
 ``
