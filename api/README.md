@@ -1,6 +1,6 @@
 ## sports-social-media-profile-locater api
 
-These are the files that are used to gather the data of the players for certain leagues. Currently, all files are setup for acquiring data of NBA players and teams.
+These are the files that are used to gather the data of the players for certain leagues. Currently, all files are setup for acquiring data of NBA players and teams. The below resources are used to create an API. 
 
 
 
@@ -36,7 +36,7 @@ You will need to setup an AWS EC2 instance that will run the python files on a w
 3. Ensure you have python installed
 4. Install all requirements
 ``
-pip install requirements.txt
+pip install -r requirements.txt
 ``
 5. Setup a cronjob 
 ``
@@ -66,7 +66,7 @@ This is used to send notifications to a Microsoft Teams channel that alerts the 
 4. Select Configure, provide a name, and upload an image for your webhook if necessary:
 5. Copy and save the unique webhook URL present in the dialog window. The URL maps to the channel and you can use it to send information to Teams. Select Done.
 
-# Enviroment Variables
+# Environment Variables
 
 You are required to setup the following enviroment variables as shown in the .env.example file
 
