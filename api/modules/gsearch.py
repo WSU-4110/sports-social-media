@@ -5,14 +5,12 @@ import json
 import os
 import glob
 from operator import itemgetter
-from modules.constants import google_headers, espn_headers
-#from decouple import config
+from .constants import google_headers, espn_headers
+from decouple import config
 
-FOLDER_PATH = 'json_data'
+FOLDER_PATH=config('FOLDER_PATH')
 
 ## STANDALONE INSTAGRAM SEARCH ##
-
-
 def get_instagram(name):
     player = name.replace(" ", "+")
     html = requests.get('https://www.google.com/search?q=' +

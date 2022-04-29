@@ -1,6 +1,6 @@
 from os import name
 import unittest
-from modules.gsearch import get_individual_teams
+from .gsearch import get_individual_teams
 
 
 class TeamInfoTest(unittest.TestCase):

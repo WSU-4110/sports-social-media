@@ -1,10 +1,10 @@
 from os import name
 import unittest
-from modules.gsearch import get_instagram
-from modules.gsearch import get_all_social
-from modules.gsearch import get_twitter
-from modules.gsearch import get_instagram
-from modules.gsearch import get_facebook
+from .gsearch import get_instagram
+from .gsearch import get_all_social
+from .gsearch import get_twitter
+from .gsearch import get_instagram
+from .gsearch import get_facebook
 
 
 class PlayerSocialsTest(unittest.TestCase):
@@ -28,8 +28,8 @@ class PlayerSocialsTest(unittest.TestCase):
 
     def test_for_player_standalone_twitter(self):
         actual = get_twitter("lebron james")
-        expected = "https://twitter.com/kingjames#:~:text=LeBron%20James%20(%40KingJames)%20%2F%20Twitter"
-        self.assertEqual(actual, expected)
+        expected = "twitter.com/kingjames"
+        self.assertIn(expected, actual)
 
     def test_for_player_standalone_instagram(self):
         actual = get_instagram("lebron james")
