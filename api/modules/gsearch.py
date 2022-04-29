@@ -172,9 +172,15 @@ def get_players():
         i += 1
     generate_all()
 
+def get_singlePlayer(i):
+     response = requests.get('https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/'+ str(i) + '/roster', headers=espn_headers)
+     data = response.json()
+     status = response.status_code
+     if status == 200 and len(data) > 0:
+         return status, data
+     return status
+     
 # GENERATE ALL JSON FILE
-
-
 def generate_all():
     projectpath = os.path.dirname(os.path.abspath(__file__))
     allFiles = glob.glob(projectpath+FOLDER_PATH+"/*")
