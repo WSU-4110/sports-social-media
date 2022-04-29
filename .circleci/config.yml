@@ -2,9 +2,12 @@
 version: 2
 jobs:
   test:
+    working_directory: ~/sports-social-media-profile-locater/api
     docker:
       - image: python:3.7
     steps:
+      - checkout:
+          path: ~/sports-social-media-profile-locater
       - run:
           name: Run tests
           command: |
