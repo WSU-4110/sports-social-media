@@ -5,8 +5,13 @@ import json
 import os
 import glob
 from operator import itemgetter
+
 from modules.constants import google_headers, espn_headers
 #from decouple import config
+
+from .constants import google_headers, espn_headers
+from decouple import config
+
 
 FOLDER_PATH = 'json_data'
 
@@ -123,15 +128,16 @@ def get_teams():
     the_data = json.dumps(the_data, indent=4)
     save_to_json("teams", the_data)
 
+     
 
 def get_individual_teams(i):
-    response = requests.get(
-        'https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/' + str(i) + '/roster', headers=espn_headers)
-    status = response.status_code
-    data = response.json()
-    if status == 200 and len(data) > 0:
-        return status, data
-    return status
+        response = requests.get('https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/'+ str(i) + '/roster', headers=espn_headers)
+        status = response.status_code
+        data = response.json()
+        if status == 200 and len(data) > 0:
+            return status, data
+        return status
+
 
 
 ## ESPN GET PLAYERS AND GOOGLE SEARCH SOCIAL MEDIA ##
@@ -139,13 +145,14 @@ def get_players():
     the_data = []
     i = 1
     ## LOOP THROUGH 30 TEAMS ##
-    while i <= 30:
+
+    while i <= 30: 
         status, data = get_individual_teams(i)
-        team = data['team']['displayName']
-        team_logo = data['team']['logo']
-        team_color = data['team']['color']
-        team_data = {'team': team, "teamLogo": team_logo,
-                     "teamColor": team_color}
+        team=data['team']['displayName']
+        team_logo=data['team']['logo']
+        team_color=data['team']['color']
+        team_data = {'team': team, "teamLogo": team_logo, "teamColor": team_color}
+
         the_data.append(team_data)
         print("Getting data for " + team)
         for value in data['athletes']:
@@ -162,28 +169,30 @@ def get_players():
             try:
                 eLink = value['links'][0]['href']
             except:
+
                 eLink = ""
             twitter, instagram, facebook = get_all_social(name)
             player_data = {"name": name, "position": position, "jersey": jersey, "eLink": eLink, "eLink": eLink,
                            "headshot": headshot, "twitter": twitter, "instagram": instagram, "facebook": facebook}
+
             the_data.append(player_data)
             time.sleep(5)  # ADD SLEEP TO TIMEOUT GOOGLE SEARCH A LITTLE
         the_data = json.dumps(the_data, indent=4)
         save_to_json(team, the_data)
         the_data = []
-        i += 1
-    generate_all()
 
-# GENERATE ALL JSON FILE
-
-
+        i+=1
+    generate_all()       
+ 
+## GENERATE ALL JSON FILE
 def generate_all():
-    projectpath = os.path.dirname(os.path.abspath(__file__))
-    allFiles = glob.glob(projectpath+FOLDER_PATH+"/*")
-    allJson = '{0}{1}/all.json'.format(projectpath, FOLDER_PATH)
-    result = []
+    projectpath=os.path.dirname(os.path.abspath(__file__))       
+    allFiles=glob.glob(projectpath+FOLDER_PATH+"/*")
+    allJson= '{0}{1}/all.json'.format(projectpath, FOLDER_PATH)
+    result=[]
     for theFile in allFiles:
-        if 'all.json' in theFile or 'teams.json' in theFile:
+        if 'all.json' in theFile or 'teams.json' in theFile: 
+
             print(theFile)
             continue
         with open(theFile, 'r') as infile:

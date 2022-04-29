@@ -1,58 +1,26 @@
 # sports-social-media-profile-locater
-
 https://ssmpl.herokuapp.com/ 
 
-## Requirements
+# Installation
+For installation instructions visit [installation.md](https://github.com/WSU-4110/sports-social-media-profile-locater/blob/main/installation.md)
 
-For development, you will only need Node.js and a node global package installed in your environement.
+# About
+Ever find it difficult to locate the social media profile of players in the NBA, NHL, NFL, or MLB?
+Do you have to go through endless Google searches to find the right match? Here is where we come in. Our application lists all teams in sport leagues and allows you to view the players on that team and their social media profile links all on one page. Instead of searching one player at a time, you would be able to view all the players at once. 
 
-### Node
+# Supported Sports League
+- NBA
 
--   #### Node installation on Windows
+# Features
+- Ability to view the social media profiles of every player on every team with ease
+- Ability to add create an account to initialize a profile page
+    - You can add a team to your favorites for easier navigation and view
+    - You can add a player to your favorites for easier navigation and view
+- Ability to search for players and view their social media profile links
+- Players have the opportunity to request another social media profile to be added to their player card
 
-    Just go on [official Node.js website](https://nodejs.org/) and download the installer.
-    Also, be sure to have `git` available in your PATH, `npm` might need it (You can find git [here](https://git-scm.com/)).
 
--   #### Node installation on Ubuntu
-
-    You can install nodejs and npm easily with apt install, just run the following commands.
-
-        $ sudo apt install nodejs
-        $ sudo apt install npm
-
--   #### Other Operating Systems
-    You can find more information about the installation on the [official Node.js website](https://nodejs.org/) and the [official NPM website](https://npmjs.org/).
-
-If the installation was successful, you should be able to run the following command.
-
-    $ node --version
-    v8.11.3
-
-    $ npm --version
-    6.1.0
-
-## Running Locally
-
-```sh
-git clone https://github.com/WSU-4110/sports-social-media-profile-locater.git
-cd sports-social-media-profile-locater
-npm install
-node index.js
-```
-
-### To view changes without restart of server
-
-```sh
-nodemon index.js
-```
-
-Instead of
-
-```sh
-node index.js
-```
-
-## Initial Mockups
+# Initial Mockups
 
 ### Landing Page
 
@@ -65,3 +33,10 @@ node index.js
 ### WorkFlow
 
 ![alt text](https://github.com/WSU-4110/sports-social-media-profile-locater/blob/main/Mockups/Workflow2.png?raw=true)
+
+# Contributors
+- [David Dettloff](https://github.com/dettloffd)
+- [Manmeet Bhogal](https://github.com/ManmeetBhogal)
+- [Miqdad Hafiz](https://github.com/miqdadhafiz35)
+- [Muhtacin Manik](https://github.com/muhtacinm)
+- [Sayem Khan](https://github.com/sayemk23)
