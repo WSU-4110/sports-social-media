@@ -22,6 +22,6 @@ jobs:
           path: test-results
 workflows:
   version: 2
-  test_package:
+  build_and_test:
     jobs:
       - test
