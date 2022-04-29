@@ -1,71 +1,37 @@
 <%- include("partials/header.ejs") %>
-<div class="text-center">
-    <a href="/"
-        ><img src="/images/generic-player.png" alt="NBA logo" id="logoNBA"
-    /></a>
-    <h1 class="display-2">Welcome <%= currentUserData.displayName %></h1>
+<div class="text-center" id="banner">
+    <hr />
+    <h1 class="display-2 mb-5" id="currentUsername">Welcome <%= currentUserData.displayName %></h1>
+    <hr />
 </div>
-<nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse  bg-transparent text-dark">
-  <div class="position-sticky">
-    <div class="list-group list-group-flush mx-3 mt-4">
-      <a
-        href="#FavTeam"
-        class="list-group-item list-group-item-action py-2 ripple"
-        aria-current="true"
-      >
-        <span>Favorite Teams</span>
-      </a>
-      <a href="#FavPlayer" class="list-group-item list-group-item-action py-2 ripple">
-        <span>Favorite Players</span>
-      </a>
-      <a href="account" class="list-group-item list-group-item-action py-2 ripple">
-        <span>Account Settings</span>
-      </a>
-      <a href="logout" class="list-group-item list-group-item-action py-2 ripple"
-        ><span>Sign Out</span></a>
-  </div>
-</nav>
-<br />
-<br />
-<br />
-<h1 class=" text-center display-2" id="FavPlayer">Favorite Players</h1>
-<br>
-<br />
-<br />
+<div class="text-center btn-block mb-5" id="row">
+    <a class="btn btn-dark" id="bttnRow" href="#FavPlayer">Favorite Players</a>
+    <a class="btn btn-dark text-light" id="bttnRow" href="#FavTeam">Favorite Teams</a>
+    <a class="btn btn-dark text-light" id="bttnRow" href="#Asettings">Account Settings</a>
+    <a class="btn btn-dark text-light" id="bttnRow" href="logout">Sign Out</a>
+</div>
+<h1 class="text-center display-2 mt-2 mb-5" id="FavPlayer">Favorite Players</h1>
 <div class="container teamPage-container">
-    <div class="container-fluid">
+    <hr />
+    <div class="container-fluid mt-5">
         <div class="row justify-content-evenly">
             <!-- PLAYER CARD -->
             <%# EJS CODE %> <% favoriteInfo.forEach(function(player) { %>
-            <div
-                class="col-lg-3 col-md-3 col-sm-12 card shadow"
-                id="playerCard"
-            >
-                <div class="image-cropper shadow">
+                <div class="col-lg-3 col-md-3 col-sm-12 card shadow hvr-grow" id="playerCard">
+                    <div class="image-cropper shadow">
                     <div class="image-cropper-subContainer">
-                        <% if(player.headshot){ %> <%# IF TWITTER ACCOUNT EXISTS
-                        %>
-                        <img
-                            class="card-img-top rounded-circle"
-                            id="playerImage"
-                            src="<%= player.headshot %>"
-                        />
+                        <% if(player.headshot){ %> <%# IF TWITTER ACCOUNT EXISTS %>
+                        <img class="card-img-top rounded-circle" id="playerImage" src="<%= player.headshot %>" />
                         <% } else{ %>
-                        <img
-                            class="card-img-top rounded-circle"
-                            id="playerImage"
-                            src="/images/generic-player.png"
-                        />
+                        <img class="card-img-top rounded-circle" id="playerImage" src="/images/generic-player.png" />
                         <% } %>
                     </div>
                 </div>
                 <div class="card-body" id="playerInfo">
                     <h5 class="card-title">
-                        <%= player.name %><span
-                            class="p-1 unfavorite"
-                            style="color: #ffd700"
-                            ><i class="fa fa-star"></i
-                        ></span>
+                        <%= player.name %>                    
+                        <span class="p-1 unfavoritePlayer" title="Remove Player from Favorites"><i class="fa fa-star"></i></span>
+
                     </h5>
                     <div class="d-flex justify-content-evenly playerStats">
                         <div class="playerStats-subContainer">
@@ -79,62 +45,72 @@
                     </div>
 
                     <div class="d-flex justify-content-center icon-bar">
-                        <% if(player.twitter){ %> <%# IF TWITTER ACCOUNT EXISTS
-                        %>
-                        <a
-                            class="btn btn-lg btn-social btn-twitter text-decoration-none hvr-grow"
-                            href="<%=player.twitter %>"
-                            target="_blank"
-                            ><i class="fa fa-twitter"></i
-                        ></a>
-                        <% } %> <% if(player.instagram){ %> <%# IF INSTAGRAM
-                        ACCOUNT EXISTS %>
-                        <a
-                            class="btn btn-lg btn-social text-decoration-none btn-instagram hvr-grow"
-                            href="<%=player.instagram %>"
-                            target="_blank"
-                            ><i class="fa fa-instagram"></i
-                        ></a>
-                        <% } %> <% if(player.facebook){ %> <%# IF FACEBOOK
-                        ACCOUNT EXISTS %>
-                        <a
-                            class="btn btn-lg btn-social btn-facebook text-decoration-none hvr-grow"
-                            href="<%=player.facebook %>"
-                            target="_blank"
-                            ><i class="fa fa-facebook"></i
-                        ></a>
+                        <% if(player.twitter){ %> <%# IF TWITTER ACCOUNT EXISTS %>
+                        <a class="btn btn-lg btn-social btn-twitter text-decoration-none hvr-grow" href="<%=player.twitter %>" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <% } %> <% if(player.instagram){ %> <%# IF INSTAGRAM ACCOUNT EXISTS %>
+                        <a class="btn btn-lg btn-social text-decoration-none btn-instagram hvr-grow" href="<%=player.instagram %>" target="_blank"><i class="fa fa-instagram"></i></a>
+                        <% } %> <% if(player.facebook){ %> <%# IF FACEBOOK ACCOUNT EXISTS %>
+                        <a class="btn btn-lg btn-social btn-facebook text-decoration-none hvr-grow" href="<%=player.facebook %>" target="_blank"><i class="fa fa-facebook"></i></a>
                         <% } %>
                     </div>
                 </div>
             </div>
             <% }); %>
-            <h1 class=" text-center display-2" id="FavTeam">Favorite Teams</h1>
-            <br>
-            <br />
-            <br />
+            <h1 class="text-center display-2 mb-3" id="FavTeam">Favorite Teams</h1>
             <div class="row justifiy-content-evenly">
-                <%favoriteTeamsInfo.forEach(function(team) { %>
-                <div
-                    class="col-lg-3 col-md-3 col-sm-12 card shadow hvr-grow teamCard"
-                >
-                    <img
-                        class="mr-3"
-                        src="<%= team.teamLogo %>"
-                        alt="Card image cap"
-                    />
-                    <% var teampath= team.team;
-                    teampath=teampath.split(" ").join("_");
-                    teampath=teampath.toLowerCase();
-                    teampath="/teams/"+teampath; %>
+                <hr />
 
-                    <a href="<%= teampath %>" id="teamtextLink"
-                        ><span id="teamtext"><%= team.team %> </span></a
-                    >
-                    <span class="unfavoriteTeam" style="color: #ffd700"
-                        ><i class="fa fa-star"></i
-                    ></span>
+                <%favoriteTeamsInfo.forEach(function(team) { %>
+                <div class="col-lg-3 col-md-3 col-sm-12 card shadow hvr-grow teamCard">
+                    <img class="mr-3" src="<%= team.teamLogo %>" alt="Card image cap" />
+                    <% var teampath= team.team; teampath=teampath.split(" ").join("_"); teampath=teampath.toLowerCase(); teampath="/teams/"+teampath; %>
+
+                    <a href="<%= teampath %>" id="teamtextLink"><span id="teamtext"><%= team.team %> </span></a>
+                    <span class="unfavoriteTeam" style="color: #ffd700;"><i class="fa fa-star"></i></span>
                 </div>
                 <% }); %><%# END EJS CODE %>
+            </div>
+            <h1 class="text-center display-2 mt-5 mb-2" id="Asettings">Account Settings</h1>
+            <div class="container mb-5">
+                <hr />
+
+                <div class="row justify-content-evenly">
+                    <div class="card shadow-lg">
+                        <div class="card-body">
+                            <h5 class="card-title">Change Username</h5>
+                            <hr />
+                            <form id="changeUsername" class="inline-form">
+                                <div class="row">
+                                    <div class="input-group">
+                                        <input
+                                            id="username"
+                                            type="text"
+                                            class="form-control"
+                                            name="username"
+                                            placeholder="Username"
+                                            pattern="^[_A-z0-9]{1,}$"
+                                            minlength="1"
+                                            maxlength="15"
+                                            title="No Special Characters. No Space Allowed"
+                                            required
+                                        />
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-primary pl-3" id="changeUsernameSubmit">Submit</button>
+                                        </span>
+                                    </div>
+                                    <br />
+                                    <h5 class="card-title mt-5">Delete Account</h5>
+                                    <hr />
+                                    <div class="row" id="checkboxRow">
+                                        <div class="col">
+                                            <button type="button" class="btn btn-danger" id="deleteAccount">Delete Account</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
